@@ -1,0 +1,243 @@
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] FinSight                                                           [pom]
+[INFO] FinSight Common                                                    [jar]
+[INFO] FinSight API                                                       [jar]
+[INFO] FinSight MCP                                                       [jar]
+[INFO] 
+[INFO] --------------------< com.finsight:finsight-parent >--------------------
+[INFO] Building FinSight 1.0.0-SNAPSHOT                                   [1/4]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --------------------< com.finsight:finsight-common >--------------------
+[INFO] Building FinSight Common 1.0.0-SNAPSHOT                            [2/4]
+[INFO]   from finsight-common\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ finsight-common ---
+[INFO] skip non existing resourceDirectory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ finsight-common ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] ---------------------< com.finsight:finsight-api >----------------------
+[INFO] Building FinSight API 1.0.0-SNAPSHOT                               [3/4]
+[INFO]   from finsight-api\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ finsight-api ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ finsight-api ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] ---------------------< com.finsight:finsight-mcp >----------------------
+[INFO] Building FinSight MCP 1.0.0-SNAPSHOT                               [4/4]
+[INFO]   from finsight-mcp\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ finsight-mcp ---
+[INFO] Copying 1 resource from src\main\resources to target\classes
+[INFO] Copying 0 resource from src\main\resources to target\classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ finsight-mcp ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 10 source files with javac [debug parameters release 21] to target\classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AccountTool.java:[4,43] cannot find symbol
+  symbol:   class AccountResponse
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AccountTool.java:[5,43] cannot find symbol
+  symbol:   class CreateAccountRequest
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AccountTool.java:[6,43] cannot find symbol
+  symbol:   class UpdateAccountRequest
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AccountTool.java:[28,54] cannot find symbol
+  symbol:   class CreateAccountRequest
+  location: class com.finsight.mcp.tool.AccountTool.AccountCreateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AccountTool.java:[29,72] cannot find symbol
+  symbol:   class UpdateAccountRequest
+  location: class com.finsight.mcp.tool.AccountTool.AccountUpdateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AnalyticsTool.java:[4,41] package com.finsight.common.dto.analytics does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AnalyticsTool.java:[5,41] package com.finsight.common.dto.analytics does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AnalyticsTool.java:[6,41] package com.finsight.common.dto.analytics does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AnalyticsTool.java:[7,41] package com.finsight.common.dto.analytics does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[4,43] cannot find symbol
+  symbol:   class BudgetResponse
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[5,43] cannot find symbol
+  symbol:   class BudgetSummaryResponse
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[6,43] cannot find symbol
+  symbol:   class CreateBudgetRequest
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[7,43] cannot find symbol
+  symbol:   class UpdateBudgetRequest
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[29,53] cannot find symbol
+  symbol:   class CreateBudgetRequest
+  location: class com.finsight.mcp.tool.BudgetTool.BudgetCreateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[30,70] cannot find symbol
+  symbol:   class UpdateBudgetRequest
+  location: class com.finsight.mcp.tool.BudgetTool.BudgetUpdateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/CategoryTool.java:[4,43] cannot find symbol
+  symbol:   class CategoryResponse
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/CategoryTool.java:[5,43] cannot find symbol
+  symbol:   class CreateCategoryRequest
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/CategoryTool.java:[6,43] cannot find symbol
+  symbol:   class UpdateCategoryRequest
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/CategoryTool.java:[28,55] cannot find symbol
+  symbol:   class CreateCategoryRequest
+  location: class com.finsight.mcp.tool.CategoryTool.CategoryCreateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/CategoryTool.java:[29,74] cannot find symbol
+  symbol:   class UpdateCategoryRequest
+  location: class com.finsight.mcp.tool.CategoryTool.CategoryUpdateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/GoalTool.java:[4,43] cannot find symbol
+  symbol:   class CreateGoalRequest
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/GoalTool.java:[5,43] cannot find symbol
+  symbol:   class GoalResponse
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/GoalTool.java:[6,43] cannot find symbol
+  symbol:   class UpdateGoalRequest
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/GoalTool.java:[29,51] cannot find symbol
+  symbol:   class CreateGoalRequest
+  location: class com.finsight.mcp.tool.GoalTool.GoalCreateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/GoalTool.java:[30,66] cannot find symbol
+  symbol:   class UpdateGoalRequest
+  location: class com.finsight.mcp.tool.GoalTool.GoalUpdateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/RecurringTool.java:[4,43] cannot find symbol
+  symbol:   class CreateRecurringRuleRequest
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/RecurringTool.java:[5,43] cannot find symbol
+  symbol:   class RecurringRuleResponse
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/RecurringTool.java:[6,43] cannot find symbol
+  symbol:   class UpdateRecurringRuleRequest
+  location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/RecurringTool.java:[28,56] cannot find symbol
+  symbol:   class CreateRecurringRuleRequest
+  location: class com.finsight.mcp.tool.RecurringTool.RecurringCreateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/RecurringTool.java:[29,71] cannot find symbol
+  symbol:   class UpdateRecurringRuleRequest
+  location: class com.finsight.mcp.tool.RecurringTool.RecurringUpdateRequest
+[INFO] 30 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for FinSight 1.0.0-SNAPSHOT:
+[INFO] 
+[INFO] FinSight ........................................... SUCCESS [  0.002 s]
+[INFO] FinSight Common .................................... SUCCESS [  0.589 s]
+[INFO] FinSight API ....................................... SUCCESS [  0.401 s]
+[INFO] FinSight MCP ....................................... FAILURE [  1.503 s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.791 s
+[INFO] Finished at: 2026-03-15T20:33:17+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project finsight-mcp: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AccountTool.java:[4,43] cannot find symbol
+[ERROR]   symbol:   class AccountResponse
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AccountTool.java:[5,43] cannot find symbol
+[ERROR]   symbol:   class CreateAccountRequest
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AccountTool.java:[6,43] cannot find symbol
+[ERROR]   symbol:   class UpdateAccountRequest
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AccountTool.java:[28,54] cannot find symbol
+[ERROR]   symbol:   class CreateAccountRequest
+[ERROR]   location: class com.finsight.mcp.tool.AccountTool.AccountCreateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AccountTool.java:[29,72] cannot find symbol
+[ERROR]   symbol:   class UpdateAccountRequest
+[ERROR]   location: class com.finsight.mcp.tool.AccountTool.AccountUpdateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AnalyticsTool.java:[4,41] package com.finsight.common.dto.analytics does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AnalyticsTool.java:[5,41] package com.finsight.common.dto.analytics does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AnalyticsTool.java:[6,41] package com.finsight.common.dto.analytics does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/AnalyticsTool.java:[7,41] package com.finsight.common.dto.analytics does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[4,43] cannot find symbol
+[ERROR]   symbol:   class BudgetResponse
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[5,43] cannot find symbol
+[ERROR]   symbol:   class BudgetSummaryResponse
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[6,43] cannot find symbol
+[ERROR]   symbol:   class CreateBudgetRequest
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[7,43] cannot find symbol
+[ERROR]   symbol:   class UpdateBudgetRequest
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[29,53] cannot find symbol
+[ERROR]   symbol:   class CreateBudgetRequest
+[ERROR]   location: class com.finsight.mcp.tool.BudgetTool.BudgetCreateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[30,70] cannot find symbol
+[ERROR]   symbol:   class UpdateBudgetRequest
+[ERROR]   location: class com.finsight.mcp.tool.BudgetTool.BudgetUpdateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/CategoryTool.java:[4,43] cannot find symbol
+[ERROR]   symbol:   class CategoryResponse
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/CategoryTool.java:[5,43] cannot find symbol
+[ERROR]   symbol:   class CreateCategoryRequest
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/CategoryTool.java:[6,43] cannot find symbol
+[ERROR]   symbol:   class UpdateCategoryRequest
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/CategoryTool.java:[28,55] cannot find symbol
+[ERROR]   symbol:   class CreateCategoryRequest
+[ERROR]   location: class com.finsight.mcp.tool.CategoryTool.CategoryCreateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/CategoryTool.java:[29,74] cannot find symbol
+[ERROR]   symbol:   class UpdateCategoryRequest
+[ERROR]   location: class com.finsight.mcp.tool.CategoryTool.CategoryUpdateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/GoalTool.java:[4,43] cannot find symbol
+[ERROR]   symbol:   class CreateGoalRequest
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/GoalTool.java:[5,43] cannot find symbol
+[ERROR]   symbol:   class GoalResponse
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/GoalTool.java:[6,43] cannot find symbol
+[ERROR]   symbol:   class UpdateGoalRequest
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/GoalTool.java:[29,51] cannot find symbol
+[ERROR]   symbol:   class CreateGoalRequest
+[ERROR]   location: class com.finsight.mcp.tool.GoalTool.GoalCreateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/GoalTool.java:[30,66] cannot find symbol
+[ERROR]   symbol:   class UpdateGoalRequest
+[ERROR]   location: class com.finsight.mcp.tool.GoalTool.GoalUpdateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/RecurringTool.java:[4,43] cannot find symbol
+[ERROR]   symbol:   class CreateRecurringRuleRequest
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/RecurringTool.java:[5,43] cannot find symbol
+[ERROR]   symbol:   class RecurringRuleResponse
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/RecurringTool.java:[6,43] cannot find symbol
+[ERROR]   symbol:   class UpdateRecurringRuleRequest
+[ERROR]   location: package com.finsight.common.dto.transaction
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/RecurringTool.java:[28,56] cannot find symbol
+[ERROR]   symbol:   class CreateRecurringRuleRequest
+[ERROR]   location: class com.finsight.mcp.tool.RecurringTool.RecurringCreateRequest
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/RecurringTool.java:[29,71] cannot find symbol
+[ERROR]   symbol:   class UpdateRecurringRuleRequest
+[ERROR]   location: class com.finsight.mcp.tool.RecurringTool.RecurringUpdateRequest
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :finsight-mcp

@@ -1,0 +1,22 @@
+# Production overrides.
+# Bumps replicas and resource limits above base defaults.
+
+api:
+  replicaCount: 3
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "250m"
+    limits:
+      memory: "1Gi"
+      cpu: "1000m"
+
+web:
+  replicaCount: 3
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "250m"
+    limits:
+      memory: "1Gi"
+      cpu: "1000m"

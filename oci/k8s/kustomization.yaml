@@ -1,0 +1,10 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: wealthwise
+
+resources:
+  - ../../k8s/base
+
+patches:
+  - path: ingress-patch.yaml

@@ -1,0 +1,29 @@
+WealthWise has been deployed!
+
+{{- if .Values.ingress.enabled }}
+
+Application URL:
+{{- if .Values.ingress.tls.enabled }}
+  https://{{ .Values.ingress.host }}
+{{- else }}
+  http://{{ .Values.ingress.host }}
+{{- end }}
+
+  API:  {{ .Values.ingress.host }}/api
+  Web:  {{ .Values.ingress.host }}/
+{{- else }}
+
+To access the application, forward the services:
+
+  # API
+  kubectl port-forward svc/{{ include "wealthwise.fullname" . }}-api {{ .Values.api.port }}:{{ .Values.api.port }} -n {{ include "wealthwise.namespace" . }}
+
+  # Web
+  kubectl port-forward svc/{{ include "wealthwise.fullname" . }}-web {{ .Values.web.port }}:{{ .Values.web.port }} -n {{ include "wealthwise.namespace" . }}
+{{- end }}
+
+{{- if not .Values.existingSecret }}
+
+WARNING: Chart-managed secrets are being used. For production, set
+existingSecret to reference a Sealed Secret or External Secrets resource.
+{{- end }}

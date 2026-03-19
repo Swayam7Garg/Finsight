@@ -1,0 +1,14 @@
+{{- if .Values.web.pdb.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "wealthwise.fullname" . }}-web-pdb
+  namespace: {{ include "wealthwise.namespace" . }}
+  labels:
+    {{- include "wealthwise.web.labels" . | nindent 4 }}
+spec:
+  minAvailable: {{ .Values.web.pdb.minAvailable }}
+  selector:
+    matchLabels:
+      {{- include "wealthwise.web.selectorLabels" . | nindent 6 }}
+{{- end }}

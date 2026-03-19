@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+title: WealthWise
+message: "If you use this software, please cite it as below."
+type: software
+authors:
+  - family-names: Nguyen
+    given-names: Son
+repository-code: "https://github.com/hoangsonww/WealthWise-Personal-Finance-App"
+url: "https://github.com/hoangsonww/WealthWise-Personal-Finance-App"
+license: MIT
+keywords:
+  - personal-finance
+  - budgeting
+  - expense-tracking
+  - typescript
+  - nextjs
+  - express
+  - mongodb
+  - turborepo

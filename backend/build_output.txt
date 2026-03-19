@@ -1,0 +1,66 @@
+Warning: JAVA_HOME environment variable is not set.
+WARNING: A restricted method in java.lang.System has been called
+WARNING: java.lang.System::load has been called by org.fusesource.jansi.internal.JansiLoader in an unnamed module (file:/C:/Users/swaya/.m2/wrapper/dists/apache-maven-3.9.9-bin/33b4b2b4/apache-maven-3.9.9/lib/jansi-2.4.1.jar)
+WARNING: Use --enable-native-access=ALL-UNNAMED to avoid a warning for callers in this module
+WARNING: Restricted methods will be blocked in a future release unless native access is enabled
+
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/C:/Users/swaya/.m2/wrapper/dists/apache-maven-3.9.9-bin/33b4b2b4/apache-maven-3.9.9/lib/guava-33.2.1-jre.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] FinSight                                                           [pom]
+[INFO] FinSight Common                                                    [jar]
+[INFO] FinSight API                                                       [jar]
+[INFO] FinSight MCP                                                       [jar]
+[INFO] finsight-agentic                                                   [jar]
+[INFO] 
+[INFO] --------------------< com.finsight:finsight-parent >--------------------
+[INFO] Building FinSight 1.0.0-SNAPSHOT                                   [1/5]
+[INFO]   from pom.xml
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ finsight-parent ---
+[INFO] 
+[INFO] --------------------< com.finsight:finsight-common >--------------------
+[INFO] Building FinSight Common 1.0.0-SNAPSHOT                            [2/5]
+[INFO]   from finsight-common\pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.4.1:clean (default-clean) @ finsight-common ---
+[INFO] Deleting C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ finsight-common ---
+[INFO] skip non existing resourceDirectory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ finsight-common ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 34 source files with javac [debug parameters release 21] to target\classes
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary for FinSight 1.0.0-SNAPSHOT:
+[INFO] 
+[INFO] FinSight ........................................... SUCCESS [  0.253 s]
+[INFO] FinSight Common .................................... FAILURE [  2.153 s]
+[INFO] FinSight API ....................................... SKIPPED
+[INFO] FinSight MCP ....................................... SKIPPED
+[INFO] finsight-agentic ................................... SKIPPED
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.977 s
+[INFO] Finished at: 2026-03-19T11:10:10+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project finsight-common: Fatal error compiling: java.lang.ExceptionInInitializerError: com.sun.tools.javac.code.TypeTag :: UNKNOWN -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoExecutionException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :finsight-common

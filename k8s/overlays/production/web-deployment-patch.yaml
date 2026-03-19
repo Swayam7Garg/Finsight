@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wealthwise-web
+  namespace: wealthwise
+spec:
+  replicas: 3
+  template:
+    spec:
+      containers:
+        - name: web
+          resources:
+            requests:
+              memory: "256Mi"
+              cpu: "250m"
+            limits:
+              memory: "1Gi"
+              cpu: "1000m"

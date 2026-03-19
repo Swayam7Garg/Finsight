@@ -1,0 +1,11 @@
+# Staging overrides.
+# Inherits base defaults (2 replicas, HPA/PDB/topology enabled).
+
+ingress:
+  host: staging.wealthwise.example.com
+  tls:
+    secretName: wealthwise-staging-tls
+
+web:
+  nextauthUrl: "https://staging.wealthwise.example.com"
+  nextPublicApiUrl: "https://staging.wealthwise.example.com/api/v1"

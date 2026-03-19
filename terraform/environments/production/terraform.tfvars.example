@@ -1,0 +1,4 @@
+region        = "us-east-1"
+environment   = "production"
+alarm_email   = "prod-alerts@example.com"
+db_password   = "CHANGE_ME"

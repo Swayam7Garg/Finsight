@@ -1,0 +1,220 @@
+# Default values for wealthwise (production-ready defaults).
+
+nameOverride: ""
+fullnameOverride: ""
+
+namespace:
+  create: false
+  name: ""  # defaults to release namespace
+
+imagePullSecrets: []
+
+# -- Set to use a pre-existing Secret (e.g. Sealed Secrets, External Secrets).
+# When set, the chart will NOT create its own Secret.
+existingSecret: ""
+
+# -- Set to use a pre-existing ConfigMap.
+# When set, the chart will NOT create its own ConfigMap.
+existingConfigMap: ""
+
+# -- Chart-managed secrets. Only used when existingSecret is empty.
+# For production, use existingSecret instead.
+secrets:
+  jwtSecret: ""
+  jwtRefreshSecret: ""
+  nextauthSecret: ""
+  mongodbUri: ""
+  anthropicApiKey: ""
+
+config:
+  nodeEnv: "production"
+
+# ---- API ----
+
+api:
+  replicaCount: 2
+  port: 4000
+
+  image:
+    repository: wealthwise-api
+    tag: ""  # defaults to Chart.appVersion
+    pullPolicy: IfNotPresent
+
+  service:
+    type: ClusterIP
+
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 10
+    targetCPUUtilization: 70
+
+  pdb:
+    enabled: true
+    minAvailable: 1
+
+  topologySpreadConstraints:
+    enabled: true
+    maxSkew: 1
+    topologyKey: kubernetes.io/hostname
+    whenUnsatisfied: DoNotSchedule
+
+  extraEnv: []
+
+# ---- Web ----
+
+web:
+  replicaCount: 2
+  port: 3000
+
+  image:
+    repository: wealthwise-web
+    tag: ""  # defaults to Chart.appVersion
+    pullPolicy: IfNotPresent
+
+  service:
+    type: ClusterIP
+
+  # These are injected as env vars directly (not via ConfigMap)
+  # because they differ per environment.
+  nextauthUrl: "https://wealthwise.example.com"
+  nextPublicApiUrl: "https://wealthwise.example.com/api/v1"
+
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 8
+    targetCPUUtilization: 70
+
+  pdb:
+    enabled: true
+    minAvailable: 1
+
+  topologySpreadConstraints:
+    enabled: true
+    maxSkew: 1
+    topologyKey: kubernetes.io/hostname
+    whenUnsatisfied: DoNotSchedule
+
+  extraEnv: []
+
+# ---- MCP Server ----
+
+mcp:
+  enabled: true
+  replicaCount: 2
+  port: 5100
+
+  image:
+    repository: wealthwise-mcp
+    tag: ""
+    pullPolicy: IfNotPresent
+
+  service:
+    type: ClusterIP
+
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 6
+    targetCPUUtilization: 70
+
+  pdb:
+    enabled: true
+    minAvailable: 1
+
+  topologySpreadConstraints:
+    enabled: true
+    maxSkew: 1
+    topologyKey: kubernetes.io/hostname
+    whenUnsatisfied: DoNotSchedule
+
+  extraEnv: []
+
+# ---- Agentic AI ----
+
+agenticAi:
+  enabled: true
+  replicaCount: 2
+  port: 5200
+
+  image:
+    repository: wealthwise-agentic-ai
+    tag: ""
+    pullPolicy: IfNotPresent
+
+  service:
+    type: ClusterIP
+
+  mcpServerUrl: ""
+
+  resources:
+    requests:
+      memory: "128Mi"
+      cpu: "100m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+  autoscaling:
+    enabled: true
+    minReplicas: 2
+    maxReplicas: 6
+    targetCPUUtilization: 70
+
+  pdb:
+    enabled: true
+    minAvailable: 1
+
+  topologySpreadConstraints:
+    enabled: true
+    maxSkew: 1
+    topologyKey: kubernetes.io/hostname
+    whenUnsatisfied: DoNotSchedule
+
+  extraEnv: []
+
+# ---- Ingress ----
+
+ingress:
+  enabled: true
+  className: nginx
+  host: wealthwise.example.com
+  annotations:
+    nginx.ingress.kubernetes.io/rate-limit: "10"
+    nginx.ingress.kubernetes.io/rate-limit-window: "1m"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+  tls:
+    enabled: true
+    secretName: wealthwise-tls
+
+# ---- Network Policies ----
+
+networkPolicies:
+  enabled: true
+  mongodbPort: 27017

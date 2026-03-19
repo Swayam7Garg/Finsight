@@ -1,0 +1,76 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/agent/BaseAgent.java:[37,118] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/agent/OrchestratorAgent.java:[55,118] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[5,41] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[6,41] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[7,47] package org.springframework.ai.mcp.client.stdio does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[8,47] package org.springframework.ai.mcp.client.stdio does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[22,19] cannot find symbol
+  symbol:   class FinancialAdvisorAgent
+  location: class com.finsight.agentic.controller.AgentController
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[23,19] cannot find symbol
+  symbol:   class AnomalyDetectorAgent
+  location: class com.finsight.agentic.controller.AgentController
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[24,19] cannot find symbol
+  symbol:   class BudgetOptimizerAgent
+  location: class com.finsight.agentic.controller.AgentController
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[25,19] cannot find symbol
+  symbol:   class ForecasterAgent
+  location: class com.finsight.agentic.controller.AgentController
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[3,41] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[4,45] package org.springframework.ai.mcp.client.sse does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[87,13] cannot find symbol
+  symbol:   class BaseAgent
+  location: class com.finsight.agentic.controller.AgentController
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[18,1] cannot find symbol
+  symbol:   class FinancialAdvisorAgent
+  location: class com.finsight.agentic.controller.AgentController
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[19,31] cannot find symbol
+  symbol:   class McpSyncClient
+  location: class com.finsight.agentic.mcp.McpClientManager
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[21,12] cannot find symbol
+  symbol:   class McpSyncClient
+  location: class com.finsight.agentic.mcp.McpClientManager
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project finsight-agentic: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/agent/BaseAgent.java:[37,118] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/agent/OrchestratorAgent.java:[55,118] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[5,41] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[6,41] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[7,47] package org.springframework.ai.mcp.client.stdio does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[8,47] package org.springframework.ai.mcp.client.stdio does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[22,19] cannot find symbol
+[ERROR]   symbol:   class FinancialAdvisorAgent
+[ERROR]   location: class com.finsight.agentic.controller.AgentController
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[23,19] cannot find symbol
+[ERROR]   symbol:   class AnomalyDetectorAgent
+[ERROR]   location: class com.finsight.agentic.controller.AgentController
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[24,19] cannot find symbol
+[ERROR]   symbol:   class BudgetOptimizerAgent
+[ERROR]   location: class com.finsight.agentic.controller.AgentController
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[25,19] cannot find symbol
+[ERROR]   symbol:   class ForecasterAgent
+[ERROR]   location: class com.finsight.agentic.controller.AgentController
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[3,41] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[4,45] package org.springframework.ai.mcp.client.sse does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[87,13] cannot find symbol
+[ERROR]   symbol:   class BaseAgent
+[ERROR]   location: class com.finsight.agentic.controller.AgentController
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[18,1] cannot find symbol
+[ERROR]   symbol:   class FinancialAdvisorAgent
+[ERROR]   location: class com.finsight.agentic.controller.AgentController
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[19,31] cannot find symbol
+[ERROR]   symbol:   class McpSyncClient
+[ERROR]   location: class com.finsight.agentic.mcp.McpClientManager
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[21,12] cannot find symbol
+[ERROR]   symbol:   class McpSyncClient
+[ERROR]   location: class com.finsight.agentic.mcp.McpClientManager
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :finsight-agentic

@@ -1,0 +1,50 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: wealthwise-ingress
+  namespace: wealthwise
+  labels:
+    app.kubernetes.io/part-of: wealthwise
+  annotations:
+    nginx.ingress.kubernetes.io/rate-limit: "10"
+    nginx.ingress.kubernetes.io/rate-limit-window: "1m"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "10m"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - wealthwise.example.com
+      secretName: wealthwise-tls
+  rules:
+    - host: wealthwise.example.com
+      http:
+        paths:
+          - path: /api
+            pathType: Prefix
+            backend:
+              service:
+                name: wealthwise-api
+                port:
+                  number: 4000
+          - path: /mcp
+            pathType: Prefix
+            backend:
+              service:
+                name: wealthwise-mcp
+                port:
+                  number: 5100
+          - path: /agent
+            pathType: Prefix
+            backend:
+              service:
+                name: wealthwise-agentic-ai
+                port:
+                  number: 5200
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: wealthwise-web
+                port:
+                  number: 3000

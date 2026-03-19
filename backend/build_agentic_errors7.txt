@@ -1,0 +1,56 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/agent/BaseAgent.java:[50,17] cannot find symbol
+  symbol:   method callbacks(java.util.List<org.springframework.ai.model.function.FunctionCallback>)
+  location: variable spec of type org.springframework.ai.chat.client.ChatClient.ChatClientRequestSpec
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/agent/BaseAgent.java:[56,66] cannot find symbol
+  symbol:   method getContent()
+  location: class org.springframework.ai.chat.messages.AssistantMessage
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[33,42] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[36,27] cannot find symbol
+  symbol:   method success(com.finsight.agentic.agent.AgentResponse)
+  location: class com.finsight.common.dto.ApiResponse
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[45,42] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[48,27] cannot find symbol
+  symbol:   method success(com.finsight.agentic.agent.AgentResponse)
+  location: class com.finsight.common.dto.ApiResponse
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[54,42] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[60,27] cannot find symbol
+  symbol:   method success(com.finsight.agentic.agent.AgentResponse)
+  location: class com.finsight.common.dto.ApiResponse
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[27,87] incompatible types: org.springframework.web.reactive.function.client.WebClient.Builder cannot be converted to java.lang.String
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[29,49] cannot find symbol
+  symbol:   method builder(io.modelcontextprotocol.client.transport.HttpClientSseClientTransport)
+  location: class io.modelcontextprotocol.client.McpSyncClient
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project finsight-agentic: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/agent/BaseAgent.java:[50,17] cannot find symbol
+[ERROR]   symbol:   method callbacks(java.util.List<org.springframework.ai.model.function.FunctionCallback>)
+[ERROR]   location: variable spec of type org.springframework.ai.chat.client.ChatClient.ChatClientRequestSpec
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/agent/BaseAgent.java:[56,66] cannot find symbol
+[ERROR]   symbol:   method getContent()
+[ERROR]   location: class org.springframework.ai.chat.messages.AssistantMessage
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[33,42] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[36,27] cannot find symbol
+[ERROR]   symbol:   method success(com.finsight.agentic.agent.AgentResponse)
+[ERROR]   location: class com.finsight.common.dto.ApiResponse
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[45,42] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[48,27] cannot find symbol
+[ERROR]   symbol:   method success(com.finsight.agentic.agent.AgentResponse)
+[ERROR]   location: class com.finsight.common.dto.ApiResponse
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[54,42] package org.springframework.ai.mcp.client does not exist
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/controller/AgentController.java:[60,27] cannot find symbol
+[ERROR]   symbol:   method success(com.finsight.agentic.agent.AgentResponse)
+[ERROR]   location: class com.finsight.common.dto.ApiResponse
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[27,87] incompatible types: org.springframework.web.reactive.function.client.WebClient.Builder cannot be converted to java.lang.String
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[29,49] cannot find symbol
+[ERROR]   symbol:   method builder(io.modelcontextprotocol.client.transport.HttpClientSseClientTransport)
+[ERROR]   location: class io.modelcontextprotocol.client.McpSyncClient
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :finsight-agentic

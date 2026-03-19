@@ -1,0 +1,27 @@
+{
+  "serviceName": "wealthwise-web",
+  "cluster": "${CLUSTER_NAME}",
+  "taskDefinition": "wealthwise-web",
+  "desiredCount": 2,
+  "launchType": "FARGATE",
+  "networkConfiguration": {
+    "awsvpcConfiguration": {
+      "subnets": ["${PRIVATE_SUBNET_1}", "${PRIVATE_SUBNET_2}"],
+      "securityGroups": ["${ECS_SECURITY_GROUP}"],
+      "assignPublicIp": "DISABLED"
+    }
+  },
+  "loadBalancers": [
+    {
+      "targetGroupArn": "${WEB_TARGET_GROUP_ARN}",
+      "containerName": "wealthwise-web",
+      "containerPort": 3000
+    }
+  ],
+  "deploymentConfiguration": {
+    "maximumPercent": 200,
+    "minimumHealthyPercent": 50
+  },
+  "healthCheckGracePeriodSeconds": 60,
+  "enableExecuteCommand": true
+}

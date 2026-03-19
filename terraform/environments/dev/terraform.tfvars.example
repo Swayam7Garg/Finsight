@@ -1,0 +1,4 @@
+region        = "us-east-1"
+environment   = "dev"
+alarm_email   = "dev-alerts@example.com"
+db_password   = "CHANGE_ME"

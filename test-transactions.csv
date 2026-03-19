@@ -1,0 +1,57 @@
+date,description,amount,type,category,notes,tags
+2026-02-01,Monthly Salary,5200.00,income,Salary,February paycheck,work
+2026-02-02,Whole Foods Market,-134.57,expense,Groceries,Weekly grocery run,food
+2026-02-03,Netflix Subscription,-15.99,expense,Subscriptions,Monthly plan,streaming
+2026-02-04,Spotify Premium,-11.99,expense,Subscriptions,,streaming
+2026-02-05,Freelance Design Project,850.00,income,Freelance,Logo design for client,side-hustle
+2026-02-06,Uber Ride,-22.40,expense,Transportation,Airport drop-off,travel
+2026-02-07,Electric Bill,-98.43,expense,Utilities,February utility bill,bills
+2026-02-08,Dinner at Nobu,-187.20,expense,Dining Out,Anniversary dinner,food restaurant
+2026-02-10,Amazon Purchase,-64.99,expense,Shopping,USB-C hub,tech
+2026-02-11,Gym Membership,-49.00,expense,Personal Care,Monthly gym fee,health fitness
+2026-02-12,Rent Payment,-1850.00,expense,Rent/Housing,February rent,bills housing
+2026-02-13,Internet Bill,-59.99,expense,Utilities,Comcast monthly,bills
+2026-02-14,Dividend Payout,142.33,income,Investment Returns,Q4 dividends,investing
+2026-02-15,Trader Joe's,-78.12,expense,Groceries,,food
+2026-02-17,Doctor Visit Copay,-40.00,expense,Healthcare,Annual physical,health
+2026-02-18,Gas Station,-55.00,expense,Transportation,Full tank,car
+2026-02-19,Audible Subscription,-14.95,expense,Subscriptions,,reading
+2026-02-20,Online Course - Udemy,-29.99,expense,Education,React advanced course,learning
+2026-02-21,Coffee Shop,-6.75,expense,Dining Out,Morning latte,coffee
+2026-02-22,Pharmacy,-23.48,expense,Healthcare,Cold medicine,health
+2026-02-23,Freelance Writing,320.00,income,Freelance,Blog articles x4,side-hustle writing
+2026-02-24,Target,-112.34,expense,Shopping,Household supplies,home
+2026-02-25,Movie Tickets,-38.00,expense,Entertainment,Date night,fun
+2026-02-26,Car Insurance,-142.00,expense,Insurance,Monthly premium,car bills
+2026-02-27,Birthday Gift,-75.00,expense,Gifts,Friend's birthday,gifts
+2026-02-28,Costco,-213.47,expense,Groceries,Bulk groceries + household,food home
+2026-03-01,Monthly Salary,5200.00,income,Salary,March paycheck,work
+2026-03-02,Chipotle,-14.35,expense,Dining Out,,food
+2026-03-03,Airbnb Stay,-320.00,expense,Travel,Weekend trip,travel vacation
+2026-03-04,Phone Bill,-85.00,expense,Utilities,T-Mobile monthly,bills
+2026-03-05,Whole Foods Market,-156.20,expense,Groceries,Weekly shop,food
+2026-03-06,Parking Fine,-65.00,expense,Transportation,,car
+2026-03-07,Apple One Subscription,-21.95,expense,Subscriptions,Apple bundle,tech streaming
+2026-03-08,Side Project Consulting,1200.00,income,Freelance,3-day consulting gig,side-hustle
+2026-03-09,Dental Cleaning,-150.00,expense,Healthcare,6-month checkup,health
+2026-03-10,IKEA,-1240.00,expense,Shopping,New desk and chair,home office
+2026-03-11,Electricity Bill,-104.11,expense,Utilities,March bill,bills
+2026-03-12,Rent Payment,-1850.00,expense,Rent/Housing,March rent,bills housing
+2026-03-13,Flight Tickets,-387.00,expense,Travel,Spring break flights,travel vacation
+2026-03-14,Starbucks,-8.90,expense,Dining Out,Coffee meeting,coffee work
+2026-03-15,Book Bundle,-42.00,expense,Education,Programming books,learning reading
+2026-03-16,Refund - Amazon,34.99,income,Other Income,Return processed,refund
+2026-03-17,Instacart Delivery,-93.60,expense,Groceries,Grocery delivery,food
+2026-03-18,Steam Games,-59.98,expense,Entertainment,Two games on sale,gaming
+2026-03-19,Interest Income,18.47,income,Investment Returns,HYSA monthly interest,investing savings
+2026-03-20,Haircut,-45.00,expense,Personal Care,,grooming
+2026-03-21,Restaurant - Sushi,-92.50,expense,Dining Out,Team lunch,food work
+2026-03-22,Renters Insurance,-18.33,expense,Insurance,Monthly premium,bills home
+2026-03-23,Freelance Invoice,640.00,income,Freelance,Website maintenance,side-hustle
+2026-03-24,CVS Pharmacy,-31.20,expense,Healthcare,Vitamins and supplements,health
+2026-03-25,Lyft Rides,-44.80,expense,Transportation,Work commute x4,work commute
+2026-03-26,Charity Donation,-100.00,expense,Gifts,Red Cross monthly,charity
+2026-03-27,H&M Clothing,-88.00,expense,Shopping,Spring wardrobe,clothing
+2026-03-28,YouTube Premium,-13.99,expense,Subscriptions,,streaming
+2026-03-29,Wine & Spirits,-67.40,expense,Dining Out,Dinner party supplies,food entertaining
+2026-03-30,Bonus Payment,750.00,income,Salary,Q1 performance bonus,work

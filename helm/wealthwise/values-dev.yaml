@@ -1,0 +1,45 @@
+# Development overrides.
+
+config:
+  nodeEnv: "development"
+
+api:
+  replicaCount: 1
+  resources:
+    requests:
+      memory: "64Mi"
+      cpu: "50m"
+    limits:
+      memory: "256Mi"
+      cpu: "250m"
+  autoscaling:
+    enabled: false
+  pdb:
+    enabled: false
+  topologySpreadConstraints:
+    enabled: false
+
+web:
+  replicaCount: 1
+  nextauthUrl: "http://localhost:3000"
+  nextPublicApiUrl: "http://localhost:4000/api/v1"
+  resources:
+    requests:
+      memory: "64Mi"
+      cpu: "50m"
+    limits:
+      memory: "256Mi"
+      cpu: "250m"
+  autoscaling:
+    enabled: false
+  pdb:
+    enabled: false
+  topologySpreadConstraints:
+    enabled: false
+
+ingress:
+  tls:
+    enabled: false
+
+networkPolicies:
+  enabled: false

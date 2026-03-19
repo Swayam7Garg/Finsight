@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "wealthwise.fullname" . }}-web
+  namespace: {{ include "wealthwise.namespace" . }}
+  labels:
+    {{- include "wealthwise.web.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.web.replicaCount }}
+  selector:
+    matchLabels:
+      {{- include "wealthwise.web.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
+        checksum/secret: {{ include (print $.Template.BasePath "/secret.yaml") . | sha256sum }}
+      labels:
+        {{- include "wealthwise.web.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- with .Values.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile:
+          type: RuntimeDefault
+      containers:
+        - name: web
+          image: "{{ .Values.web.image.repository }}:{{ .Values.web.image.tag | default .Chart.AppVersion }}"
+          imagePullPolicy: {{ .Values.web.image.pullPolicy }}
+          ports:
+            - containerPort: {{ .Values.web.port }}
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: {{ include "wealthwise.configMapName" . }}
+            - secretRef:
+                name: {{ include "wealthwise.secretName" . }}
+          env:
+            - name: NEXTAUTH_URL
+              value: {{ .Values.web.nextauthUrl | quote }}
+            - name: NEXT_PUBLIC_API_URL
+              value: {{ .Values.web.nextPublicApiUrl | quote }}
+            - name: API_URL
+              value: "http://{{ include "wealthwise.fullname" . }}-api:{{ .Values.api.port }}"
+          {{- with .Values.web.extraEnv }}
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          livenessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.web.port }}
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 3
+          readinessProbe:
+            httpGet:
+              path: /
+              port: {{ .Values.web.port }}
+            initialDelaySeconds: 5
+            periodSeconds: 5
+            timeoutSeconds: 3
+            failureThreshold: 3
+          resources:
+            {{- toYaml .Values.web.resources | nindent 12 }}
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            capabilities:
+              drop:
+                - ALL
+      {{- if .Values.web.topologySpreadConstraints.enabled }}
+      topologySpreadConstraints:
+        - maxSkew: {{ .Values.web.topologySpreadConstraints.maxSkew }}
+          topologyKey: {{ .Values.web.topologySpreadConstraints.topologyKey }}
+          whenUnsatisfied: {{ .Values.web.topologySpreadConstraints.whenUnsatisfied }}
+          labelSelector:
+            matchLabels:
+              {{- include "wealthwise.web.selectorLabels" . | nindent 14 }}
+      {{- end }}

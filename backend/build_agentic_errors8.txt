@@ -1,0 +1,28 @@
+[ERROR] COMPILATION ERROR : 
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[28,54] no suitable constructor found for HttpClientSseClientTransport(java.lang.String,org.springframework.web.reactive.function.client.WebClient.Builder)
+    constructor io.modelcontextprotocol.client.transport.HttpClientSseClientTransport.HttpClientSseClientTransport(java.lang.String) is not applicable
+      (actual and formal argument lists differ in length)
+    constructor io.modelcontextprotocol.client.transport.HttpClientSseClientTransport.HttpClientSseClientTransport(java.net.http.HttpClient$Builder,java.lang.String,com.fasterxml.jackson.databind.ObjectMapper) is not applicable
+      (actual and formal argument lists differ in length)
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[30,45] cannot find symbol
+  symbol:   method using(io.modelcontextprotocol.client.transport.HttpClientSseClientTransport)
+  location: interface io.modelcontextprotocol.client.McpClient
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project finsight-agentic: Compilation failure: Compilation failure: 
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[28,54] no suitable constructor found for HttpClientSseClientTransport(java.lang.String,org.springframework.web.reactive.function.client.WebClient.Builder)
+[ERROR]     constructor io.modelcontextprotocol.client.transport.HttpClientSseClientTransport.HttpClientSseClientTransport(java.lang.String) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR]     constructor io.modelcontextprotocol.client.transport.HttpClientSseClientTransport.HttpClientSseClientTransport(java.net.http.HttpClient$Builder,java.lang.String,com.fasterxml.jackson.databind.ObjectMapper) is not applicable
+[ERROR]       (actual and formal argument lists differ in length)
+[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[30,45] cannot find symbol
+[ERROR]   symbol:   method using(io.modelcontextprotocol.client.transport.HttpClientSseClientTransport)
+[ERROR]   location: interface io.modelcontextprotocol.client.McpClient
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException
+[ERROR] 
+[ERROR] After correcting the problems, you can resume the build with the command
+[ERROR]   mvn <args> -rf :finsight-agentic

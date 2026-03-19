@@ -1,0 +1,4 @@
+region        = "us-east-1"
+environment   = "staging"
+alarm_email   = "staging-alerts@example.com"
+db_password   = "CHANGE_ME"
