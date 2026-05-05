@@ -1,0 +1,38 @@
+server:
+  port: ${API_PORT:4000}
+
+spring:
+  application:
+    name: finsight-api
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb://localhost:27017/finsight}
+      auto-index-creation: true
+  jackson:
+    default-property-inclusion: non_null
+
+app:
+  jwt:
+    secret: ${JWT_SECRET:change-me-to-a-32-char-minimum-secret-key!!}
+    refresh-secret: ${JWT_REFRESH_SECRET:change-me-to-another-32-char-min-secret!!}
+    access-token-expiry: 15m
+    refresh-token-expiry: 7d
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:3000,http://localhost:3001}
+  gemini:
+    api-key: ${GOOGLE_AI_API_KEY:${GEMINI_API_KEY:}}
+    model: ${GEMINI_MODEL:gemini-2.5-flash}
+    model-allowlist: ${GEMINI_MODEL_ALLOWLIST:}
+    allow-pro-models: ${GEMINI_ALLOW_PRO_MODELS:false}
+
+springdoc:
+  api-docs:
+    path: /api/docs.json
+  swagger-ui:
+    path: /api/docs
+    operations-sorter: method
+
+logging:
+  level:
+    com.finsight: DEBUG
+    org.springframework.data.mongodb: INFO

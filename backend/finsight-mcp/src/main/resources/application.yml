@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: finsight-mcp
+  data:
+    mongodb:
+      uri: ${MONGODB_URI:mongodb+srv://swayamgarg08_db_user:Financemanager123@cluster0.grwdeyq.mongodb.net/?appName=Cluster0}
+      database: finsight
+      auto-index-creation: true
+  ai:
+    mcp:
+      server:
+        name: finsight
+        transport: STDIO # Use stdio OR sse
+
+server:
+  port: ${MCP_PORT:5100}
+
+jwt:
+  secret: ${JWT_SECRET:7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f3a2b1c0d9e8f7a6b}
+
+logging:
+  level:
+    org.springframework.ai.mcp: DEBUG

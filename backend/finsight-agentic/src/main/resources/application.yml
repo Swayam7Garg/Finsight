@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: finsight-agentic
+  ai:
+    anthropic:
+      api-key: ${ANTHROPIC_API_KEY}
+      chat:
+        options:
+          model: claude-3-5-sonnet-latest
+
+server:
+  port: ${AGENT_PORT:5200}
+
+finsight:
+  mcp:
+    server:
+      url: ${MCP_SERVER_URL:http://localhost:5100}

@@ -1,0 +1,115 @@
+version: "3.8"
+
+services:
+  mongodb:
+    image: mongo:7
+    container_name: finsight-mongodb-prod
+    volumes:
+      - mongodb_data_prod:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=finsight
+    networks:
+      - finsight-network
+    restart: always
+
+  api:
+    build:
+      context: ./backend
+      dockerfile: finsight-api/Dockerfile
+    container_name: finsight-api-prod
+    expose:
+      - "4000"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/finsight
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_REFRESH_SECRET=${JWT_REFRESH_SECRET}
+      - API_PORT=4000
+      - CORS_ORIGINS=${CORS_ORIGINS:-http://localhost:3000}
+    depends_on:
+      - mongodb
+    networks:
+      - finsight-network
+    restart: always
+
+  web:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: finsight-web-prod
+    expose:
+      - "3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+      - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL}
+      - NEXTAUTH_URL=${NEXTAUTH_URL}
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+      - API_URL=http://api:4000/api/v1
+    depends_on:
+      - api
+    networks:
+      - finsight-network
+    restart: always
+
+  mcp:
+    build:
+      context: ./backend
+      dockerfile: finsight-mcp/Dockerfile
+    container_name: finsight-mcp-prod
+    expose:
+      - "5100"
+    environment:
+      - MONGODB_URI=mongodb://mongodb:27017/finsight
+      - MONGODB_URI=mongodb://mongodb:27017/finsight
+      - JWT_SECRET=${JWT_SECRET}
+      - MCP_TRANSPORT=sse
+      - MCP_PORT=5100
+    depends_on:
+      - mongodb
+    networks:
+      - finsight-network
+    restart: always
+
+  agentic-ai:
+    build:
+      context: ./backend
+      dockerfile: finsight-agentic/Dockerfile
+    container_name: finsight-agentic-ai-prod
+    expose:
+      - "5200"
+    environment:
+
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - MCP_SERVER_URL=http://mcp:5100
+      - JWT_SECRET=${JWT_SECRET}
+      - AGENT_PORT=5200
+    depends_on:
+      - mcp
+    networks:
+      - finsight-network
+    restart: always
+
+  nginx:
+    image: nginx:alpine
+    container_name: finsight-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - web
+      - api
+      - mcp
+      - agentic-ai
+    networks:
+      - finsight-network
+    restart: always
+
+volumes:
+  mongodb_data_prod:
+
+networks:
+  finsight-network:
+    driver: bridge
