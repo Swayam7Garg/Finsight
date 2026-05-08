@@ -5,7 +5,7 @@ $env:GOOGLE_AI_API_KEY = "your-gemini-api-key-here"
 $env:ANTHROPIC_API_KEY = "your-anthropic-api-key-here"
 
 # Database & Auth Secrets (Must be the same across services)
-$env:MONGODB_URI = "mongodb+srv://swayamgarg08_db_user:Financemanager123@cluster0.grwdeyq.mongodb.net/finsight?appName=Cluster0"
+$env:MONGODB_URI = ""
 $env:JWT_SECRET = "this-is-a-very-secure-random-secret-key-that-is-32-chars-long"
 $env:JWT_REFRESH_SECRET = "another-very-secure-random-secret-key-that-is-32-chars"
 $env:MCP_SERVER_URL = "http://localhost:5100"
