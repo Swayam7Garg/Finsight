@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Manage recurring bills, subscriptions, and regular income. Set up automated rules, track upcoming due dates, and record payments to stay on top of your obligations.",
   openGraph: {
-    title: "Recurring | WealthWise",
+    title: "Recurring | FinSight",
     description:
       "Manage recurring bills, subscriptions, and income. Set up rules, track due dates, and record payments to stay on top of your finances.",
     url: "/recurring",

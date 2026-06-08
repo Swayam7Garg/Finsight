@@ -3,7 +3,7 @@ export interface UiPreferences {
   highContrast: boolean;
 }
 
-export const UI_PREFERENCES_STORAGE_KEY = "wealthwise-ui-preferences";
+export const UI_PREFERENCES_STORAGE_KEY = "finsight-ui-preferences";
 
 export const DEFAULT_UI_PREFERENCES: UiPreferences = {
   reducedMotion: false,

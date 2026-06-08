@@ -2,7 +2,7 @@
 
 import { format } from "date-fns";
 import { CalendarIcon, X } from "lucide-react";
-import type { TransactionQuery } from "@wealthwise/shared-types";
+import type { TransactionQuery } from "@finsight/shared-types";
 import { useAccounts } from "@/hooks/use-accounts";
 import { useCategories } from "@/hooks/use-categories";
 import { cn } from "@/lib/utils";

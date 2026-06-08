@@ -76,7 +76,7 @@ export function AppearanceTab() {
             </div>
             <CardTitle>Appearance</CardTitle>
             <CardDescription>
-              Fine-tune how WealthWise looks and feels across every screen.
+              Fine-tune how FinSight looks and feels across every screen.
             </CardDescription>
           </CardHeader>
         </div>

@@ -40,7 +40,7 @@ export default function OpenGraphImage() {
           width: "100%",
         }}
       >
-        <div style={{ fontSize: 34, fontWeight: 600, color: "#93c5fd" }}>WealthWise</div>
+        <div style={{ fontSize: 34, fontWeight: 600, color: "#93c5fd" }}>FinSight</div>
         <div
           style={{
             display: "flex",

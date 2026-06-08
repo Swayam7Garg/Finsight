@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Manage all your financial accounts in one place. Track checking, savings, credit card, and investment account balances with real-time updates.",
   openGraph: {
-    title: "Accounts | WealthWise",
+    title: "Accounts | FinSight",
     description:
       "Manage all your financial accounts in one place. Track checking, savings, credit card, and investment account balances.",
     url: "/accounts",

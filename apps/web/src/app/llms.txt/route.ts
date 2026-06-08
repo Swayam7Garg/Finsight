@@ -1,9 +1,9 @@
 import { NextResponse } from "next/server";
 import { SITE_URL, absoluteUrl } from "@/lib/seo";
 
-const CONTENT = `# WealthWise
+const CONTENT = `# FinSight
 
-> WealthWise is a personal finance web application for tracking transactions, budgets, goals, recurring bills, and analytics.
+> FinSight is a personal finance web application for tracking transactions, budgets, goals, recurring bills, and analytics.
 
 ## Canonical Site
 - ${SITE_URL}

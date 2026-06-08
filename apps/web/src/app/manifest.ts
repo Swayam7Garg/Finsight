@@ -3,8 +3,8 @@ import type { MetadataRoute } from "next";
 export default function manifest(): MetadataRoute.Manifest {
   return {
     id: "/",
-    name: "WealthWise - Smart Personal Finance Tracker",
-    short_name: "WealthWise",
+    name: "FinSight - Smart Personal Finance Tracker",
+    short_name: "FinSight",
     description:
       "Track expenses, build budgets, manage recurring bills, and reach savings goals with one personal finance app.",
     start_url: "/",
@@ -46,13 +46,13 @@ export default function manifest(): MetadataRoute.Manifest {
       {
         name: "Sign In",
         short_name: "Login",
-        description: "Access your WealthWise dashboard",
+        description: "Access your FinSight dashboard",
         url: "/login",
       },
       {
         name: "Create Account",
         short_name: "Register",
-        description: "Create a WealthWise account",
+        description: "Create a FinSight account",
         url: "/register",
       },
     ],

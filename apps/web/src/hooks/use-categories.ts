@@ -8,7 +8,7 @@ import type {
   CreateCategoryInput,
   UpdateCategoryInput,
   ApiResponse,
-} from "@wealthwise/shared-types";
+} from "@finsight/shared-types";
 
 export const categoryKeys = {
   all: ["categories"] as const,

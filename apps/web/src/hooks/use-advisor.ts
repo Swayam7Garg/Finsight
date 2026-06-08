@@ -7,7 +7,7 @@ import type {
   AdvisorChatRequest,
   AdvisorChatResponse,
   ApiResponse,
-} from "@wealthwise/shared-types";
+} from "@finsight/shared-types";
 
 export function useAdvisorChat() {
   return useMutation({

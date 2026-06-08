@@ -4,12 +4,12 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { format } from "date-fns";
 import { CalendarIcon, X } from "lucide-react";
-import { createTransactionSchema, updateTransactionSchema } from "@wealthwise/shared-types";
+import { createTransactionSchema, updateTransactionSchema } from "@finsight/shared-types";
 import type {
   CreateTransactionInput,
   UpdateTransactionInput,
   TransactionResponse,
-} from "@wealthwise/shared-types";
+} from "@finsight/shared-types";
 import { useCreateTransaction, useUpdateTransaction } from "@/hooks/use-transactions";
 import { useAccounts } from "@/hooks/use-accounts";
 import { useCategories } from "@/hooks/use-categories";

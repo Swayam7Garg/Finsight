@@ -11,7 +11,7 @@ import type {
   TransactionQuery,
   ApiResponse,
   PaginatedResponse,
-} from "@wealthwise/shared-types";
+} from "@finsight/shared-types";
 
 export const transactionKeys = {
   all: ["transactions"] as const,

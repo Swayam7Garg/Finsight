@@ -5,7 +5,7 @@ const NEXT_PUBLIC_API_URL = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost
 const API_URL = process.env.API_URL ?? NEXT_PUBLIC_API_URL;
 
 /**
- * NextAuth.js configuration for WealthWise.
+ * NextAuth.js configuration for FinSight.
  *
  * Uses a CredentialsProvider that authenticates against the Express backend.
  * The JWT callback stores the access/refresh tokens and user info.

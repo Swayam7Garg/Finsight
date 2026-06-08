@@ -4,12 +4,12 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Plus, MoreHorizontal, Pencil, Archive, Trash2, Wallet } from "lucide-react";
-import { createAccountSchema, updateAccountSchema } from "@wealthwise/shared-types";
+import { createAccountSchema, updateAccountSchema } from "@finsight/shared-types";
 import type {
   CreateAccountInput,
   UpdateAccountInput,
   AccountResponse,
-} from "@wealthwise/shared-types";
+} from "@finsight/shared-types";
 import {
   useAccounts,
   useCreateAccount,

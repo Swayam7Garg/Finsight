@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Create monthly spending budgets by category, track your progress in real time, and get visual insights into where your money is going versus your plan.",
   openGraph: {
-    title: "Budgets | WealthWise",
+    title: "Budgets | FinSight",
     description:
       "Create monthly spending budgets by category, track progress in real time, and visualize spending versus your plan.",
     url: "/budgets",

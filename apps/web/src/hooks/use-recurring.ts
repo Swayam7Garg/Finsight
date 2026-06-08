@@ -10,7 +10,7 @@ import type {
   CreateRecurringInput,
   UpdateRecurringInput,
   ApiResponse,
-} from "@wealthwise/shared-types";
+} from "@finsight/shared-types";
 
 export const recurringKeys = {
   all: ["recurring"] as const,

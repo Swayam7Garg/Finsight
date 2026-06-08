@@ -12,7 +12,7 @@ import {
   ResponsiveContainer,
   Legend,
 } from "recharts";
-import type { BudgetSummary } from "@wealthwise/shared-types";
+import type { BudgetSummary } from "@finsight/shared-types";
 import { useBudgetSummary, useDeleteBudget } from "@/hooks/use-budgets";
 import { useCategories } from "@/hooks/use-categories";
 import { formatCurrency } from "@/lib/utils";

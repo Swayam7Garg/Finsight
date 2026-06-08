@@ -42,7 +42,7 @@ function LegalNav() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
               <Wallet className="h-4 w-4" />
             </div>
-            <span className="text-lg font-bold tracking-tight">WealthWise</span>
+            <span className="text-lg font-bold tracking-tight">FinSight</span>
           </Link>
 
           <div className="flex items-center gap-1">
@@ -105,7 +105,7 @@ export default function LegalLayout({ children }: { children: React.ReactNode })
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <p className="text-sm text-muted-foreground">
-              &copy; {new Date().getFullYear()} WealthWise. All rights reserved.
+              &copy; {new Date().getFullYear()} FinSight. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-muted-foreground">
               <Link

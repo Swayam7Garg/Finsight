@@ -37,7 +37,7 @@ export function Sidebar() {
               <Wallet className="h-5 w-5" />
             </div>
             {!collapsed && (
-              <span className="whitespace-nowrap text-lg font-bold tracking-tight">WealthWise</span>
+              <span className="whitespace-nowrap text-lg font-bold tracking-tight">FinSight</span>
             )}
           </Link>
         </div>

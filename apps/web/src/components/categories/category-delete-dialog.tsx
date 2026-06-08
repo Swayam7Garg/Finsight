@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useMemo } from "react";
 import { format } from "date-fns";
 import { AlertTriangle, ArrowRight, Clock3, Repeat, ShieldAlert, WalletCards } from "lucide-react";
-import type { CategoryManagementResponse } from "@wealthwise/shared-types";
+import type { CategoryManagementResponse } from "@finsight/shared-types";
 import { useDeleteCategory } from "@/hooks/use-categories";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -74,7 +74,7 @@ export function CategoryDeleteDialog({ category, open, onOpenChange }: CategoryD
             <AlertDialogDescription>
               {category?.usage.canDelete
                 ? "Deleting it will remove it from your category library immediately."
-                : "WealthWise detected linked financial records, so deleting this category would leave important history without a category reference."}
+                : "FinSight detected linked financial records, so deleting this category would leave important history without a category reference."}
             </AlertDialogDescription>
           </AlertDialogHeader>
         </div>

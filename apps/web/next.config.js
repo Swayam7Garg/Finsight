@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ["@wealthwise/shared-types"],
+  transpilePackages: ["@finsight/shared-types"],
   output: "standalone",
   poweredByHeader: false,
 };

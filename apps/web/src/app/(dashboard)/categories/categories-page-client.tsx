@@ -12,7 +12,7 @@ import {
   Shapes,
   type LucideIcon,
 } from "lucide-react";
-import type { CategoryManagementResponse } from "@wealthwise/shared-types";
+import type { CategoryManagementResponse } from "@finsight/shared-types";
 import { cn, formatCurrency } from "@/lib/utils";
 import { useCategories } from "@/hooks/use-categories";
 import { useProfile } from "@/hooks/use-profile";
@@ -238,7 +238,7 @@ export function CategoriesPageClient() {
             description={
               categories?.length
                 ? "Try a broader search or switch to a different filter view."
-                : "Create your first custom category to tailor WealthWise to how you think about your money."
+                : "Create your first custom category to tailor FinSight to how you think about your money."
             }
             actionLabel="Create category"
             onAction={openCreateDialog}

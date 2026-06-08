@@ -9,7 +9,7 @@ import type {
   UpdateGoalInput,
   AddFundsInput,
   ApiResponse,
-} from "@wealthwise/shared-types";
+} from "@finsight/shared-types";
 
 export const goalKeys = {
   all: ["goals"] as const,

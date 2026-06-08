@@ -4,14 +4,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Read the WealthWise terms of service, user responsibilities, legal limitations, and account usage conditions.",
+    "Read the FinSight terms of service, user responsibilities, legal limitations, and account usage conditions.",
   alternates: {
     canonical: "/terms",
   },
   openGraph: {
-    title: "Terms of Service | WealthWise",
+    title: "Terms of Service | FinSight",
     description:
-      "Read the WealthWise terms of service, user responsibilities, legal limitations, and account usage conditions.",
+      "Read the FinSight terms of service, user responsibilities, legal limitations, and account usage conditions.",
     url: "/terms",
   },
 };
@@ -29,10 +29,10 @@ export default function TermsPage() {
         <section>
           <h2 className="text-xl font-semibold">1. Acceptance of Terms</h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">
-            By accessing or using WealthWise (&quot;the Service&quot;), you agree to be bound by
+            By accessing or using FinSight (&quot;the Service&quot;), you agree to be bound by
             these Terms of Service (&quot;Terms&quot;). If you do not agree to all of these Terms,
             you may not access or use the Service. These Terms constitute a legally binding
-            agreement between you and WealthWise regarding your use of the Service.
+            agreement between you and FinSight regarding your use of the Service.
           </p>
         </section>
 
@@ -40,7 +40,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-xl font-semibold">2. Description of Service</h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">
-            WealthWise is a personal finance management platform that provides tools to help you
+            FinSight is a personal finance management platform that provides tools to help you
             organize and understand your financial life. The Service includes, but is not limited
             to:
           </p>
@@ -52,7 +52,7 @@ export default function TermsPage() {
             <li>Categorizing and searching transactions</li>
           </ul>
           <p className="mt-3 leading-relaxed text-muted-foreground">
-            WealthWise is designed as a personal financial management tool. It is not a bank,
+            FinSight is designed as a personal financial management tool. It is not a bank,
             payment processor, or financial advisor. All financial data within the Service is
             entered and managed by you.
           </p>
@@ -62,7 +62,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-xl font-semibold">3. Account Registration</h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">
-            To use WealthWise, you must create an account. When registering, you agree to:
+            To use FinSight, you must create an account. When registering, you agree to:
           </p>
           <ul className="mt-3 list-disc space-y-2 pl-6 leading-relaxed text-muted-foreground">
             <li>Provide accurate, current, and complete information during registration</li>
@@ -116,14 +116,14 @@ export default function TermsPage() {
           <h2 className="text-xl font-semibold">5. Intellectual Property</h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">
             The Service and its original content, features, functionality, branding, and design are
-            owned by WealthWise and are protected by international copyright, trademark, patent,
+            owned by FinSight and are protected by international copyright, trademark, patent,
             trade secret, and other intellectual property laws. Our trademarks, logos, and service
             marks may not be used in connection with any product or service without prior written
             consent.
           </p>
           <p className="mt-3 leading-relaxed text-muted-foreground">
             You retain ownership of all financial data you enter into the Service. By using
-            WealthWise, you grant us a limited license to store, process, and display your data
+            FinSight, you grant us a limited license to store, process, and display your data
             solely for the purpose of providing the Service to you.
           </p>
         </section>
@@ -175,14 +175,14 @@ export default function TermsPage() {
           <h2 className="text-xl font-semibold">8. Third-Party Services</h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">
             The Service may contain links to or integrations with third-party websites, services, or
-            applications that are not owned or controlled by WealthWise. We have no control over and
+            applications that are not owned or controlled by FinSight. We have no control over and
             assume no responsibility for the content, privacy policies, or practices of any
             third-party services.
           </p>
           <p className="mt-3 leading-relaxed text-muted-foreground">
             Your use of any third-party service is at your own risk and subject to that third
             party&apos;s terms and conditions. We encourage you to review the terms and privacy
-            policies of any third-party services you interact with through WealthWise.
+            policies of any third-party services you interact with through FinSight.
           </p>
         </section>
 
@@ -190,7 +190,7 @@ export default function TermsPage() {
         <section>
           <h2 className="text-xl font-semibold">9. Limitation of Liability</h2>
           <p className="mt-3 font-medium leading-relaxed text-foreground text-muted-foreground">
-            WealthWise is not a financial advisor, investment advisor, tax advisor, or licensed
+            FinSight is not a financial advisor, investment advisor, tax advisor, or licensed
             financial professional. The Service is provided for informational and organizational
             purposes only.
           </p>
@@ -200,7 +200,7 @@ export default function TermsPage() {
               and should not be considered financial advice
             </li>
             <li>
-              You are solely responsible for your financial decisions. WealthWise shall not be held
+              You are solely responsible for your financial decisions. FinSight shall not be held
               liable for any financial losses or damages resulting from decisions made based on
               information provided through the Service
             </li>
@@ -209,7 +209,7 @@ export default function TermsPage() {
               warranties of any kind, either express or implied
             </li>
             <li>
-              To the maximum extent permitted by law, WealthWise shall not be liable for any
+              To the maximum extent permitted by law, FinSight shall not be liable for any
               indirect, incidental, special, consequential, or punitive damages arising from your
               use of the Service
             </li>

@@ -25,7 +25,7 @@ import {
   advisorChatRequestSchema,
   type AdvisorContextStats,
   advisorContextStatsSchema,
-} from "@wealthwise/shared-types";
+} from "@finsight/shared-types";
 import { useAdvisorChat } from "@/hooks/use-advisor";
 import { useAccounts } from "@/hooks/use-accounts";
 import { useBudgetSummary } from "@/hooks/use-budgets";
@@ -48,7 +48,7 @@ import { cn, formatCurrency, generateId } from "@/lib/utils";
 import { toast } from "sonner";
 
 const advisorComposerSchema = advisorChatRequestSchema.pick({ message: true });
-const ADVISOR_HISTORY_STORAGE_PREFIX = "wealthwise:advisor-history";
+const ADVISOR_HISTORY_STORAGE_PREFIX = "finsight:advisor-history";
 
 const advisorConversationMessageStorageSchema = z.object({
   id: z.string(),
@@ -386,7 +386,7 @@ export function AdvisorPageClient() {
                 Ask grounded questions about your money, not generic finance fluff.
               </h1>
               <p className="max-w-2xl text-sm leading-6 text-muted-foreground sm:text-base">
-                WealthWise Advisor sees your live accounts, budgets, goals, recurring bills, and the
+                FinSight Advisor sees your live accounts, budgets, goals, recurring bills, and the
                 full transaction ledger for every chat turn. Use it to analyze spending, pressure
                 test savings plans, spot the next best move, or get exact step-by-step help using
                 the app.
@@ -455,7 +455,7 @@ export function AdvisorPageClient() {
               <div className="space-y-2">
                 <CardTitle className="text-xl">Conversation</CardTitle>
                 <p className="text-sm text-muted-foreground">
-                  Ask direct questions. The advisor will reference your live WealthWise data and
+                  Ask direct questions. The advisor will reference your live FinSight data and
                   explain exact in-app workflows when you need them.
                 </p>
               </div>

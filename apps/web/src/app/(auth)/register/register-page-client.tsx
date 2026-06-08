@@ -7,7 +7,7 @@ import { signIn } from "next-auth/react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { registerSchema } from "@wealthwise/shared-types";
+import { registerSchema } from "@finsight/shared-types";
 import { toast } from "sonner";
 import { Eye, EyeOff, Loader2, Mail, User, Check, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -119,7 +119,7 @@ export function RegisterPageClient() {
         return;
       }
 
-      toast.success("Welcome to WealthWise!", {
+      toast.success("Welcome to FinSight!", {
         description: "Your account has been created successfully.",
       });
       router.push("/dashboard");

@@ -15,7 +15,7 @@ import {
   Trash2,
   WalletCards,
 } from "lucide-react";
-import type { CategoryManagementResponse } from "@wealthwise/shared-types";
+import type { CategoryManagementResponse } from "@finsight/shared-types";
 import { cn, formatCurrency } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -123,7 +123,7 @@ export function CategoryCard({ category, currency, onEdit, onDelete }: CategoryC
             )}
             {category.isDefault && (
               <Badge variant="secondary" className="rounded-full px-3 py-1">
-                Managed by WealthWise
+                Managed by FinSight
               </Badge>
             )}
           </div>

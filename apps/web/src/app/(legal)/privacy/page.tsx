@@ -4,14 +4,14 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Read how WealthWise collects, uses, and protects your personal and financial information.",
+    "Read how FinSight collects, uses, and protects your personal and financial information.",
   alternates: {
     canonical: "/privacy",
   },
   openGraph: {
-    title: "Privacy Policy | WealthWise",
+    title: "Privacy Policy | FinSight",
     description:
-      "Read how WealthWise collects, uses, and protects your personal and financial information.",
+      "Read how FinSight collects, uses, and protects your personal and financial information.",
     url: "/privacy",
   },
 };
@@ -29,13 +29,13 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-xl font-semibold">1. Introduction</h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">
-            At WealthWise, we are committed to protecting your privacy and ensuring the security of
+            At FinSight, we are committed to protecting your privacy and ensuring the security of
             your personal and financial information. This Privacy Policy explains what information
             we collect, how we use it, how we protect it, and what choices you have regarding your
             data.
           </p>
           <p className="mt-3 leading-relaxed text-muted-foreground">
-            By using WealthWise (&quot;the Service&quot;), you agree to the collection and use of
+            By using FinSight (&quot;the Service&quot;), you agree to the collection and use of
             information in accordance with this policy. We encourage you to read this policy
             carefully and contact us if you have any questions.
           </p>
@@ -61,7 +61,7 @@ export default function PrivacyPage() {
 
           <h3 className="mt-4 text-lg font-medium">Financial Data</h3>
           <p className="mt-2 leading-relaxed text-muted-foreground">
-            All financial data within WealthWise is entered and managed by you. This may include:
+            All financial data within FinSight is entered and managed by you. This may include:
           </p>
           <ul className="mt-2 list-disc space-y-1.5 pl-6 leading-relaxed text-muted-foreground">
             <li>Transaction records (amounts, dates, descriptions, categories)</li>
@@ -70,7 +70,7 @@ export default function PrivacyPage() {
             <li>Financial goals and savings targets</li>
           </ul>
           <p className="mt-2 leading-relaxed text-muted-foreground">
-            WealthWise does not connect to your bank accounts or financial institutions directly.
+            FinSight does not connect to your bank accounts or financial institutions directly.
             All financial data is manually entered by you and remains under your control.
           </p>
 
@@ -106,7 +106,7 @@ export default function PrivacyPage() {
             <li>
               <span className="font-medium text-foreground">Providing the Service:</span> Storing
               and displaying your financial data, generating reports, and powering the core features
-              of WealthWise
+              of FinSight
             </li>
             <li>
               <span className="font-medium text-foreground">Improving the Service:</span> Analyzing
@@ -185,7 +185,7 @@ export default function PrivacyPage() {
             <li>
               <span className="font-medium text-foreground">Safety and protection:</span> We may
               share information when we believe in good faith that disclosure is necessary to
-              protect the rights, property, or safety of WealthWise, our users, or the public
+              protect the rights, property, or safety of FinSight, our users, or the public
             </li>
           </ul>
         </section>
@@ -244,7 +244,7 @@ export default function PrivacyPage() {
         <section>
           <h2 className="text-xl font-semibold">8. Children&apos;s Privacy</h2>
           <p className="mt-3 leading-relaxed text-muted-foreground">
-            WealthWise is not designed for or directed at individuals under the age of 18. We do not
+            FinSight is not designed for or directed at individuals under the age of 18. We do not
             knowingly collect personal information from children. If we become aware that we have
             collected data from a person under 18, we will take steps to delete that information
             promptly. If you believe a child has provided us with personal data, please contact us

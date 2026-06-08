@@ -10,7 +10,7 @@ import {
   type SortingState,
 } from "@tanstack/react-table";
 import { ArrowUpDown, MoreHorizontal, Pencil, Copy, Trash2 } from "lucide-react";
-import type { TransactionResponse } from "@wealthwise/shared-types";
+import type { TransactionResponse } from "@finsight/shared-types";
 import { formatCurrency, formatDate, cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {

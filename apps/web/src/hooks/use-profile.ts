@@ -4,7 +4,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useSession } from "next-auth/react";
 import { toast } from "sonner";
 import { apiClient } from "@/lib/api-client";
-import type { UserResponse, UpdateProfileInput, ApiResponse } from "@wealthwise/shared-types";
+import type { UserResponse, UpdateProfileInput, ApiResponse } from "@finsight/shared-types";
 
 export const profileKeys = {
   all: ["profile"] as const,

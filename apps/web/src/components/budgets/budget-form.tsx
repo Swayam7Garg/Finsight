@@ -2,8 +2,8 @@
 
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { createBudgetSchema, updateBudgetSchema } from "@wealthwise/shared-types";
-import type { CreateBudgetInput, UpdateBudgetInput, BudgetSummary } from "@wealthwise/shared-types";
+import { createBudgetSchema, updateBudgetSchema } from "@finsight/shared-types";
+import type { CreateBudgetInput, UpdateBudgetInput, BudgetSummary } from "@finsight/shared-types";
 import { useCreateBudget, useUpdateBudget } from "@/hooks/use-budgets";
 import { useCategories } from "@/hooks/use-categories";
 import { Button } from "@/components/ui/button";

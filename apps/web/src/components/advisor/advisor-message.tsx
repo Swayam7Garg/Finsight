@@ -125,7 +125,7 @@ export function AdvisorMessage({ message, userName, children }: AdvisorMessagePr
             isUser && "justify-end"
           )}
         >
-          <span>{isUser ? (userName ?? "You") : "WealthWise Advisor"}</span>
+          <span>{isUser ? (userName ?? "You") : "FinSight Advisor"}</span>
           <span className="h-1 w-1 rounded-full bg-muted-foreground/50" />
           <span>{formatRelativeDate(message.createdAt)}</span>
         </div>

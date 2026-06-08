@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description:
     "Your personal finance overview. See your net worth, monthly cash flow, recent transactions, budget health, and upcoming bills — all at a glance.",
   openGraph: {
-    title: "Dashboard | WealthWise",
+    title: "Dashboard | FinSight",
     description:
       "Your personal finance overview. See net worth, monthly cash flow, recent transactions, budget health, and upcoming bills at a glance.",
     url: "/dashboard",

@@ -9,7 +9,7 @@ import type {
   CreateBudgetInput,
   UpdateBudgetInput,
   ApiResponse,
-} from "@wealthwise/shared-types";
+} from "@finsight/shared-types";
 
 export const budgetKeys = {
   all: ["budgets"] as const,

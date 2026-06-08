@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Set and track savings goals for anything — emergency funds, vacations, home purchases, and more. Watch your progress grow as you contribute over time.",
   openGraph: {
-    title: "Goals | WealthWise",
+    title: "Goals | FinSight",
     description:
       "Set and track savings goals for anything — emergency funds, vacations, home purchases. Watch your progress grow as you contribute.",
     url: "/goals",

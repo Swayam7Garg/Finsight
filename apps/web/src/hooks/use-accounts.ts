@@ -8,7 +8,7 @@ import type {
   CreateAccountInput,
   UpdateAccountInput,
   ApiResponse,
-} from "@wealthwise/shared-types";
+} from "@finsight/shared-types";
 
 export const accountKeys = {
   all: ["accounts"] as const,

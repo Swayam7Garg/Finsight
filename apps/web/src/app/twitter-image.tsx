@@ -23,7 +23,7 @@ export default function TwitterImage() {
       }}
     >
       <div style={{ display: "flex", flexDirection: "column", gap: "22px", maxWidth: "760px" }}>
-        <div style={{ fontSize: 30, fontWeight: 600, color: "#93c5fd" }}>WealthWise</div>
+        <div style={{ fontSize: 30, fontWeight: 600, color: "#93c5fd" }}>FinSight</div>
         <div
           style={{
             display: "flex",

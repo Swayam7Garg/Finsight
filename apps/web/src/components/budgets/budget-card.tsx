@@ -1,7 +1,7 @@
 "use client";
 
 import { MoreHorizontal, Pencil, Trash2 } from "lucide-react";
-import type { BudgetSummary, CategoryResponse } from "@wealthwise/shared-types";
+import type { BudgetSummary, CategoryResponse } from "@finsight/shared-types";
 import { formatCurrency, cn } from "@/lib/utils";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";

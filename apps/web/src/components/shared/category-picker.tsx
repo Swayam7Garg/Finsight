@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Check, ChevronsUpDown } from "lucide-react";
-import type { CategoryResponse } from "@wealthwise/shared-types";
+import type { CategoryResponse } from "@finsight/shared-types";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {

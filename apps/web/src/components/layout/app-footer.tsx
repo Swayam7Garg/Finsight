@@ -4,7 +4,7 @@ export function AppFooter() {
   return (
     <footer className="border-t border-border py-4">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-2 px-4 text-xs text-muted-foreground sm:flex-row sm:px-6 lg:px-8">
-        <p>&copy; {new Date().getFullYear()} WealthWise</p>
+        <p>&copy; {new Date().getFullYear()} FinSight</p>
         <div className="flex gap-4">
           <Link
             href="/terms"

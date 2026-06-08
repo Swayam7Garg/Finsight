@@ -1,6 +1,6 @@
 "use client";
 
-import type { CategoryManagementResponse } from "@wealthwise/shared-types";
+import type { CategoryManagementResponse } from "@finsight/shared-types";
 import { CategoryCard } from "@/components/categories/category-card";
 
 interface CategorySectionProps {

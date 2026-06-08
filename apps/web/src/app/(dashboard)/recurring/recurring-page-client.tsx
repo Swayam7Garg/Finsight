@@ -17,12 +17,12 @@ import {
   Clock,
   Search,
 } from "lucide-react";
-import { createRecurringSchema, updateRecurringSchema } from "@wealthwise/shared-types";
+import { createRecurringSchema, updateRecurringSchema } from "@finsight/shared-types";
 import type {
   CreateRecurringInput,
   UpdateRecurringInput,
   RecurringResponse,
-} from "@wealthwise/shared-types";
+} from "@finsight/shared-types";
 import {
   useRecurringRules,
   useUpcomingBills,

@@ -10,7 +10,7 @@ import {
   ChevronLeft,
   ChevronRight,
 } from "lucide-react";
-import type { TransactionQuery, TransactionResponse } from "@wealthwise/shared-types";
+import type { TransactionQuery, TransactionResponse } from "@finsight/shared-types";
 import {
   useTransactions,
   useDeleteTransaction,

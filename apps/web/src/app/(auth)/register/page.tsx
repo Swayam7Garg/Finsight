@@ -4,21 +4,21 @@ import { RegisterPageClient } from "./register-page-client";
 export const metadata: Metadata = {
   title: "Create Account",
   description:
-    "Create your free WealthWise account and start taking control of your personal finances today. Track expenses, set budgets, and reach your savings goals.",
+    "Create your free FinSight account and start taking control of your personal finances today. Track expenses, set budgets, and reach your savings goals.",
   alternates: {
     canonical: "/register",
   },
   openGraph: {
-    title: "Create Account | WealthWise",
+    title: "Create Account | FinSight",
     description:
-      "Create your free WealthWise account and start taking control of your personal finances today. Track expenses, set budgets, and reach your savings goals.",
+      "Create your free FinSight account and start taking control of your personal finances today. Track expenses, set budgets, and reach your savings goals.",
     url: "/register",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Create Account | WealthWise",
+    title: "Create Account | FinSight",
     description:
-      "Create your free WealthWise account and start taking control of your personal finances today. Track expenses, set budgets, and reach your savings goals.",
+      "Create your free FinSight account and start taking control of your personal finances today. Track expenses, set budgets, and reach your savings goals.",
   },
 };
 

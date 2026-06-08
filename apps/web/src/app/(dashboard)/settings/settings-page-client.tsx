@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { format } from "date-fns";
 import { AlertTriangle, CalendarIcon, Download, Palette, User } from "lucide-react";
-import { updateProfileSchema, type UpdateProfileInput } from "@wealthwise/shared-types";
+import { updateProfileSchema, type UpdateProfileInput } from "@finsight/shared-types";
 import { useAccounts } from "@/hooks/use-accounts";
 import { useProfile, useUpdateProfile } from "@/hooks/use-profile";
 import { apiClient } from "@/lib/api-client";
@@ -266,7 +266,7 @@ function DataExportTab() {
       const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.download = `wealthwise-transactions-${format(new Date(), "yyyy-MM-dd")}.${exportFormat}`;
+      link.download = `finsight-transactions-${format(new Date(), "yyyy-MM-dd")}.${exportFormat}`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);

@@ -9,7 +9,7 @@ import {
   type CategoryManagementResponse,
   type CreateCategoryInput,
   type UpdateCategoryInput,
-} from "@wealthwise/shared-types";
+} from "@finsight/shared-types";
 import { Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useCreateCategory, useUpdateCategory } from "@/hooks/use-categories";
@@ -95,7 +95,7 @@ export function CategoryFormDialog({ open, onOpenChange, category }: CategoryFor
             </div>
             <DialogTitle>{isEdit ? "Refine category" : "Create a new category"}</DialogTitle>
             <DialogDescription>
-              Design a category that looks consistent anywhere WealthWise references it.
+              Design a category that looks consistent anywhere FinSight references it.
             </DialogDescription>
           </DialogHeader>
         </div>

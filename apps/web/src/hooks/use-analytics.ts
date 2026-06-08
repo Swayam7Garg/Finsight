@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { apiClient } from "@/lib/api-client";
-import type { ApiResponse } from "@wealthwise/shared-types";
+import type { ApiResponse } from "@finsight/shared-types";
 
 export interface SpendingByCategory {
   categoryId: string;

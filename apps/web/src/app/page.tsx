@@ -5,7 +5,7 @@ import { SITE_NAME, absoluteUrl } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Smart Personal Finance Tracker",
   description:
-    "Take control of your money with WealthWise. Track expenses, build budgets, set savings goals, and monitor financial trends in one secure dashboard.",
+    "Take control of your money with FinSight. Track expenses, build budgets, set savings goals, and monitor financial trends in one secure dashboard.",
   alternates: {
     canonical: "/",
   },
@@ -21,20 +21,20 @@ export const metadata: Metadata = {
         url: absoluteUrl("/opengraph-image"),
         width: 1200,
         height: 630,
-        alt: "WealthWise personal finance dashboard",
+        alt: "FinSight personal finance dashboard",
       },
       {
         url: absoluteUrl("/android-chrome-512x512.png"),
         width: 512,
         height: 512,
-        alt: "WealthWise app icon",
+        alt: "FinSight app icon",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${SITE_NAME} - Smart Personal Finance Tracker`,
-    description: "Track expenses, manage budgets, and reach savings goals with WealthWise.",
+    description: "Track expenses, manage budgets, and reach savings goals with FinSight.",
     images: [absoluteUrl("/twitter-image"), absoluteUrl("/android-chrome-512x512.png")],
   },
 };

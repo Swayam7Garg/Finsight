@@ -29,7 +29,7 @@ export default function NotFound() {
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-lg shadow-primary/25">
             <Wallet className="h-5 w-5" />
           </div>
-          <span className="text-2xl font-bold tracking-tight">WealthWise</span>
+          <span className="text-2xl font-bold tracking-tight">FinSight</span>
         </Link>
 
         {/* 404 number */}

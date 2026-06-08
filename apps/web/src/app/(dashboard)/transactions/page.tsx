@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "View, search, filter, and manage all your income and expense transactions. Import from CSV or add entries manually to keep your records up to date.",
   openGraph: {
-    title: "Transactions | WealthWise",
+    title: "Transactions | FinSight",
     description:
       "View, search, filter, and manage all your income and expense transactions. Import from CSV or add entries manually.",
     url: "/transactions",

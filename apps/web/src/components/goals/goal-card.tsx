@@ -2,7 +2,7 @@
 
 import { differenceInDays, format } from "date-fns";
 import { MoreHorizontal, Pencil, Trash2, Plus, Calendar, PartyPopper } from "lucide-react";
-import type { GoalResponse } from "@wealthwise/shared-types";
+import type { GoalResponse } from "@finsight/shared-types";
 import { formatCurrency, cn } from "@/lib/utils";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";

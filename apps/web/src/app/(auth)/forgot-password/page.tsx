@@ -3,13 +3,13 @@ import { ForgotPasswordClient } from "./forgot-password-client";
 
 export const metadata: Metadata = {
   title: "Forgot Password",
-  description: "Reset your WealthWise account password.",
+  description: "Reset your FinSight account password.",
   alternates: {
     canonical: "/forgot-password",
   },
   openGraph: {
-    title: "Forgot Password | WealthWise",
-    description: "Reset your WealthWise account password.",
+    title: "Forgot Password | FinSight",
+    description: "Reset your FinSight account password.",
     url: "/forgot-password",
   },
 };
