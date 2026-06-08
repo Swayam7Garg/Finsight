@@ -351,13 +351,13 @@ function DateField({
             )}
           >
             <CalendarIcon className="mr-2 h-3.5 w-3.5" />
-            {value ? format(new Date(value), "MMM d, yyyy") : emptyLabel}
+            {value ? formatDate(value) || emptyLabel : emptyLabel}
           </Button>
         </PopoverTrigger>
         <PopoverContent className="w-auto p-0" align="start">
           <Calendar
             mode="single"
-            selected={value ? new Date(value) : undefined}
+            selected={value ? (isNaN(new Date(value).getTime()) ? undefined : new Date(value)) : undefined}
             onSelect={(date) => onChange(date ? date.toISOString() : undefined)}
             initialFocus
           />

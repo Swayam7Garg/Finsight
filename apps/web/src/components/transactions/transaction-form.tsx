@@ -239,13 +239,13 @@ export function TransactionForm({ open, onOpenChange, transaction }: Transaction
                   )}
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
-                  {selectedDate ? format(new Date(selectedDate), "PPP") : "Pick a date"}
+                  {selectedDate && !isNaN(new Date(selectedDate).getTime()) ? format(new Date(selectedDate), "PPP") : "Pick a date"}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">
                 <Calendar
                   mode="single"
-                  selected={selectedDate ? new Date(selectedDate) : undefined}
+                  selected={selectedDate && !isNaN(new Date(selectedDate).getTime()) ? new Date(selectedDate) : undefined}
                   onSelect={(date) => {
                     if (date) {
                       form.setValue("date", date.toISOString());

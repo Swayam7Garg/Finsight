@@ -46,6 +46,7 @@ function NotificationsPopover() {
     (b) => b.status === "warning" || b.status === "over_budget"
   );
   const billsDueSoon = (upcomingBills ?? []).filter((r) => {
+    if (!r.nextDueDate) return false;
     const days = differenceInDays(new Date(r.nextDueDate), new Date());
     return days >= 0 && days <= 7;
   });
@@ -101,6 +102,7 @@ function NotificationsPopover() {
                 </Link>
               ))}
               {billsDueSoon.map((bill) => {
+                if (!bill.nextDueDate) return null;
                 const days = differenceInDays(new Date(bill.nextDueDate), new Date());
                 return (
                   <Link

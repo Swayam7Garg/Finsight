@@ -275,13 +275,13 @@ function RecurringFormDialog({
                     )}
                   >
                     <CalendarIcon className="mr-2 h-3.5 w-3.5" />
-                    {startDate ? format(new Date(startDate), "MMM d, yyyy") : "Pick date"}
+                    {startDate && !isNaN(new Date(startDate).getTime()) ? format(new Date(startDate), "MMM d, yyyy") : "Pick date"}
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0" align="start">
                   <Calendar
                     mode="single"
-                    selected={startDate ? new Date(startDate) : undefined}
+                    selected={startDate && !isNaN(new Date(startDate).getTime()) ? new Date(startDate) : undefined}
                     onSelect={(date) => {
                       if (date) form.setValue("startDate", date.toISOString());
                     }}
@@ -302,13 +302,13 @@ function RecurringFormDialog({
                     )}
                   >
                     <CalendarIcon className="mr-2 h-3.5 w-3.5" />
-                    {endDate ? format(new Date(endDate), "MMM d, yyyy") : "No end date"}
+                    {endDate && !isNaN(new Date(endDate).getTime()) ? format(new Date(endDate), "MMM d, yyyy") : "No end date"}
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent className="w-auto p-0" align="start">
                   <Calendar
                     mode="single"
-                    selected={endDate ? new Date(endDate) : undefined}
+                    selected={endDate && !isNaN(new Date(endDate).getTime()) ? new Date(endDate) : undefined}
                     onSelect={(date) => {
                       form.setValue("endDate", date ? date.toISOString() : undefined);
                     }}
@@ -492,8 +492,8 @@ export function RecurringPageClient() {
                             <div>
                               <p className="text-sm font-semibold">{bill.description}</p>
                               <p className="text-xs text-muted-foreground">
-                                {format(new Date(bill.nextDueDate), "MMM d, yyyy")}
-                                {daysUntil >= 0 && (
+                                {bill.nextDueDate ? format(new Date(bill.nextDueDate), "MMM d, yyyy") : "No due date"}
+                                {daysUntil !== null && daysUntil >= 0 && (
                                   <span
                                     className={cn(
                                       "ml-1 font-medium",
@@ -609,7 +609,7 @@ export function RecurringPageClient() {
                               )}
                             </TableCell>
                             <TableCell className="hidden text-sm sm:table-cell">
-                              {format(new Date(rule.nextDueDate), "MMM d, yyyy")}
+                              {rule.nextDueDate ? format(new Date(rule.nextDueDate), "MMM d, yyyy") : "No due date"}
                             </TableCell>
                             <TableCell>
                               <Badge

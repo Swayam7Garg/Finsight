@@ -175,7 +175,7 @@ export function CategoryDeleteDialog({ category, open, onOpenChange }: CategoryD
                           </div>
                           <div className="flex items-center gap-1 text-xs text-muted-foreground">
                             <Clock3 className="h-3.5 w-3.5" />
-                            {format(new Date(rule.nextDueDate), "MMM d")}
+                            {rule.nextDueDate ? format(new Date(rule.nextDueDate), "MMM d") : "No due date"}
                           </div>
                         </div>
                       ))}

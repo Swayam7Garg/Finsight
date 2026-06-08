@@ -65,7 +65,7 @@ export function UpcomingBills() {
           <div className="space-y-3">
             {bills.map((bill) => {
               const cat = categoryMap.get(bill.categoryId);
-              const daysUntil = differenceInDays(new Date(bill.nextDueDate), new Date());
+              const daysUntil = bill.nextDueDate ? differenceInDays(new Date(bill.nextDueDate), new Date()) : null;
               return (
                 <div key={bill.id} className="flex items-center justify-between py-1">
                   <div className="flex min-w-0 items-center gap-3">
@@ -80,7 +80,9 @@ export function UpcomingBills() {
                           ? "Due today"
                           : daysUntil === 1
                             ? "Due tomorrow"
-                            : `Due in ${daysUntil} days`}
+                            : daysUntil !== null
+                              ? `Due in ${daysUntil} days`
+                              : "No due date"}
                       </p>
                     </div>
                   </div>

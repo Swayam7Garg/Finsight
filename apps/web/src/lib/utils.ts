@@ -25,16 +25,20 @@ export function formatCurrency(amount: number, currency: string = "USD"): string
 /**
  * Format a date string or Date object using date-fns.
  */
-export function formatDate(date: string | Date, formatStr: string = "MMM d, yyyy"): string {
+export function formatDate(date: string | Date | null | undefined, formatStr: string = "MMM d, yyyy"): string {
+  if (!date) return "";
   const d = typeof date === "string" ? new Date(date) : date;
+  if (isNaN(d.getTime())) return "";
   return format(d, formatStr);
 }
 
 /**
  * Format a date as a relative time string (e.g. "2 hours ago", "Yesterday").
  */
-export function formatRelativeDate(date: string | Date): string {
+export function formatRelativeDate(date: string | Date | null | undefined): string {
+  if (!date) return "";
   const d = typeof date === "string" ? new Date(date) : date;
+  if (isNaN(d.getTime())) return "";
 
   if (isToday(d)) {
     return formatDistanceToNow(d, { addSuffix: true });

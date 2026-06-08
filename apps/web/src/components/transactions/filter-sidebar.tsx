@@ -160,7 +160,7 @@ export function FilterSidebar({ filters, onFiltersChange }: FilterSidebarProps) 
                 )}
               >
                 <CalendarIcon className="mr-2 h-3.5 w-3.5" />
-                {filters.startDate
+                {filters.startDate && !isNaN(new Date(filters.startDate).getTime())
                   ? format(new Date(filters.startDate), "MMM d, yyyy")
                   : "Start date"}
               </Button>
@@ -168,7 +168,7 @@ export function FilterSidebar({ filters, onFiltersChange }: FilterSidebarProps) 
             <PopoverContent className="w-auto p-0" align="start">
               <Calendar
                 mode="single"
-                selected={filters.startDate ? new Date(filters.startDate) : undefined}
+                selected={filters.startDate && !isNaN(new Date(filters.startDate).getTime()) ? new Date(filters.startDate) : undefined}
                 onSelect={(date) =>
                   updateFilter("startDate", date ? date.toISOString() : undefined)
                 }
@@ -186,13 +186,13 @@ export function FilterSidebar({ filters, onFiltersChange }: FilterSidebarProps) 
                 )}
               >
                 <CalendarIcon className="mr-2 h-3.5 w-3.5" />
-                {filters.endDate ? format(new Date(filters.endDate), "MMM d, yyyy") : "End date"}
+                {filters.endDate && !isNaN(new Date(filters.endDate).getTime()) ? format(new Date(filters.endDate), "MMM d, yyyy") : "End date"}
               </Button>
             </PopoverTrigger>
             <PopoverContent className="w-auto p-0" align="start">
               <Calendar
                 mode="single"
-                selected={filters.endDate ? new Date(filters.endDate) : undefined}
+                selected={filters.endDate && !isNaN(new Date(filters.endDate).getTime()) ? new Date(filters.endDate) : undefined}
                 onSelect={(date) => updateFilter("endDate", date ? date.toISOString() : undefined)}
                 initialFocus
               />

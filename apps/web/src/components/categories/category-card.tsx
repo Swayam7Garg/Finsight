@@ -103,7 +103,7 @@ export function CategoryCard({ category, currency, onEdit, onDelete }: CategoryC
             label="Last used"
             value={
               category.usage.lastTransactionAt
-                ? format(new Date(category.usage.lastTransactionAt), "MMM d")
+                ? (category.usage.lastTransactionAt ? format(new Date(category.usage.lastTransactionAt), "MMM d") : "No transactions")
                 : "Never"
             }
           />
@@ -145,10 +145,10 @@ export function CategoryCard({ category, currency, onEdit, onDelete }: CategoryC
               title={previewRecurring ? "Recurring linked" : "No recurring linked"}
               description={
                 previewRecurring
-                  ? `${previewRecurring.description} · ${format(
-                      new Date(previewRecurring.nextDueDate),
+                  ? `${previewRecurring.description} · ${(previewRecurring as any).nextDueDate ? format(
+                      new Date((previewRecurring as any).nextDueDate),
                       "MMM d"
-                    )}`
+                    ) : "No due date"}`
                   : "Link subscriptions, bills, or salary rules here."
               }
             />

@@ -151,13 +151,13 @@ export function GoalForm({ open, onOpenChange, goal }: GoalFormProps) {
                   )}
                 >
                   <CalendarIcon className="mr-2 h-4 w-4" />
-                  {selectedDeadline ? format(new Date(selectedDeadline), "PPP") : "No deadline set"}
+                  {selectedDeadline && !isNaN(new Date(selectedDeadline).getTime()) ? format(new Date(selectedDeadline), "PPP") : "No deadline set"}
                 </Button>
               </PopoverTrigger>
               <PopoverContent className="w-auto p-0" align="start">
                 <Calendar
                   mode="single"
-                  selected={selectedDeadline ? new Date(selectedDeadline) : undefined}
+                  selected={selectedDeadline && !isNaN(new Date(selectedDeadline).getTime()) ? new Date(selectedDeadline) : undefined}
                   onSelect={(date) => {
                     form.setValue("deadline", date ? date.toISOString() : undefined);
                   }}
