@@ -15,10 +15,21 @@ spring:
 server:
   port: ${PORT:${MCP_PORT:10000}}
 
+# Full app.jwt config required because finsight-api jar is bundled and
+# Spring wires JwtTokenProvider which reads all these properties
 app:
   jwt:
     secret: ${JWT_SECRET:7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f3a2b1c0d9e8f7a6b}
     refresh-secret: ${JWT_REFRESH_SECRET:7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f3a2b1c0d9e8f7a6b}
+    access-token-expiry: 15m
+    refresh-token-expiry: 7d
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:3000}
+  gemini:
+    api-key: ${GOOGLE_AI_API_KEY:${GEMINI_API_KEY:}}
+    model: ${GEMINI_MODEL:gemini-2.5-flash}
+    model-allowlist: ${GEMINI_MODEL_ALLOWLIST:}
+    allow-pro-models: ${GEMINI_ALLOW_PRO_MODELS:false}
 
 jwt:
   secret: ${JWT_SECRET:7a6b5c4d3e2f1a0b9c8d7e6f5a4b3c2d1e0f9a8b7c6d5e4f3a2b1c0d9e8f7a6b}
