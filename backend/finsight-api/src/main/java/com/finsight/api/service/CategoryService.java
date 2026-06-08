@@ -132,9 +132,7 @@ public class CategoryService {
                 new Query(Criteria.where("userId").is(userId).and("categoryId").in(categoryIds)), Budget.class);
         Map<String, List<Map<String, Object>>> budgetMap = new HashMap<>();
         for (Budget b : budgets) {
-            budgetMap.computeIfAbsent(b.getCategoryId(), k -> new ArrayList<>()).add(Map.of(
-                    "id", b.getId(), "amount", b.getAmount(), "period", b.getPeriod(),
-                    "alertThreshold", b.getAlertThreshold(), "isActive", b.isActive()));
+            budgetMap.computeIfAbsent(b.getCategoryId(), k -> new ArrayList<>()).add(mapBudget(b));
         }
 
         // Recurring rule counts
@@ -142,10 +140,7 @@ public class CategoryService {
                 new Query(Criteria.where("userId").is(userId).and("categoryId").in(categoryIds)), RecurringRule.class);
         Map<String, List<Map<String, Object>>> recurringMap = new HashMap<>();
         for (RecurringRule r : rules) {
-            recurringMap.computeIfAbsent(r.getCategoryId(), k -> new ArrayList<>()).add(Map.of(
-                    "id", r.getId(), "description", r.getDescription(), "amount", r.getAmount(),
-                    "frequency", r.getFrequency(), "nextDueDate", r.getNextDueDate().toString(),
-                    "isActive", r.isActive(), "type", r.getType()));
+            recurringMap.computeIfAbsent(r.getCategoryId(), k -> new ArrayList<>()).add(mapRecurringRule(r));
         }
 
         return categories.stream().map(cat -> {
@@ -173,20 +168,50 @@ public class CategoryService {
             result.put("type", cat.getType());
             result.put("isDefault", cat.isDefault());
             result.put("createdAt", cat.getCreatedAt() != null ? cat.getCreatedAt().toString() : null);
-            result.put("usage", Map.of(
-                    "transactionCount", txCount,
-                    "budgetCount", lb.size(),
-                    "activeBudgetCount", lb.stream().filter(b -> (Boolean) b.get("isActive")).count(),
-                    "recurringCount", lr.size(),
-                    "activeRecurringCount", lr.stream().filter(r -> (Boolean) r.get("isActive")).count(),
-                    "spentThisMonth", spentMonth,
-                    "lastTransactionAt", lastTx != null ? lastTx.toString() : null,
-                    "canDelete", deleteBlockers.isEmpty()
-            ));
+
+            Map<String, Object> usageMap = new LinkedHashMap<>();
+            usageMap.put("transactionCount", txCount);
+            usageMap.put("budgetCount", lb.size());
+            usageMap.put("activeBudgetCount", lb.stream().filter(b -> {
+                Object active = b.get("isActive");
+                return active instanceof Boolean && (Boolean) active;
+            }).count());
+            usageMap.put("recurringCount", lr.size());
+            usageMap.put("activeRecurringCount", lr.stream().filter(r -> {
+                Object active = r.get("isActive");
+                return active instanceof Boolean && (Boolean) active;
+            }).count());
+            usageMap.put("spentThisMonth", spentMonth);
+            usageMap.put("lastTransactionAt", lastTx != null ? lastTx.toString() : null);
+            usageMap.put("canDelete", deleteBlockers.isEmpty());
+            result.put("usage", usageMap);
+
             result.put("linkedBudgets", lb);
             result.put("linkedRecurringRules", lr);
             result.put("deleteBlockers", deleteBlockers);
             return result;
         }).toList();
+    }
+
+    private Map<String, Object> mapBudget(Budget b) {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("id", b.getId());
+        map.put("amount", b.getAmount());
+        map.put("period", b.getPeriod());
+        map.put("alertThreshold", b.getAlertThreshold());
+        map.put("isActive", b.isActive());
+        return map;
+    }
+
+    private Map<String, Object> mapRecurringRule(RecurringRule r) {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("id", r.getId());
+        map.put("description", r.getDescription());
+        map.put("amount", r.getAmount());
+        map.put("frequency", r.getFrequency());
+        map.put("nextDueDate", r.getNextDueDate() != null ? r.getNextDueDate().toString() : null);
+        map.put("isActive", r.isActive());
+        map.put("type", r.getType());
+        return map;
     }
 }
