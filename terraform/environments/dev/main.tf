@@ -14,7 +14,7 @@ provider "aws" {
 
   default_tags {
     tags = {
-      Project     = "wealthwise"
+      Project     = "finsight"
       Environment = var.environment
       ManagedBy   = "terraform"
     }
@@ -24,7 +24,7 @@ provider "aws" {
 # --- IAM Roles for ECS ---
 
 resource "aws_iam_role" "ecs_execution" {
-  name = "wealthwise-${var.environment}-ecs-execution"
+  name = "finsight-${var.environment}-ecs-execution"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -46,7 +46,7 @@ resource "aws_iam_role_policy_attachment" "ecs_execution" {
 }
 
 resource "aws_iam_role" "ecs_task" {
-  name = "wealthwise-${var.environment}-ecs-task"
+  name = "finsight-${var.environment}-ecs-task"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -65,7 +65,7 @@ resource "aws_iam_role" "ecs_task" {
 # --- ALB ---
 
 resource "aws_security_group" "alb" {
-  name_prefix = "wealthwise-${var.environment}-alb-"
+  name_prefix = "finsight-${var.environment}-alb-"
   description = "Security group for ALB"
   vpc_id      = module.networking.vpc_id
 
@@ -94,7 +94,7 @@ resource "aws_security_group" "alb" {
 }
 
 resource "aws_lb" "main" {
-  name               = "wealthwise-${var.environment}"
+  name               = "finsight-${var.environment}"
   internal           = false
   load_balancer_type = "application"
   security_groups    = [aws_security_group.alb.id]
@@ -102,7 +102,7 @@ resource "aws_lb" "main" {
 }
 
 resource "aws_lb_target_group" "api" {
-  name        = "wealthwise-${var.environment}-api"
+  name        = "finsight-${var.environment}-api"
   port        = 4000
   protocol    = "HTTP"
   vpc_id      = module.networking.vpc_id
@@ -118,7 +118,7 @@ resource "aws_lb_target_group" "api" {
 }
 
 resource "aws_lb_target_group" "web" {
-  name        = "wealthwise-${var.environment}-web"
+  name        = "finsight-${var.environment}-web"
   port        = 3000
   protocol    = "HTTP"
   vpc_id      = module.networking.vpc_id
@@ -179,8 +179,8 @@ module "compute" {
   source = "../../modules/compute"
 
   environment           = var.environment
-  api_image             = "${module.container_registry.repository_urls["wealthwise-api"]}:latest"
-  web_image             = "${module.container_registry.repository_urls["wealthwise-web"]}:latest"
+  api_image             = "${module.container_registry.repository_urls["finsight-api"]}:latest"
+  web_image             = "${module.container_registry.repository_urls["finsight-web"]}:latest"
   cpu                   = 256
   memory                = 512
   min_capacity          = 1

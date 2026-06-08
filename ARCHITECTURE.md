@@ -1,4 +1,4 @@
-# Architecture - WealthWise
+# Architecture - FinSight
 
 [![Node.js](https://img.shields.io/badge/Node.js-18-339933?logo=nodedotjs&logoColor=white)](https://nodejs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -57,7 +57,7 @@
 
 ## Table of Contents
 
-- [Architecture - WealthWise](#architecture---wealthwise)
+- [Architecture - FinSight](#architecture---finsight)
   - [Table of Contents](#table-of-contents)
   - [System Overview](#system-overview)
   - [Monorepo Build Pipeline](#monorepo-build-pipeline)
@@ -176,15 +176,15 @@ There are now two distinct AI surfaces in the system:
 - The separate `agentic-ai/` service remains Claude-powered and MCP-backed for specialist agent workflows.
 
 > [!NOTE]
-> The frontend is deployed on Vercel at: **[https://wealthwisefinancial.vercel.app/](https://wealthwisefinancial.vercel.app/).** You can register a new account or use the following demo credentials to explore the app:
+> The frontend is deployed on Vercel at: **[https://finsightfinancial.vercel.app/](https://finsightfinancial.vercel.app/).** You can register a new account or use the following demo credentials to explore the app:
 > ```
-> Email: demo@wealthwise.app
+> Email: demo@finsight.app
 > Password: Demo1234!
 > ```
 > Or, create your own account to test the registration flow and see how the app works with an empty dataset.
 
 > [!TIP]
-> The backend is also fully deployed live, accessible at: [https://wealthwise-backend-api.vercel.app/](https://wealthwise-backend-api.vercel.app/). You can explore the API documentation at [https://wealthwise-backend-api.vercel.app/api/docs](https://wealthwise-backend-api.vercel.app/api/docs) and use the demo credentials above to authenticate and test the endpoints.
+> The backend is also fully deployed live, accessible at: [https://finsight-backend-api.vercel.app/](https://finsight-backend-api.vercel.app/). You can explore the API documentation at [https://finsight-backend-api.vercel.app/api/docs](https://finsight-backend-api.vercel.app/api/docs) and use the demo credentials above to authenticate and test the endpoints.
 
 ---
 
@@ -788,7 +788,7 @@ graph LR
 
 ## MCP Server Architecture
 
-The MCP server implements the [Model Context Protocol](https://modelcontextprotocol.io/) to expose WealthWise's financial data to AI agents.
+The MCP server implements the [Model Context Protocol](https://modelcontextprotocol.io/) to expose FinSight's financial data to AI agents.
 
 ```mermaid
 graph LR
@@ -825,10 +825,10 @@ graph LR
 
 | Resource URI | Description |
 |-------------|-------------|
-| `wealthwise://schema/accounts` | Account schema metadata |
-| `wealthwise://schema/transactions` | Transaction schema metadata |
-| `wealthwise://summary/accounts` | Account summary with balances |
-| `wealthwise://summary/budgets` | Budget summary with spending progress |
+| `finsight://schema/accounts` | Account schema metadata |
+| `finsight://schema/transactions` | Transaction schema metadata |
+| `finsight://summary/accounts` | Account summary with balances |
+| `finsight://summary/budgets` | Budget summary with spending progress |
 
 ### Auth Flow
 
@@ -951,7 +951,7 @@ graph TD
     MCP --> DB
     AI -- "MCP protocol" --> MCP
 
-    subgraph NETWORK["wealthwise-network (bridge)"]
+    subgraph NETWORK["finsight-network (bridge)"]
         NGINX
         API
         WEB

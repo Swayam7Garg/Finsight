@@ -1,11 +1,11 @@
 [ERROR] COMPILATION ERROR : 
-[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[5,44] package io.modelcontextprotocol.client.stdio does not exist
-[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[6,44] package io.modelcontextprotocol.client.stdio does not exist
-[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[4,42] package io.modelcontextprotocol.client.sse does not exist
+[ERROR] /C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[5,44] package io.modelcontextprotocol.client.stdio does not exist
+[ERROR] /C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[6,44] package io.modelcontextprotocol.client.stdio does not exist
+[ERROR] /C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[4,42] package io.modelcontextprotocol.client.sse does not exist
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project finsight-agentic: Compilation failure: Compilation failure: 
-[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[5,44] package io.modelcontextprotocol.client.stdio does not exist
-[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[6,44] package io.modelcontextprotocol.client.stdio does not exist
-[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[4,42] package io.modelcontextprotocol.client.sse does not exist
+[ERROR] /C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[5,44] package io.modelcontextprotocol.client.stdio does not exist
+[ERROR] /C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[6,44] package io.modelcontextprotocol.client.stdio does not exist
+[ERROR] /C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/mcp/McpClientManager.java:[4,42] package io.modelcontextprotocol.client.sse does not exist
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

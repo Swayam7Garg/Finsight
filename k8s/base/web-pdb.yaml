@@ -1,10 +1,10 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: wealthwise-web-pdb
-  namespace: wealthwise
+  name: finsight-web-pdb
+  namespace: finsight
 spec:
   minAvailable: 1
   selector:
     matchLabels:
-      app.kubernetes.io/name: wealthwise-web
+      app.kubernetes.io/name: finsight-web

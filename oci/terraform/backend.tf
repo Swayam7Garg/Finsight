@@ -1,6 +1,6 @@
 terraform {
   backend "s3" {
-    bucket                      = "wealthwise-terraform-state"
+    bucket                      = "finsight-terraform-state"
     key                         = "oci/terraform.tfstate"
     region                      = "us-ashburn-1"
     # Replace TENANCY_NAMESPACE with your OCI Object Storage namespace

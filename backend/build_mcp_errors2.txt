@@ -18,8 +18,8 @@
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- resources:3.3.1:resources (default-resources) @ finsight-common ---
-[INFO] skip non existing resourceDirectory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\resources
-[INFO] skip non existing resourceDirectory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\resources
 [INFO] 
 [INFO] --- compiler:3.13.0:compile (default-compile) @ finsight-common ---
 [INFO] Nothing to compile - all classes are up to date.
@@ -51,10 +51,10 @@
 [INFO] -------------------------------------------------------------
 [ERROR] COMPILATION ERROR : 
 [INFO] -------------------------------------------------------------
-[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[5,38] cannot find symbol
+[ERROR] /C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[5,38] cannot find symbol
   symbol:   class BudgetSummaryResponse
   location: package com.finsight.common.dto.budget
-[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/CategoryTool.java:[4,40] cannot find symbol
+[ERROR] /C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/CategoryTool.java:[4,40] cannot find symbol
   symbol:   class CategoryResponse
   location: package com.finsight.common.dto.category
 [INFO] 2 errors 
@@ -73,10 +73,10 @@
 [INFO] Finished at: 2026-03-15T21:53:24+05:30
 [INFO] ------------------------------------------------------------------------
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project finsight-mcp: Compilation failure: Compilation failure: 
-[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[5,38] cannot find symbol
+[ERROR] /C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/BudgetTool.java:[5,38] cannot find symbol
 [ERROR]   symbol:   class BudgetSummaryResponse
 [ERROR]   location: package com.finsight.common.dto.budget
-[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/CategoryTool.java:[4,40] cannot find symbol
+[ERROR] /C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend/finsight-mcp/src/main/java/com/finsight/mcp/tool/CategoryTool.java:[4,40] cannot find symbol
 [ERROR]   symbol:   class CategoryResponse
 [ERROR]   location: package com.finsight.common.dto.category
 [ERROR] -> [Help 1]

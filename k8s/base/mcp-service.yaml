@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: wealthwise-mcp
-  namespace: wealthwise
+  name: finsight-mcp
+  namespace: finsight
   labels:
-    app.kubernetes.io/name: wealthwise-mcp
+    app.kubernetes.io/name: finsight-mcp
 spec:
   type: ClusterIP
   ports:
@@ -12,4 +12,4 @@ spec:
       targetPort: 5100
       protocol: TCP
   selector:
-    app.kubernetes.io/name: wealthwise-mcp
+    app.kubernetes.io/name: finsight-mcp

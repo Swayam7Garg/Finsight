@@ -4,7 +4,7 @@
  @ 
 [ERROR] The build could not read 1 project -> [Help 1]
 [ERROR]   
-[ERROR]   The project com.finsight:finsight-agentic:1.0.0-SNAPSHOT (C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-agentic\pom.xml) has 2 errors
+[ERROR]   The project com.finsight:finsight-agentic:1.0.0-SNAPSHOT (C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-agentic\pom.xml) has 2 errors
 [ERROR]     'dependencies.dependency.version' for org.springframework.ai:spring-ai-anthropic-spring-boot-starter:jar is missing. @ line 27, column 21
 [ERROR]     'dependencies.dependency.version' for org.springframework.ai:spring-ai-mcp-client-spring-boot-starter:jar is missing. @ line 32, column 21
 [ERROR] 

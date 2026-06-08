@@ -1,6 +1,6 @@
 # `.codex` README
 
-This directory contains the repository-specific Codex configuration for WealthWise. It complements the root [`AGENTS.md`](../AGENTS.md), which defines project conventions, architecture, testing expectations, and skill discovery rules.
+This directory contains the repository-specific Codex configuration for FinSight. It complements the root [`AGENTS.md`](../AGENTS.md), which defines project conventions, architecture, testing expectations, and skill discovery rules.
 
 Use this directory when you want to understand or change how Codex behaves inside this repository: which specialist roles exist, how multi-agent work is configured, and which shell commands run freely versus requiring confirmation.
 
@@ -41,7 +41,7 @@ It currently defines:
 - Two general-purpose built-in roles:
   - `explorer`
   - `worker`
-- Three WealthWise-specific specialist roles:
+- Three FinSight-specific specialist roles:
   - `api-developer`
   - `web-developer`
   - `schema-author`
@@ -92,7 +92,7 @@ File: [`agents/api-developer.toml`](./agents/api-developer.toml)
 
 Purpose:
 - Specialist for `apps/api/`
-- Enforces WealthWise API conventions and layer separation
+- Enforces FinSight API conventions and layer separation
 
 Key knowledge baked into the role:
 - `routes` contain routing and Swagger docs only

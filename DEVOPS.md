@@ -1,6 +1,6 @@
-# WealthWise — DevOps & Infrastructure Guide
+# FinSight — DevOps & Infrastructure Guide
 
-Comprehensive documentation of all DevOps, infrastructure, and operational concerns for the WealthWise personal finance application.
+Comprehensive documentation of all DevOps, infrastructure, and operational concerns for the FinSight personal finance application.
 
 ---
 
@@ -50,7 +50,7 @@ Comprehensive documentation of all DevOps, infrastructure, and operational conce
 
 ## Architecture Overview
 
-WealthWise is a full-stack monorepo application built with a decoupled frontend/backend architecture, containerized with Docker and Podman, and reverse-proxied through Nginx in production.
+FinSight is a full-stack monorepo application built with a decoupled frontend/backend architecture, containerized with Docker and Podman, and reverse-proxied through Nginx in production.
 
 ```mermaid
 graph TB
@@ -59,7 +59,7 @@ graph TB
     end
 
     subgraph Production Host
-        subgraph Docker Network: wealthwise-network
+        subgraph Docker Network: finsight-network
             Nginx[Nginx Reverse Proxy<br/>:80 / :443]
             Web[Next.js 14 App<br/>:3000]
             API[Express 4 API<br/>:4000]
@@ -117,7 +117,7 @@ sequenceDiagram
 ## Repository Structure
 
 ```
-wealthwise/
+finsight/
 ├── apps/
 │   ├── api/                        # Express 4 REST API
 │   │   ├── Dockerfile              # Docker dev multi-stage build
@@ -126,7 +126,7 @@ wealthwise/
 │   │   ├── Containerfile.prod      # Podman hardened production build
 │   │   ├── .dockerignore
 │   │   ├── .containerignore        # Podman build context exclusions
-│   │   ├── package.json            # @wealthwise/api
+│   │   ├── package.json            # @finsight/api
 │   │   ├── tsconfig.json           # CommonJS output
 │   │   ├── vitest.config.ts        # 30s timeout (mongodb-memory-server)
 │   │   └── src/
@@ -152,14 +152,14 @@ wealthwise/
 │       ├── Containerfile.prod      # Podman hardened production build
 │       ├── .dockerignore
 │       ├── .containerignore        # Podman build context exclusions
-│       ├── package.json            # @wealthwise/web
+│       ├── package.json            # @finsight/web
 │       ├── next.config.js          # standalone output, transpilePackages
 │       ├── tsconfig.json           # ESNext, bundler resolution
 │       └── src/
 │
 ├── packages/
 │   └── shared-types/               # Zod schemas + TS types
-│       ├── package.json            # @wealthwise/shared-types
+│       ├── package.json            # @finsight/shared-types
 │       ├── tsconfig.json
 │       └── src/
 │
@@ -263,7 +263,7 @@ The development Docker/Podman setup prioritizes fast iteration with hot-reload s
 ```mermaid
 graph TB
     subgraph "docker-compose.yml (Development)"
-        subgraph "wealthwise-network (bridge)"
+        subgraph "finsight-network (bridge)"
             MongoDB["mongodb<br/>mongo:7<br/>:27017 → host:27017"]
             APIdev["api<br/>apps/api/Dockerfile<br/>:4000 → host:4000"]
             Webdev["web<br/>apps/web/Dockerfile<br/>:3000 → host:3000"]
@@ -307,7 +307,7 @@ Uses dedicated `.prod` Dockerfiles. Full production hardening.
 ```mermaid
 graph TB
     subgraph "docker-compose.production.yml (Hardened)"
-        subgraph "wealthwise-network (bridge)"
+        subgraph "finsight-network (bridge)"
             NginxProd["nginx<br/>nginx:alpine<br/>:80, :443 → host"]
             WebProd["web<br/>Dockerfile.prod<br/>expose :3000"]
             APIProd["api<br/>Dockerfile.prod<br/>expose :4000"]
@@ -466,7 +466,7 @@ graph TB
     end
 
     subgraph "Host Machine"
-        subgraph "Docker Bridge: wealthwise-network"
+        subgraph "Docker Bridge: finsight-network"
             LB["Nginx<br/>:80 (HTTP → 301 HTTPS)<br/>:443 (HTTPS + HTTP/2)"]
 
             subgraph "Application Tier"
@@ -626,7 +626,7 @@ All environment variables with their sources, defaults, and validation rules:
 
 | Variable | Package | Required | Default | Validation |
 |----------|---------|:--------:|---------|-----------|
-| `MONGODB_URI` | api | Yes | `mongodb://localhost:27017/wealthwise` | Valid URL |
+| `MONGODB_URI` | api | Yes | `mongodb://localhost:27017/finsight` | Valid URL |
 | `JWT_SECRET` | api | Yes | — | Min 32 characters |
 | `JWT_REFRESH_SECRET` | api | Yes | — | Min 32 characters |
 | `API_PORT` | api | No | `4000` | Integer |
@@ -753,7 +753,7 @@ Mongoose event handlers log: `connected`, `error`, `disconnected`.
 ```bash
 # Backup (from host)
 docker compose -f docker-compose.production.yml exec mongodb \
-  mongodump --db wealthwise --archive=/tmp/backup.archive --gzip
+  mongodump --db finsight --archive=/tmp/backup.archive --gzip
 
 docker compose -f docker-compose.production.yml cp \
   mongodb:/tmp/backup.archive ./backups/$(date +%Y%m%d).archive
@@ -797,8 +797,8 @@ graph TD
 
 ```mermaid
 graph LR
-    ST["@wealthwise/shared-types<br/>tsc → dist/"] --> API["@wealthwise/api<br/>tsc → dist/"]
-    ST --> WEB["@wealthwise/web<br/>next build → .next/"]
+    ST["@finsight/shared-types<br/>tsc → dist/"] --> API["@finsight/api<br/>tsc → dist/"]
+    ST --> WEB["@finsight/web<br/>next build → .next/"]
 
     style ST fill:#f59e0b,color:#000
     style API fill:#10b981,color:#fff
@@ -806,8 +806,8 @@ graph LR
 ```
 
 The `^build` dependency in `turbo.json` ensures:
-1. `@wealthwise/shared-types` builds first (both api and web depend on it)
-2. `@wealthwise/api` and `@wealthwise/web` build in parallel after shared-types
+1. `@finsight/shared-types` builds first (both api and web depend on it)
+2. `@finsight/api` and `@finsight/web` build in parallel after shared-types
 
 **Development note**: In development (`npm run dev`), shared-types is consumed directly from source (`main: "./src/index.ts"` in its `package.json`). It only needs a build step for Docker production images and type checking.
 
@@ -867,9 +867,9 @@ graph TB
 | Command | Scope | Description |
 |---------|-------|-------------|
 | `npm run test` | All | Run all tests across all packages |
-| `npx turbo test --filter=@wealthwise/api` | API | Run API tests only |
-| `npx turbo test --filter=@wealthwise/web` | Web | Run web tests only |
-| `npx turbo test --filter=@wealthwise/shared-types` | Schemas | Run schema tests only |
+| `npx turbo test --filter=@finsight/api` | API | Run API tests only |
+| `npx turbo test --filter=@finsight/web` | Web | Run web tests only |
+| `npx turbo test --filter=@finsight/shared-types` | Schemas | Run schema tests only |
 | `npm run test:watch` | All | Watch mode for all packages |
 | `npm run test:coverage` | All | Coverage report for all packages |
 
@@ -1056,7 +1056,7 @@ graph TB
 
 ## CI/CD Pipeline
 
-WealthWise provides a variety of CI/CD pipeline configurations to support different organizational needs. The current setup uses GitHub Actions for both CI and CD, but the structure is designed to be portable to other platforms like Jenkins or GitLab CI if desired.
+FinSight provides a variety of CI/CD pipeline configurations to support different organizational needs. The current setup uses GitHub Actions for both CI and CD, but the structure is designed to be portable to other platforms like Jenkins or GitLab CI if desired.
 
 ### GitHub Actions
 
@@ -1183,7 +1183,7 @@ This repository does not currently include committed Argo manifests, but the rel
 
 Argo CD is the natural CD layer if the team wants deployments to be driven from Kubernetes manifests or Helm charts stored in Git. In that setup:
 
-- GitHub Actions, Jenkins, or GitLab CI builds and publishes `wealthwise-api` and `wealthwise-web` images
+- GitHub Actions, Jenkins, or GitLab CI builds and publishes `finsight-api` and `finsight-web` images
 - a deployment repository, Helm values file, or Kubernetes overlay is updated with the new image tag
 - Argo CD detects the Git change and syncs the cluster to the declared state
 
@@ -1191,7 +1191,7 @@ This keeps CI responsible for producing artifacts and GitOps responsible for rec
 
 #### Argo Rollouts
 
-Argo Rollouts complements Argo CD when production deployment needs safer traffic shifting than a basic rolling update. For WealthWise, it would be a good fit for:
+Argo Rollouts complements Argo CD when production deployment needs safer traffic shifting than a basic rolling update. For FinSight, it would be a good fit for:
 
 - canary releases of the API before full promotion
 - blue/green rollout of the Next.js web container
@@ -1266,7 +1266,7 @@ graph TD
 
 ```bash
 # 1. Set environment variables
-export MONGODB_URI=mongodb://mongodb:27017/wealthwise
+export MONGODB_URI=mongodb://mongodb:27017/finsight
 export JWT_SECRET=$(openssl rand -base64 48)
 export JWT_REFRESH_SECRET=$(openssl rand -base64 48)
 export NEXTAUTH_SECRET=$(openssl rand -base64 48)
@@ -1475,7 +1475,7 @@ graph TD
     end
 
     subgraph Web_Debug["Web Build Fails"]
-        W1["Check shared-types built first:<br/>npx turbo build --filter=@wealthwise/shared-types"]
+        W1["Check shared-types built first:<br/>npx turbo build --filter=@finsight/shared-types"]
         W1 --> W2["Verify NEXT_PUBLIC_API_URL is set"]
         W2 --> W3["Check node_modules exists"]
     end
@@ -1495,7 +1495,7 @@ graph TD
     subgraph Test_Debug["Test Timeouts"]
         T1["API tests: 30s timeout is normal<br/>(MongoMemoryServer startup)"]
         T1 --> T2["Check available memory<br/>(MongoMemoryServer needs ~500MB)"]
-        T2 --> T3["Run single package:<br/>npx turbo test --filter=@wealthwise/api"]
+        T2 --> T3["Run single package:<br/>npx turbo test --filter=@finsight/api"]
     end
 
     style Problem fill:#f59e0b,color:#000
@@ -1508,7 +1508,7 @@ graph TD
 docker compose -f docker-compose.production.yml ps
 
 # Check health of specific container
-docker inspect --format='{{.State.Health.Status}}' wealthwise-api-1
+docker inspect --format='{{.State.Health.Status}}' finsight-api-1
 
 # Check resource usage
 docker stats --no-stream

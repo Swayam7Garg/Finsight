@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: WealthWise DocumentDB cluster (MongoDB-compatible)
+Description: FinSight DocumentDB cluster (MongoDB-compatible)
 
 Parameters:
   VPCId:
@@ -15,7 +15,7 @@ Parameters:
 
   MasterUsername:
     Type: String
-    Default: wealthwise
+    Default: finsight
     MinLength: 1
     MaxLength: 63
 
@@ -56,7 +56,7 @@ Resources:
   DocumentDBSubnetGroup:
     Type: AWS::DocDB::DBSubnetGroup
     Properties:
-      DBSubnetGroupDescription: Subnet group for WealthWise DocumentDB
+      DBSubnetGroupDescription: Subnet group for FinSight DocumentDB
       SubnetIds: !Ref PrivateSubnetIds
       Tags:
         - Key: Name
@@ -65,7 +65,7 @@ Resources:
   DocumentDBParameterGroup:
     Type: AWS::DocDB::DBClusterParameterGroup
     Properties:
-      Description: WealthWise DocumentDB parameter group
+      Description: FinSight DocumentDB parameter group
       Family: docdb5.0
       Parameters:
         tls: enabled
@@ -77,7 +77,7 @@ Resources:
   DocumentDBCluster:
     Type: AWS::DocDB::DBCluster
     Properties:
-      DBClusterIdentifier: !Sub ${EnvironmentName}-wealthwise
+      DBClusterIdentifier: !Sub ${EnvironmentName}-finsight
       MasterUsername: !Ref MasterUsername
       MasterUserPassword: !Ref MasterUserPassword
       DBSubnetGroupName: !Ref DocumentDBSubnetGroup
@@ -91,27 +91,27 @@ Resources:
       DeletionProtection: true
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName}-wealthwise-cluster
+          Value: !Sub ${EnvironmentName}-finsight-cluster
 
   DocumentDBInstance1:
     Type: AWS::DocDB::DBInstance
     Properties:
       DBClusterIdentifier: !Ref DocumentDBCluster
-      DBInstanceIdentifier: !Sub ${EnvironmentName}-wealthwise-1
+      DBInstanceIdentifier: !Sub ${EnvironmentName}-finsight-1
       DBInstanceClass: !Ref InstanceClass
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName}-wealthwise-instance-1
+          Value: !Sub ${EnvironmentName}-finsight-instance-1
 
   DocumentDBInstance2:
     Type: AWS::DocDB::DBInstance
     Properties:
       DBClusterIdentifier: !Ref DocumentDBCluster
-      DBInstanceIdentifier: !Sub ${EnvironmentName}-wealthwise-2
+      DBInstanceIdentifier: !Sub ${EnvironmentName}-finsight-2
       DBInstanceClass: !Ref InstanceClass
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName}-wealthwise-instance-2
+          Value: !Sub ${EnvironmentName}-finsight-instance-2
 
 Outputs:
   ClusterEndpoint:
@@ -129,7 +129,7 @@ Outputs:
   ConnectionString:
     Description: MongoDB connection string (add database name and auth source)
     Value: !Sub
-      - 'mongodb://${MasterUsername}:<password>@${Endpoint}:${Port}/wealthwise?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false'
+      - 'mongodb://${MasterUsername}:<password>@${Endpoint}:${Port}/finsight?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false'
       - Endpoint: !GetAtt DocumentDBCluster.Endpoint
         Port: !GetAtt DocumentDBCluster.Port
 

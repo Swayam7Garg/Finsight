@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: WealthWise ALB - HTTPS, path-based routing for API and Web
+Description: FinSight ALB - HTTPS, path-based routing for API and Web
 
 Parameters:
   VPCId:
@@ -39,7 +39,7 @@ Resources:
   ApplicationLoadBalancer:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
-      Name: !Sub ${EnvironmentName}-wealthwise-alb
+      Name: !Sub ${EnvironmentName}-finsight-alb
       Scheme: internet-facing
       Type: application
       Subnets: !Ref PublicSubnetIds
@@ -47,7 +47,7 @@ Resources:
         - !Ref ALBSecurityGroup
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName}-wealthwise-alb
+          Value: !Sub ${EnvironmentName}-finsight-alb
 
   # HTTP Listener - Redirect to HTTPS
   HTTPListener:

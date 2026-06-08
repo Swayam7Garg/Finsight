@@ -1,0 +1,11 @@
+# Staging overrides.
+# Inherits base defaults (2 replicas, HPA/PDB/topology enabled).
+
+ingress:
+  host: staging.finsight.example.com
+  tls:
+    secretName: finsight-staging-tls
+
+web:
+  nextauthUrl: "https://staging.finsight.example.com"
+  nextPublicApiUrl: "https://staging.finsight.example.com/api/v1"

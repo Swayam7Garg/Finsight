@@ -1,7 +1,7 @@
 ---
 name: new-model
 description: >
-  Scaffold a new Mongoose model and its CRUD service for the WealthWise API.
+  Scaffold a new Mongoose model and its CRUD service for the FinSight API.
   Triggers when asked to "create a model", "add a Mongoose schema", or add the data layer
   for a new entity without a full endpoint. Does NOT scaffold routes, controllers, or frontend code.
   Use $api-endpoint for the full stack.
@@ -79,7 +79,7 @@ Five methods, fully typed:
 ## Verification
 
 ```bash
-npx turbo lint --filter=@wealthwise/api
+npx turbo lint --filter=@finsight/api
 ```
 
 List all created file paths and the five service method signatures.

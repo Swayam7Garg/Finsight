@@ -1,6 +1,6 @@
-# WealthWise Terraform Infrastructure
+# FinSight Terraform Infrastructure
 
-AWS infrastructure as code for the WealthWise personal finance application.
+AWS infrastructure as code for the FinSight personal finance application.
 
 ## Module Structure
 
@@ -24,22 +24,22 @@ terraform/
 
 - [Terraform](https://www.terraform.io/downloads) >= 1.5
 - [AWS CLI](https://aws.amazon.com/cli/) configured with appropriate credentials
-- An S3 bucket for Terraform state (default: `wealthwise-terraform-state`)
-- A DynamoDB table for state locking (default: `wealthwise-terraform-locks`)
+- An S3 bucket for Terraform state (default: `finsight-terraform-state`)
+- A DynamoDB table for state locking (default: `finsight-terraform-locks`)
 
 ### Creating the State Backend
 
 ```bash
 aws s3api create-bucket \
-  --bucket wealthwise-terraform-state \
+  --bucket finsight-terraform-state \
   --region us-east-1
 
 aws s3api put-bucket-versioning \
-  --bucket wealthwise-terraform-state \
+  --bucket finsight-terraform-state \
   --versioning-configuration Status=Enabled
 
 aws dynamodb create-table \
-  --table-name wealthwise-terraform-locks \
+  --table-name finsight-terraform-locks \
   --attribute-definitions AttributeName=LockID,AttributeType=S \
   --key-schema AttributeName=LockID,KeyType=HASH \
   --billing-mode PAY_PER_REQUEST \

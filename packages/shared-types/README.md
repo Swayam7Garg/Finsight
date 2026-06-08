@@ -1,10 +1,10 @@
-# @wealthwise/shared-types
+# @finsight/shared-types
 
-Shared Zod schemas and TypeScript types used by both the API (`@wealthwise/api`) and web (`@wealthwise/web`) packages in the WealthWise monorepo.
+Shared Zod schemas and TypeScript types used by both the API (`@finsight/api`) and web (`@finsight/web`) packages in the FinSight monorepo.
 
 ## Overview
 
-This package is the single source of truth for all data validation and type definitions across the WealthWise stack. Schemas are defined once with [Zod](https://zod.dev/) and TypeScript types are inferred from them -- no hand-written types that can drift out of sync.
+This package is the single source of truth for all data validation and type definitions across the FinSight stack. Schemas are defined once with [Zod](https://zod.dev/) and TypeScript types are inferred from them -- no hand-written types that can drift out of sync.
 
 ## Installation
 
@@ -13,7 +13,7 @@ This is an internal monorepo package. Add it as a dependency in any workspace `p
 ```json
 {
   "dependencies": {
-    "@wealthwise/shared-types": "*"
+    "@finsight/shared-types": "*"
   }
 }
 ```
@@ -24,13 +24,13 @@ Turborepo handles build ordering automatically via `dependsOn: ["^build"]`.
 
 ```typescript
 // Import schemas for validation
-import { createAccountSchema, loginSchema } from "@wealthwise/shared-types";
+import { createAccountSchema, loginSchema } from "@finsight/shared-types";
 
 // Import types for type annotations
-import type { AccountResponse, CreateAccountInput } from "@wealthwise/shared-types";
+import type { AccountResponse, CreateAccountInput } from "@finsight/shared-types";
 
 // Import enums for dropdowns, selects, etc.
-import { accountTypeEnum, budgetPeriodEnum } from "@wealthwise/shared-types";
+import { accountTypeEnum, budgetPeriodEnum } from "@finsight/shared-types";
 
 // Validate input
 const result = createAccountSchema.safeParse(userInput);
@@ -211,7 +211,7 @@ All enums are Zod enums exported as runtime values. Use `.options` to get the ar
 
 ```typescript
 // Example: use enum values for a select dropdown
-import { accountTypeEnum } from "@wealthwise/shared-types";
+import { accountTypeEnum } from "@finsight/shared-types";
 
 const options = accountTypeEnum.options; // ["checking", "savings", "credit_card", "cash", "investment"]
 ```
@@ -222,7 +222,7 @@ const options = accountTypeEnum.options; // ["checking", "savings", "credit_card
 
 ```bash
 # Run shared-types tests
-npx turbo test --filter=@wealthwise/shared-types
+npx turbo test --filter=@finsight/shared-types
 
 # Run directly with vitest
 cd packages/shared-types && npx vitest

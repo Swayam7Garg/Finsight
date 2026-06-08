@@ -1,4 +1,4 @@
-# AGENTS.md — WealthWise
+# AGENTS.md — FinSight
 
 Project-level instructions for Codex. Loaded automatically at the start of every session alongside any global `~/.codex/AGENTS.md`.
 
@@ -6,7 +6,7 @@ Project-level instructions for Codex. Loaded automatically at the start of every
 
 ## Project Overview
 
-WealthWise is a full-stack personal finance app built as a **Turborepo monorepo** with five packages:
+FinSight is a full-stack personal finance app built as a **Turborepo monorepo** with five packages:
 
 - `apps/api` — Express 4 REST API (TypeScript, Mongoose, MongoDB)
 - `apps/web` — Next.js 14 App Router (React 18, Tailwind CSS, shadcn/ui)
@@ -15,11 +15,11 @@ WealthWise is a full-stack personal finance app built as a **Turborepo monorepo*
 - `agentic-ai/` — Agentic AI Service (Claude, MCP Client, Express)
 
 Package names (use these exact strings with `--filter`):
-- `@wealthwise/api`
-- `@wealthwise/web`
-- `@wealthwise/shared-types`
-- `@wealthwise/mcp`
-- `@wealthwise/agentic-ai`
+- `@finsight/api`
+- `@finsight/web`
+- `@finsight/shared-types`
+- `@finsight/mcp`
+- `@finsight/agentic-ai`
 
 ---
 
@@ -30,13 +30,13 @@ Package names (use these exact strings with `--filter`):
 | Start dev | `npm run dev` |
 | Build all | `npm run build` |
 | Run all tests | `npm run test` |
-| Run API tests only | `npx turbo test --filter=@wealthwise/api` |
-| Run web tests only | `npx turbo test --filter=@wealthwise/web` |
-| Run schema tests only | `npx turbo test --filter=@wealthwise/shared-types` |
-| Run MCP tests only | `npx turbo test --filter=@wealthwise/mcp` |
-| Run AI tests only | `npx turbo test --filter=@wealthwise/agentic-ai` |
-| Build MCP | `npx turbo build --filter=@wealthwise/mcp` |
-| Build AI | `npx turbo build --filter=@wealthwise/agentic-ai` |
+| Run API tests only | `npx turbo test --filter=@finsight/api` |
+| Run web tests only | `npx turbo test --filter=@finsight/web` |
+| Run schema tests only | `npx turbo test --filter=@finsight/shared-types` |
+| Run MCP tests only | `npx turbo test --filter=@finsight/mcp` |
+| Run AI tests only | `npx turbo test --filter=@finsight/agentic-ai` |
+| Build MCP | `npx turbo build --filter=@finsight/mcp` |
+| Build AI | `npx turbo build --filter=@finsight/agentic-ai` |
 | Type-check | `npm run lint` |
 | Format | `npm run format` |
 | Format check | `npm run format:check` |
@@ -155,7 +155,7 @@ Pattern for a new endpoint (in order):
 ## Frontend Conventions (apps/web/)
 
 - **All data fetching through TanStack Query** — never raw `fetch` in components.
-- **All forms use React Hook Form + `zodResolver`** with schemas from `@wealthwise/shared-types`.
+- **All forms use React Hook Form + `zodResolver`** with schemas from `@finsight/shared-types`.
 - **Sonner toasts on every mutation** — success AND error.
 - **Handle loading, error, and empty states** on every data-fetching component.
 - **Tailwind CSS only** — no inline styles except dynamic CSS custom properties.
@@ -228,11 +228,11 @@ Pattern for a new insight type:
 
 | Package | Runner | Key constraint |
 |---------|--------|---------------|
-| `@wealthwise/api` | Vitest + mongodb-memory-server | 30s timeout — never reduce it |
-| `@wealthwise/web` | Vitest + jsdom | No `@vitejs/plugin-react` (causes ESM errors) |
-| `@wealthwise/shared-types` | Vitest (Node) | No special setup |
-| `@wealthwise/mcp` | Vitest + mongodb-memory-server | 30s timeout — same as API |
-| `@wealthwise/agentic-ai` | Vitest | Mocks Anthropic API and MCP client |
+| `@finsight/api` | Vitest + mongodb-memory-server | 30s timeout — never reduce it |
+| `@finsight/web` | Vitest + jsdom | No `@vitejs/plugin-react` (causes ESM errors) |
+| `@finsight/shared-types` | Vitest (Node) | No special setup |
+| `@finsight/mcp` | Vitest + mongodb-memory-server | 30s timeout — same as API |
+| `@finsight/agentic-ai` | Vitest | Mocks Anthropic API and MCP client |
 
 Test files go in `__tests__/` adjacent to source. Naming: `<module>.test.ts`.
 Current baseline: 138 API + 41 web + 151 schema + 61 MCP + 31 AI = **422 tests total**.
@@ -264,7 +264,7 @@ Never read, modify, or commit `.env` files. Never log secrets.
 
 ## Common Gotchas
 
-- **Turbo filter names**: Use `@wealthwise/api`, not `api`.
+- **Turbo filter names**: Use `@finsight/api`, not `api`.
 - **Shared types build order**: `shared-types` must build before `api` or `web`.
 - **CSS variables**: HSL format without `hsl()` wrapper.
 - **NextAuth route**: `app/api/auth/[...nextauth]/route.ts` — don't add other files in `app/api/`.

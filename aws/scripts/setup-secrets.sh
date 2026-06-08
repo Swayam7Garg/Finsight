@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Initialize AWS Secrets Manager secrets for WealthWise
+# Initialize AWS Secrets Manager secrets for FinSight
 : "${AWS_REGION:?AWS_REGION is required}"
 
 create_or_update_secret() {
@@ -28,9 +28,9 @@ create_or_update_secret() {
 : "${MONGODB_URI:?MONGODB_URI is required}"
 : "${NEXTAUTH_SECRET:?NEXTAUTH_SECRET is required}"
 
-create_or_update_secret "wealthwise/jwt-secret" "${JWT_SECRET}"
-create_or_update_secret "wealthwise/jwt-refresh-secret" "${JWT_REFRESH_SECRET}"
-create_or_update_secret "wealthwise/mongodb-uri" "${MONGODB_URI}"
-create_or_update_secret "wealthwise/nextauth-secret" "${NEXTAUTH_SECRET}"
+create_or_update_secret "finsight/jwt-secret" "${JWT_SECRET}"
+create_or_update_secret "finsight/jwt-refresh-secret" "${JWT_REFRESH_SECRET}"
+create_or_update_secret "finsight/mongodb-uri" "${MONGODB_URI}"
+create_or_update_secret "finsight/nextauth-secret" "${NEXTAUTH_SECRET}"
 
 echo "All secrets configured."

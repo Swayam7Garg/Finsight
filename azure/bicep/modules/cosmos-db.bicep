@@ -72,10 +72,10 @@ resource privateEndpoint 'Microsoft.Network/privateEndpoints@2023-09-01' = {
 
 resource database 'Microsoft.DocumentDB/databaseAccounts/mongodbDatabases@2023-11-15' = {
   parent: cosmosAccount
-  name: 'wealthwise'
+  name: 'finsight'
   properties: {
     resource: {
-      id: 'wealthwise'
+      id: 'finsight'
     }
   }
 }

@@ -1,12 +1,12 @@
 ---
 name: pre-pr
 description: >
-  Run the full WealthWise pre-PR checklist and report a pass/fail for each gate.
+  Run the full FinSight pre-PR checklist and report a pass/fail for each gate.
   Triggers when asked to "run pre-PR checks", "check if this is ready to merge",
   "validate before opening a PR", or "run the full check". Does NOT trigger implicitly.
 ---
 
-Run the full pre-PR checklist for WealthWise. Report pass/fail for each gate.
+Run the full pre-PR checklist for FinSight. Report pass/fail for each gate.
 
 ## Gates (run in sequence; stop on first failure unless `--all` is specified)
 

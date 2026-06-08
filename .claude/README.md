@@ -1,6 +1,6 @@
 # `.claude` README
 
-This directory contains repository-specific Claude Code configuration for WealthWise. It supplements the root [`CLAUDE.md`](../CLAUDE.md), which defines project conventions for architecture, coding standards, testing, and package structure.
+This directory contains repository-specific Claude Code configuration for FinSight. It supplements the root [`CLAUDE.md`](../CLAUDE.md), which defines project conventions for architecture, coding standards, testing, and package structure.
 
 Use this directory when you want to understand how Claude Code is customized for this repository: which slash-command skills exist, which specialist agents are available, what hooks run automatically, and which tools/commands are pre-approved.
 

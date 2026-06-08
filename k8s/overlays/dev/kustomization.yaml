@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: wealthwise
+namespace: finsight
 
 resources:
   - ../../base
@@ -9,7 +9,7 @@ resources:
 patches:
   - target:
       kind: Deployment
-      name: wealthwise-api
+      name: finsight-api
     patch: |-
       - op: replace
         path: /spec/replicas
@@ -22,7 +22,7 @@ patches:
         value: "250m"
   - target:
       kind: Deployment
-      name: wealthwise-web
+      name: finsight-web
     patch: |-
       - op: replace
         path: /spec/replicas
@@ -35,7 +35,7 @@ patches:
         value: "250m"
   - target:
       kind: HorizontalPodAutoscaler
-      name: wealthwise-api-hpa
+      name: finsight-api-hpa
     patch: |-
       - op: replace
         path: /spec/minReplicas
@@ -45,7 +45,7 @@ patches:
         value: 3
   - target:
       kind: Deployment
-      name: wealthwise-mcp
+      name: finsight-mcp
     patch: |-
       - op: replace
         path: /spec/replicas
@@ -58,7 +58,7 @@ patches:
         value: "250m"
   - target:
       kind: Deployment
-      name: wealthwise-agentic-ai
+      name: finsight-agentic-ai
     patch: |-
       - op: replace
         path: /spec/replicas
@@ -71,7 +71,7 @@ patches:
         value: "250m"
   - target:
       kind: HorizontalPodAutoscaler
-      name: wealthwise-web-hpa
+      name: finsight-web-hpa
     patch: |-
       - op: replace
         path: /spec/minReplicas
@@ -81,7 +81,7 @@ patches:
         value: 3
   - target:
       kind: HorizontalPodAutoscaler
-      name: wealthwise-mcp-hpa
+      name: finsight-mcp-hpa
     patch: |-
       - op: replace
         path: /spec/minReplicas
@@ -91,7 +91,7 @@ patches:
         value: 3
   - target:
       kind: HorizontalPodAutoscaler
-      name: wealthwise-agentic-ai-hpa
+      name: finsight-agentic-ai-hpa
     patch: |-
       - op: replace
         path: /spec/minReplicas

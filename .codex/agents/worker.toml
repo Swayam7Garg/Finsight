@@ -3,7 +3,7 @@ model                  = "codex-1"
 model_reasoning_effort = "medium"
 
 developer_instructions = """
-You are a focused implementation agent for WealthWise.
+You are a focused implementation agent for FinSight.
 
 Your job:
 - Make the smallest defensible change that achieves the goal.

@@ -1,4 +1,4 @@
-# WealthWise Azure Deployment
+# FinSight Azure Deployment
 
 ## Architecture
 
@@ -49,7 +49,7 @@ az account set --subscription "<YOUR_SUBSCRIPTION_ID>"
 
 ```bash
 az group create \
-    --name wealthwise-production \
+    --name finsight-production \
     --location eastus2
 ```
 
@@ -71,7 +71,7 @@ export MONGODB_URI="<your-cosmos-db-connection-string>"
 
 ```bash
 export AZURE_SUBSCRIPTION_ID="<your-subscription-id>"
-export RESOURCE_GROUP="wealthwise-production"
+export RESOURCE_GROUP="finsight-production"
 export ACR_NAME="wwproductionacr"
 export ENVIRONMENT="production"
 
@@ -84,7 +84,7 @@ export ENVIRONMENT="production"
 # Check container app status
 az containerapp show \
     --name ww-production-api \
-    --resource-group wealthwise-production \
+    --resource-group finsight-production \
     --query "properties.runningStatus"
 
 # Check API health
@@ -95,9 +95,9 @@ curl https://<api-fqdn>/api/health
 
 | Environment | Resource Group | Key Vault | Replicas (API) | Replicas (Web) |
 |-------------|---------------|-----------|----------------|----------------|
-| dev | wealthwise-dev | ww-dev-kv | 1 | 1 |
-| staging | wealthwise-staging | ww-staging-kv | 2 | 2 |
-| production | wealthwise-production | ww-production-kv | 3-10 | 3-8 |
+| dev | finsight-dev | ww-dev-kv | 1 | 1 |
+| staging | finsight-staging | ww-staging-kv | 2 | 2 |
+| production | finsight-production | ww-production-kv | 3-10 | 3-8 |
 
 ## Bicep Modules
 

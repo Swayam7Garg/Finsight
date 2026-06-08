@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wealthwise-mcp
-  namespace: wealthwise
+  name: finsight-mcp
+  namespace: finsight
 spec:
   replicas: 2
   template:

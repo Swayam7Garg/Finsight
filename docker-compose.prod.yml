@@ -3,20 +3,20 @@ version: "3.8"
 services:
   mongodb:
     image: mongo:7
-    container_name: wealthwise-mongodb-prod
+    container_name: finsight-mongodb-prod
     volumes:
       - mongodb_data_prod:/data/db
     environment:
       - MONGO_INITDB_DATABASE=finsight
     networks:
-      - wealthwise-network
+      - finsight-network
     restart: always
 
   api:
     build:
       context: ./backend
       dockerfile: finsight-api/Dockerfile
-    container_name: wealthwise-api-prod
+    container_name: finsight-api-prod
     expose:
       - "4000"
     environment:
@@ -29,7 +29,7 @@ services:
     depends_on:
       - mongodb
     networks:
-      - wealthwise-network
+      - finsight-network
     restart: always
 
   web:
@@ -37,7 +37,7 @@ services:
       context: .
       dockerfile: apps/web/Dockerfile
       target: production
-    container_name: wealthwise-web-prod
+    container_name: finsight-web-prod
     expose:
       - "3000"
     environment:
@@ -49,14 +49,14 @@ services:
     depends_on:
       - api
     networks:
-      - wealthwise-network
+      - finsight-network
     restart: always
 
   mcp:
     build:
       context: ./backend
       dockerfile: mcp/Dockerfile
-    container_name: wealthwise-mcp-prod
+    container_name: finsight-mcp-prod
     expose:
       - "5100"
     environment:
@@ -68,14 +68,14 @@ services:
     depends_on:
       - mongodb
     networks:
-      - wealthwise-network
+      - finsight-network
     restart: always
 
   agentic-ai:
     build:
       context: ./backend
       dockerfile: agentic-ai/Dockerfile
-    container_name: wealthwise-agentic-ai-prod
+    container_name: finsight-agentic-ai-prod
     expose:
       - "5200"
     environment:
@@ -87,12 +87,12 @@ services:
     depends_on:
       - mcp
     networks:
-      - wealthwise-network
+      - finsight-network
     restart: always
 
   nginx:
     image: nginx:alpine
-    container_name: wealthwise-nginx
+    container_name: finsight-nginx
     ports:
       - "80:80"
       - "443:443"
@@ -105,12 +105,12 @@ services:
       - mcp
       - agentic-ai
     networks:
-      - wealthwise-network
+      - finsight-network
     restart: always
 
 volumes:
   mongodb_data_prod:
 
 networks:
-  wealthwise-network:
+  finsight-network:
     driver: bridge

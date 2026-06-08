@@ -1,6 +1,6 @@
 # Argo Rollouts — API Canary Rollout
 #
-# Replaces apps/v1/Deployment (wealthwise-api) in the production namespace.
+# Replaces apps/v1/Deployment (finsight-api) in the production namespace.
 # Strategy: Canary with pod-count-based traffic splitting.
 #
 # Traffic progression:
@@ -11,33 +11,33 @@
 #
 # Usage:
 #   # Remove the base Deployment first, then apply this Rollout:
-#   kubectl delete deployment wealthwise-api -n wealthwise-production
-#   kubectl apply -f api-services.yaml  -n wealthwise-production
-#   kubectl apply -f api-rollout.yaml   -n wealthwise-production
+#   kubectl delete deployment finsight-api -n finsight-production
+#   kubectl apply -f api-services.yaml  -n finsight-production
+#   kubectl apply -f api-rollout.yaml   -n finsight-production
 #
 #   # Trigger an update:
-#   kubectl argo rollouts set image wealthwise-api \
-#     api=ghcr.io/hoangsonww/wealthwise-api:<new-sha> \
-#     -n wealthwise-production
+#   kubectl argo rollouts set image finsight-api \
+#     api=ghcr.io/hoangsonww/finsight-api:<new-sha> \
+#     -n finsight-production
 #
 #   # Watch the rollout live:
-#   kubectl argo rollouts get rollout wealthwise-api -n wealthwise-production --watch
+#   kubectl argo rollouts get rollout finsight-api -n finsight-production --watch
 #
 #   # Manually promote (if paused waiting for approval):
-#   kubectl argo rollouts promote wealthwise-api -n wealthwise-production
+#   kubectl argo rollouts promote finsight-api -n finsight-production
 #
 #   # Abort and rollback:
-#   kubectl argo rollouts abort wealthwise-api -n wealthwise-production
+#   kubectl argo rollouts abort finsight-api -n finsight-production
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: wealthwise-api
-  namespace: wealthwise-production
+  name: finsight-api
+  namespace: finsight-production
   labels:
-    app.kubernetes.io/name: wealthwise-api
+    app.kubernetes.io/name: finsight-api
     app.kubernetes.io/component: api
-    app.kubernetes.io/part-of: wealthwise
+    app.kubernetes.io/part-of: finsight
     app.kubernetes.io/managed-by: argo-rollouts
   annotations:
     rollouts.argoproj.io/revision: "1"
@@ -47,15 +47,15 @@ spec:
 
   selector:
     matchLabels:
-      app.kubernetes.io/name: wealthwise-api
+      app.kubernetes.io/name: finsight-api
 
   # ── Canary Strategy ────────────────────────────────────────────────────────
   strategy:
     canary:
       # Stable and canary services must be applied before this Rollout.
       # Argo Rollouts manages the selector on these services automatically.
-      stableService: wealthwise-api-stable
-      canaryService: wealthwise-api-canary
+      stableService: finsight-api-stable
+      canaryService: finsight-api-canary
 
       # Max unavailable pods during rollout (0 = rolling, never below replica count)
       maxUnavailable: 0
@@ -66,12 +66,12 @@ spec:
       analysis:
         startingStep: 2
         templates:
-          - templateName: wealthwise-success-rate
+          - templateName: finsight-success-rate
         args:
           - name: service-name
-            value: wealthwise-api-canary
+            value: finsight-api-canary
           - name: namespace
-            value: wealthwise-production
+            value: finsight-production
 
       steps:
         # Step 1 — Route 10% of traffic to canary pods
@@ -102,9 +102,9 @@ spec:
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: wealthwise-api
+        app.kubernetes.io/name: finsight-api
         app.kubernetes.io/component: api
-        app.kubernetes.io/part-of: wealthwise
+        app.kubernetes.io/part-of: finsight
       annotations:
         # Force rolling restart when ConfigMap or Secret changes
         checksum/config: "{{ include (print .Template.BasePath \"/configmap.yaml\") . | sha256sum }}"
@@ -119,9 +119,9 @@ spec:
       containers:
         - name: api
           # Update this image tag via CI/CD:
-          #   kubectl argo rollouts set image wealthwise-api \
-          #     api=ghcr.io/hoangsonww/wealthwise-api:<sha>
-          image: ghcr.io/hoangsonww/wealthwise-api:latest
+          #   kubectl argo rollouts set image finsight-api \
+          #     api=ghcr.io/hoangsonww/finsight-api:<sha>
+          image: ghcr.io/hoangsonww/finsight-api:latest
           imagePullPolicy: Always
 
           ports:
@@ -131,9 +131,9 @@ spec:
 
           envFrom:
             - configMapRef:
-                name: wealthwise-config
+                name: finsight-config
             - secretRef:
-                name: wealthwise-secrets
+                name: finsight-secrets
 
           livenessProbe:
             httpGet:
@@ -182,10 +182,10 @@ spec:
           whenUnsatisfied: DoNotSchedule
           labelSelector:
             matchLabels:
-              app.kubernetes.io/name: wealthwise-api
+              app.kubernetes.io/name: finsight-api
         - maxSkew: 1
           topologyKey: topology.kubernetes.io/zone
           whenUnsatisfied: ScheduleAnyway
           labelSelector:
             matchLabels:
-              app.kubernetes.io/name: wealthwise-api
+              app.kubernetes.io/name: finsight-api

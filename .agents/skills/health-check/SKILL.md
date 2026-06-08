@@ -1,12 +1,12 @@
 ---
 name: health-check
 description: >
-  Check the health of the running WealthWise API, web app, and MongoDB services.
+  Check the health of the running FinSight API, web app, and MongoDB services.
   Triggers when asked to "check if the app is running", "verify the API is up",
   "is the server healthy", or "show service status".
 ---
 
-Check the health of the running WealthWise services.
+Check the health of the running FinSight services.
 
 ## Checks
 

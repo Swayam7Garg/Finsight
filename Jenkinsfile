@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 // Copyright (c) 2026 Son Nguyen
-// Declarative Jenkins Pipeline for WealthWise
+// Declarative Jenkins Pipeline for FinSight
 //
 // Prerequisites (Jenkins agent):
 //   - Jenkins NodeJS Plugin configured with installation named "NodeJS-20"
@@ -21,8 +21,8 @@ pipeline {
         NEXT_TELEMETRY_DISABLED = '1'
         GHCR_REGISTRY           = 'ghcr.io'
         GHCR_OWNER              = 'hoangsonww'
-        API_IMAGE               = "${GHCR_REGISTRY}/${GHCR_OWNER}/wealthwise-api"
-        WEB_IMAGE               = "${GHCR_REGISTRY}/${GHCR_OWNER}/wealthwise-web"
+        API_IMAGE               = "${GHCR_REGISTRY}/${GHCR_OWNER}/finsight-api"
+        WEB_IMAGE               = "${GHCR_REGISTRY}/${GHCR_OWNER}/finsight-web"
         // Placeholder env vars required by Next.js at build time (real values injected at runtime)
         NEXTAUTH_URL            = 'http://localhost:3000'
         NEXTAUTH_SECRET         = 'ci-placeholder-not-a-real-secret-do-not-use'
@@ -50,7 +50,7 @@ pipeline {
                 }
                 sh '''
                     echo "╔══════════════════════════════════════╗"
-                    echo "║     WealthWise CI/CD Pipeline        ║"
+                    echo "║     FinSight CI/CD Pipeline        ║"
                     echo "╚══════════════════════════════════════╝"
                     echo ""
                     echo "  Branch  : $BRANCH_NAME"
@@ -104,7 +104,7 @@ pipeline {
             parallel {
                 stage('shared-types (151)') {
                     steps {
-                        sh 'npx turbo test --filter=@wealthwise/shared-types'
+                        sh 'npx turbo test --filter=@finsight/shared-types'
                     }
                     post {
                         always {
@@ -120,7 +120,7 @@ pipeline {
                         timeout(time: 10, unit: 'MINUTES')
                     }
                     steps {
-                        sh 'npx turbo test --filter=@wealthwise/api'
+                        sh 'npx turbo test --filter=@finsight/api'
                     }
                     post {
                         always {
@@ -133,7 +133,7 @@ pipeline {
                 }
                 stage('Web (41)') {
                     steps {
-                        sh 'npx turbo test --filter=@wealthwise/web'
+                        sh 'npx turbo test --filter=@finsight/web'
                     }
                     post {
                         always {
@@ -155,7 +155,7 @@ pipeline {
             parallel {
                 stage('API') {
                     steps {
-                        sh 'npx turbo build --filter=@wealthwise/api...'
+                        sh 'npx turbo build --filter=@finsight/api...'
                     }
                     post {
                         success {
@@ -169,7 +169,7 @@ pipeline {
                 }
                 stage('Web (Next.js)') {
                     steps {
-                        sh 'npx turbo build --filter=@wealthwise/web...'
+                        sh 'npx turbo build --filter=@finsight/web...'
                     }
                     post {
                         success {
@@ -271,20 +271,20 @@ pipeline {
                     export KUBECONFIG="$KUBECONFIG_FILE"
 
                     # Update images to the freshly pushed SHA tag
-                    kubectl set image deployment/wealthwise-api \
+                    kubectl set image deployment/finsight-api \
                       api=$API_IMAGE:$GIT_SHORT \
-                      -n wealthwise-staging --record || true
+                      -n finsight-staging --record || true
 
-                    kubectl set image deployment/wealthwise-web \
+                    kubectl set image deployment/finsight-web \
                       web=$WEB_IMAGE:$GIT_SHORT \
-                      -n wealthwise-staging --record || true
+                      -n finsight-staging --record || true
 
                     # Wait for rollout to complete (5-minute timeout)
-                    kubectl rollout status deployment/wealthwise-api \
-                      -n wealthwise-staging --timeout=5m
+                    kubectl rollout status deployment/finsight-api \
+                      -n finsight-staging --timeout=5m
 
-                    kubectl rollout status deployment/wealthwise-web \
-                      -n wealthwise-staging --timeout=5m
+                    kubectl rollout status deployment/finsight-web \
+                      -n finsight-staging --timeout=5m
 
                     echo "✅ Staging deployed: $API_IMAGE:$GIT_SHORT"
                 '''
@@ -322,19 +322,19 @@ pipeline {
                 sh '''
                     export KUBECONFIG="$KUBECONFIG_FILE"
 
-                    kubectl set image deployment/wealthwise-api \
+                    kubectl set image deployment/finsight-api \
                       api=$API_IMAGE:$GIT_SHORT \
-                      -n wealthwise-production --record || true
+                      -n finsight-production --record || true
 
-                    kubectl set image deployment/wealthwise-web \
+                    kubectl set image deployment/finsight-web \
                       web=$WEB_IMAGE:$GIT_SHORT \
-                      -n wealthwise-production --record || true
+                      -n finsight-production --record || true
 
-                    kubectl rollout status deployment/wealthwise-api \
-                      -n wealthwise-production --timeout=10m
+                    kubectl rollout status deployment/finsight-api \
+                      -n finsight-production --timeout=10m
 
-                    kubectl rollout status deployment/wealthwise-web \
-                      -n wealthwise-production --timeout=10m
+                    kubectl rollout status deployment/finsight-web \
+                      -n finsight-production --timeout=10m
 
                     echo "✅ Production deployed: $API_IMAGE:$GIT_SHORT"
                 '''

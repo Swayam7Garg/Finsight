@@ -1,14 +1,14 @@
-# Argo CD Application — WealthWise Staging
+# Argo CD Application — FinSight Staging
 #
 # Sources:   k8s/overlays/staging  (Kustomize)
-# Target:    wealthwise-staging namespace, in-cluster
+# Target:    finsight-staging namespace, in-cluster
 # Sync:      Automated with prune + self-heal.
 #            Image tags are pinned to the exact SHA from CI (not :latest).
 #
 # To update the image after a CI push:
-#   argocd app set wealthwise-staging \
-#     --kustomize-image ghcr.io/hoangsonww/wealthwise-api:<sha> \
-#     --kustomize-image ghcr.io/hoangsonww/wealthwise-web:<sha>
+#   argocd app set finsight-staging \
+#     --kustomize-image ghcr.io/hoangsonww/finsight-api:<sha> \
+#     --kustomize-image ghcr.io/hoangsonww/finsight-web:<sha>
 #
 # Apply:
 #   kubectl apply -f app-staging.yaml -n argocd
@@ -16,37 +16,37 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: wealthwise-staging
+  name: finsight-staging
   namespace: argocd
   labels:
-    app.kubernetes.io/name: wealthwise
+    app.kubernetes.io/name: finsight
     app.kubernetes.io/component: gitops
     environment: staging
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
-    notifications.argoproj.io/subscribe.on-sync-failed.slack: wealthwise-alerts
-    notifications.argoproj.io/subscribe.on-health-degraded.slack: wealthwise-alerts
-    notifications.argoproj.io/subscribe.on-deployed.slack: wealthwise-releases
+    notifications.argoproj.io/subscribe.on-sync-failed.slack: finsight-alerts
+    notifications.argoproj.io/subscribe.on-health-degraded.slack: finsight-alerts
+    notifications.argoproj.io/subscribe.on-deployed.slack: finsight-releases
 spec:
-  project: wealthwise
+  project: finsight
 
   # ── Source ─────────────────────────────────────────────────────────────────
   source:
-    repoURL: https://github.com/hoangsonww/wealthwise.git
+    repoURL: https://github.com/hoangsonww/finsight.git
     targetRevision: HEAD
     path: k8s/overlays/staging
     kustomize:
       # Image tags are updated by CI using `argocd app set` or a Git commit
       # that edits the kustomization.yaml image override.
       images:
-        - ghcr.io/hoangsonww/wealthwise-api:latest
-        - ghcr.io/hoangsonww/wealthwise-web:latest
+        - ghcr.io/hoangsonww/finsight-api:latest
+        - ghcr.io/hoangsonww/finsight-web:latest
 
   # ── Destination ────────────────────────────────────────────────────────────
   destination:
     server: https://kubernetes.default.svc
-    namespace: wealthwise-staging
+    namespace: finsight-staging
 
   # ── Sync policy ────────────────────────────────────────────────────────────
   syncPolicy:

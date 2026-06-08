@@ -10,7 +10,7 @@
 
 **Please do not open a public GitHub issue for security vulnerabilities.**
 
-If you discover a security vulnerability in WealthWise, please report it responsibly:
+If you discover a security vulnerability in FinSight, please report it responsibly:
 
 1. **Email**: Send a detailed report to the maintainers via a private channel (open a [GitHub Security Advisory](../../security/advisories/new) on this repository).
 2. **Include**:

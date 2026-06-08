@@ -1,6 +1,6 @@
 # Argo Rollouts — Web Blue-Green Rollout
 #
-# Replaces apps/v1/Deployment (wealthwise-web) in the production namespace.
+# Replaces apps/v1/Deployment (finsight-web) in the production namespace.
 # Strategy: Blue-Green with pre- and post-promotion analysis.
 #
 # Promotion flow:
@@ -11,25 +11,25 @@
 #   5. Old (blue) pods scale down after scaleDownDelaySeconds
 #
 # autoPromotionEnabled: false means a human (or Argo CD) must trigger promotion:
-#   kubectl argo rollouts promote wealthwise-web -n wealthwise-production
+#   kubectl argo rollouts promote finsight-web -n finsight-production
 #
 # Usage:
-#   kubectl delete deployment wealthwise-web -n wealthwise-production
-#   kubectl apply -f web-services.yaml  -n wealthwise-production
-#   kubectl apply -f web-rollout.yaml   -n wealthwise-production
+#   kubectl delete deployment finsight-web -n finsight-production
+#   kubectl apply -f web-services.yaml  -n finsight-production
+#   kubectl apply -f web-rollout.yaml   -n finsight-production
 #
 #   # Watch:
-#   kubectl argo rollouts get rollout wealthwise-web -n wealthwise-production --watch
+#   kubectl argo rollouts get rollout finsight-web -n finsight-production --watch
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
-  name: wealthwise-web
-  namespace: wealthwise-production
+  name: finsight-web
+  namespace: finsight-production
   labels:
-    app.kubernetes.io/name: wealthwise-web
+    app.kubernetes.io/name: finsight-web
     app.kubernetes.io/component: web
-    app.kubernetes.io/part-of: wealthwise
+    app.kubernetes.io/part-of: finsight
     app.kubernetes.io/managed-by: argo-rollouts
 spec:
   replicas: 3
@@ -37,15 +37,15 @@ spec:
 
   selector:
     matchLabels:
-      app.kubernetes.io/name: wealthwise-web
+      app.kubernetes.io/name: finsight-web
 
   # ── Blue-Green Strategy ────────────────────────────────────────────────────
   strategy:
     blueGreen:
       # Production traffic always served by the active service
-      activeService: wealthwise-web-active
+      activeService: finsight-web-active
       # New version can be inspected via the preview service before promotion
-      previewService: wealthwise-web-preview
+      previewService: finsight-web-preview
 
       # Manual promotion required — prevents accidental auto-promotion
       autoPromotionEnabled: false
@@ -61,31 +61,31 @@ spec:
       # All metrics must pass before Argo Rollouts allows promotion.
       prePromotionAnalysis:
         templates:
-          - templateName: wealthwise-success-rate
+          - templateName: finsight-success-rate
         args:
           - name: service-name
-            value: wealthwise-web-preview
+            value: finsight-web-preview
           - name: namespace
-            value: wealthwise-production
+            value: finsight-production
 
       # Post-promotion analysis — runs against the now-live active service.
       # Failure here triggers rollback (reverts the active service selector).
       postPromotionAnalysis:
         templates:
-          - templateName: wealthwise-success-rate
+          - templateName: finsight-success-rate
         args:
           - name: service-name
-            value: wealthwise-web-active
+            value: finsight-web-active
           - name: namespace
-            value: wealthwise-production
+            value: finsight-production
 
   # ── Pod Template ───────────────────────────────────────────────────────────
   template:
     metadata:
       labels:
-        app.kubernetes.io/name: wealthwise-web
+        app.kubernetes.io/name: finsight-web
         app.kubernetes.io/component: web
-        app.kubernetes.io/part-of: wealthwise
+        app.kubernetes.io/part-of: finsight
     spec:
       securityContext:
         runAsNonRoot: true
@@ -96,7 +96,7 @@ spec:
 
       containers:
         - name: web
-          image: ghcr.io/hoangsonww/wealthwise-web:latest
+          image: ghcr.io/hoangsonww/finsight-web:latest
           imagePullPolicy: Always
 
           ports:
@@ -110,22 +110,22 @@ spec:
             - name: NEXTAUTH_URL
               valueFrom:
                 configMapKeyRef:
-                  name: wealthwise-config
+                  name: finsight-config
                   key: NEXTAUTH_URL
             - name: NEXT_PUBLIC_API_URL
               valueFrom:
                 configMapKeyRef:
-                  name: wealthwise-config
+                  name: finsight-config
                   key: NEXT_PUBLIC_API_URL
             - name: API_URL
               valueFrom:
                 configMapKeyRef:
-                  name: wealthwise-config
+                  name: finsight-config
                   key: API_URL
 
           envFrom:
             - secretRef:
-                name: wealthwise-secrets
+                name: finsight-secrets
 
           livenessProbe:
             httpGet:
@@ -174,10 +174,10 @@ spec:
           whenUnsatisfied: DoNotSchedule
           labelSelector:
             matchLabels:
-              app.kubernetes.io/name: wealthwise-web
+              app.kubernetes.io/name: finsight-web
         - maxSkew: 1
           topologyKey: topology.kubernetes.io/zone
           whenUnsatisfied: ScheduleAnyway
           labelSelector:
             matchLabels:
-              app.kubernetes.io/name: wealthwise-web
+              app.kubernetes.io/name: finsight-web

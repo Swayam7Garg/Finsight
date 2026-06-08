@@ -1,11 +1,11 @@
-# WealthWise GCP Deployment
+# FinSight GCP Deployment
 
 ## Architecture
 
 ```
 Cloud Load Balancer (HTTPS)
-├── /api/* → Cloud Run (wealthwise-api)
-└── /*     → Cloud Run (wealthwise-web)
+├── /api/* → Cloud Run (finsight-api)
+└── /*     → Cloud Run (finsight-web)
 
 MongoDB Atlas (external, VPC peered)
 ```
@@ -31,7 +31,7 @@ MongoDB Atlas (external, VPC peered)
    ```bash
    cd gcp/terraform
    terraform init
-   terraform plan -var="project_id=my-project" -var="domain=wealthwise.example.com"
+   terraform plan -var="project_id=my-project" -var="domain=finsight.example.com"
    terraform apply
    ```
 

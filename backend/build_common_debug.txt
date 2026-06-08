@@ -294,32 +294,32 @@ WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 [DEBUG]   Included: org.codehaus.plexus:plexus-utils:jar:4.0.1
 [DEBUG] Loading mojo org.apache.maven.plugins:maven-clean-plugin:3.4.1:clean from plugin realm ClassRealm[plugin>org.apache.maven.plugins:maven-clean-plugin:3.4.1, parent: java.net.URLClassLoader@3feba861]
 [DEBUG] Configuring mojo execution 'org.apache.maven.plugins:maven-clean-plugin:3.4.1:clean:default-clean' with basic configurator -->
-[DEBUG]   (f) directory = C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target
+[DEBUG]   (f) directory = C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target
 [DEBUG]   (f) excludeDefaultDirectories = false
 [DEBUG]   (f) failOnError = true
 [DEBUG]   (f) fast = false
 [DEBUG]   (f) fastMode = background
 [DEBUG]   (f) followSymLinks = false
-[DEBUG]   (f) outputDirectory = C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\classes
-[DEBUG]   (f) reportDirectory = C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\classes
+[DEBUG]   (f) outputDirectory = C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\classes
+[DEBUG]   (f) reportDirectory = C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\classes
 [DEBUG]   (f) retryOnError = true
 [DEBUG]   (f) session = org.apache.maven.execution.MavenSession@73fb1d7f
 [DEBUG]   (f) skip = false
-[DEBUG]   (f) testOutputDirectory = C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\test-classes
+[DEBUG]   (f) testOutputDirectory = C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\test-classes
 [DEBUG] -- end configuration --
-[INFO] Deleting C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target
-[INFO] Deleting directory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\classes
-[INFO] Deleting directory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\generated-sources\annotations
-[INFO] Deleting directory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\generated-sources
-[INFO] Deleting file C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\maven-status\maven-compiler-plugin\compile\default-compile\inputFiles.lst
-[INFO] Deleting directory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\maven-status\maven-compiler-plugin\compile\default-compile
-[INFO] Deleting directory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\maven-status\maven-compiler-plugin\compile
-[INFO] Deleting directory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\maven-status\maven-compiler-plugin
-[INFO] Deleting directory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\maven-status
-[INFO] Deleting directory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target
-[DEBUG] Skipping non-existing directory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\classes
-[DEBUG] Skipping non-existing directory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\test-classes
-[DEBUG] Skipping non-existing directory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\classes
+[INFO] Deleting C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target
+[INFO] Deleting directory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\classes
+[INFO] Deleting directory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\generated-sources\annotations
+[INFO] Deleting directory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\generated-sources
+[INFO] Deleting file C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\maven-status\maven-compiler-plugin\compile\default-compile\inputFiles.lst
+[INFO] Deleting directory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\maven-status\maven-compiler-plugin\compile\default-compile
+[INFO] Deleting directory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\maven-status\maven-compiler-plugin\compile
+[INFO] Deleting directory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\maven-status\maven-compiler-plugin
+[INFO] Deleting directory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\maven-status
+[INFO] Deleting directory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target
+[DEBUG] Skipping non-existing directory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\classes
+[DEBUG] Skipping non-existing directory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\test-classes
+[DEBUG] Skipping non-existing directory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\classes
 [INFO] 
 [INFO] --- resources:3.3.1:resources (default-resources) @ finsight-common ---
 [DEBUG] Dependency collection stats {ConflictMarker.analyzeTime=75200, ConflictMarker.markTime=63800, ConflictMarker.nodeCount=13, ConflictIdSorter.graphTime=19900, ConflictIdSorter.topsortTime=15400, ConflictIdSorter.conflictIdCount=9, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=385900, ConflictResolver.conflictItemCount=13, DfDependencyCollector.collectTime=137274200, DfDependencyCollector.transformTime=581500}
@@ -352,11 +352,11 @@ WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 [DEBUG]   (f) escapeWindowsPaths = true
 [DEBUG]   (f) fileNameFiltering = false
 [DEBUG]   (s) includeEmptyDirs = false
-[DEBUG]   (s) outputDirectory = C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\classes
+[DEBUG]   (s) outputDirectory = C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\classes
 [DEBUG]   (s) overwrite = false
-[DEBUG]   (f) project = MavenProject: com.finsight:finsight-common:1.0.0-SNAPSHOT @ C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\pom.xml
+[DEBUG]   (f) project = MavenProject: com.finsight:finsight-common:1.0.0-SNAPSHOT @ C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\pom.xml
 [DEBUG]   (f) propertiesEncoding = UTF-8
-[DEBUG]   (s) resources = [Resource {targetPath: null, filtering: true, FileSet {directory: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\resources, PatternSet [includes: {**/application*.yml, **/application*.yaml, **/application*.properties}, excludes: {}]}}, Resource {targetPath: null, filtering: false, FileSet {directory: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\resources, PatternSet [includes: {}, excludes: {**/application*.yml, **/application*.yaml, **/application*.properties}]}}]
+[DEBUG]   (s) resources = [Resource {targetPath: null, filtering: true, FileSet {directory: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\resources, PatternSet [includes: {**/application*.yml, **/application*.yaml, **/application*.properties}, excludes: {}]}}, Resource {targetPath: null, filtering: false, FileSet {directory: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\resources, PatternSet [includes: {}, excludes: {**/application*.yml, **/application*.yaml, **/application*.properties}]}}]
 [DEBUG]   (f) session = org.apache.maven.execution.MavenSession@73fb1d7f
 [DEBUG]   (f) skip = false
 [DEBUG]   (f) supportMultiLineFiltering = false
@@ -421,7 +421,7 @@ WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 [DEBUG] env.LOGONSERVER: \\SWAYAMGARG2005
 [DEBUG] env.MANPATH: C:\Program Files\Git\mingw64\local\man;C:\Program Files\Git\mingw64\share\man;C:\Program Files\Git\usr\local\man;C:\Program Files\Git\usr\share\man;C:\Program Files\Git\usr\man;C:\Program Files\Git\share\man
 [DEBUG] env.MAVEN_CMD_LINE_ARGS:  clean compile -pl finsight-common -X
-[DEBUG] env.MAVEN_PROJECTBASEDIR: C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend
+[DEBUG] env.MAVEN_PROJECTBASEDIR: C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend
 [DEBUG] env.MINGW_CHOST: x86_64-w64-mingw32
 [DEBUG] env.MINGW_PACKAGE_PREFIX: mingw-w64-x86_64
 [DEBUG] env.MINGW_PREFIX: C:/Program Files/Git/mingw64
@@ -432,7 +432,7 @@ WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 [DEBUG] env.MSYSTEM_PREFIX: C:/Program Files/Git/mingw64
 [DEBUG] env.NODE_ENV: development
 [DEBUG] env.NUMBER_OF_PROCESSORS: 12
-[DEBUG] env.OLDPWD: C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend
+[DEBUG] env.OLDPWD: C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend
 [DEBUG] env.ONEDRIVE: C:\Users\swaya\OneDrive
 [DEBUG] env.ONLINESERVICES: Online Services
 [DEBUG] env.ORIGINAL_PATH: C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\swaya\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Program Files\HP\OMEN-Broadcast\Common;C:\MinGW\bin;C:\Program Files\Git\cmd;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Program Files\nodejs;C:\sqlite;C:\Program Files\Git LFS;C:\Program Files\Docker\Docker\resources\bin;C:\Users\swaya\AppData\Local\Programs\Python\Python312\Scripts;C:\Users\swaya\AppData\Local\Programs\Python\Python312;C:\Users\swaya\AppData\Local\Programs\Python\Python313\Scripts;C:\Users\swaya\AppData\Local\Programs\Python\Python313;C:\Users\swaya\AppData\Local\Microsoft\WindowsApps;C:\Users\swaya\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\swaya\AppData\Local\Programs\cursor\resources\app\bin;C:\Users\swaya\AppData\Roaming\npm;C:\Users\swaya\AppData\Local\Programs\mongosh;C:\Users\swaya\AppData\Local\Programs\Antigravity\bin;C:\Users\swaya\AppData\Local\Programs\Ollama
@@ -457,7 +457,7 @@ WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 [DEBUG] env.PROGRAMW6432: C:\Program Files
 [DEBUG] env.PSMODULEPATH: %ProgramFiles%\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
 [DEBUG] env.PUBLIC: C:\Users\Public
-[DEBUG] env.PWD: C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend
+[DEBUG] env.PWD: C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend
 [DEBUG] env.REGIONCODE: APJ
 [DEBUG] env.SHELL: C:\Program Files\Git\usr\bin\bash.exe
 [DEBUG] env.SHLVL: 1
@@ -525,7 +525,7 @@ WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 [DEBUG] jakarta-xml-soap.version: 3.0.2
 [DEBUG] jakarta-xml-ws.version: 4.0.2
 [DEBUG] janino.version: 3.1.12
-[DEBUG] java.class.path: C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/.mvn/wrapper/maven-wrapper.jar
+[DEBUG] java.class.path: C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend/.mvn/wrapper/maven-wrapper.jar
 [DEBUG] java.class.version: 68.0
 [DEBUG] java.home: C:\Program Files\Java\jdk-24
 [DEBUG] java.io.tmpdir: C:\Users\swaya\AppData\Local\Temp\
@@ -603,7 +603,7 @@ WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 [DEBUG] maven.compiler.release: 21
 [DEBUG] maven.conf: C:\Users\swaya\.m2\wrapper\dists\apache-maven-3.9.9-bin\33b4b2b4\apache-maven-3.9.9/conf
 [DEBUG] maven.home: C:\Users\swaya\.m2\wrapper\dists\apache-maven-3.9.9-bin\33b4b2b4\apache-maven-3.9.9
-[DEBUG] maven.multiModuleProjectDirectory: C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend
+[DEBUG] maven.multiModuleProjectDirectory: C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend
 [DEBUG] maven.version: 3.9.9
 [DEBUG] micrometer-tracing.version: 1.4.3
 [DEBUG] micrometer.version: 1.14.4
@@ -626,7 +626,7 @@ WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 [DEBUG] path.separator: ;
 [DEBUG] pooled-jms.version: 3.1.7
 [DEBUG] postgresql.version: 42.7.5
-[DEBUG] project.baseUri: file:/C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-common/
+[DEBUG] project.baseUri: file:/C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend/finsight-common/
 [DEBUG] project.build.sourceEncoding: UTF-8
 [DEBUG] project.reporting.outputEncoding: UTF-8
 [DEBUG] prometheus-client.version: 1.3.6
@@ -699,7 +699,7 @@ WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 [DEBUG] unboundid-ldapsdk.version: 6.0.11
 [DEBUG] undertow.version: 2.3.18.Final
 [DEBUG] user.country: IN
-[DEBUG] user.dir: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend
+[DEBUG] user.dir: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend
 [DEBUG] user.home: C:\Users\swaya
 [DEBUG] user.language: en
 [DEBUG] user.name: swaya
@@ -716,15 +716,15 @@ WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
 [DEBUG] Using 'UTF-8' encoding to copy filtered resources.
 [DEBUG] Using 'UTF-8' encoding to copy filtered properties files.
 [DEBUG] resource with targetPath null
-directory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\resources
+directory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\resources
 excludes []
 includes [**/application*.yml, **/application*.yaml, **/application*.properties]
-[INFO] skip non existing resourceDirectory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\resources
 [DEBUG] resource with targetPath null
-directory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\resources
+directory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\resources
 excludes [**/application*.yml, **/application*.yaml, **/application*.properties]
 includes []
-[INFO] skip non existing resourceDirectory C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\resources
+[INFO] skip non existing resourceDirectory C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\resources
 [DEBUG] no user filter components
 [INFO] 
 [INFO] --- compiler:3.13.0:compile (default-compile) @ finsight-common ---
@@ -767,10 +767,10 @@ includes []
 [DEBUG]   (s) version = 1.18.36
 [DEBUG]   (f) annotationProcessorPaths = [org.projectlombok:lombok:1.18.36.jar]
 [DEBUG]   (f) annotationProcessorPathsUseDepMgmt = false
-[DEBUG]   (f) basedir = C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common
-[DEBUG]   (f) buildDirectory = C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target
-[DEBUG]   (f) compilePath = [C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\classes, C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter-data-mongodb\3.4.3\spring-boot-starter-data-mongodb-3.4.3.jar, C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter\3.4.3\spring-boot-starter-3.4.3.jar, C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot\3.4.3\spring-boot-3.4.3.jar, C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.4.3\spring-boot-autoconfigure-3.4.3.jar, C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.4.3\spring-boot-starter-logging-3.4.3.jar, C:\Users\swaya\.m2\repository\ch\qos\logback\logback-classic\1.5.16\logback-classic-1.5.16.jar, C:\Users\swaya\.m2\repository\ch\qos\logback\logback-core\1.5.16\logback-core-1.5.16.jar, C:\Users\swaya\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar, C:\Users\swaya\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar, C:\Users\swaya\.m2\repository\org\slf4j\jul-to-slf4j\2.0.16\jul-to-slf4j-2.0.16.jar, C:\Users\swaya\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar, C:\Users\swaya\.m2\repository\org\springframework\spring-core\6.2.3\spring-core-6.2.3.jar, C:\Users\swaya\.m2\repository\org\springframework\spring-jcl\6.2.3\spring-jcl-6.2.3.jar, C:\Users\swaya\.m2\repository\org\yaml\snakeyaml\2.3\snakeyaml-2.3.jar, C:\Users\swaya\.m2\repository\org\mongodb\mongodb-driver-sync\5.2.1\mongodb-driver-sync-5.2.1.jar, C:\Users\swaya\.m2\repository\org\mongodb\bson\5.2.1\bson-5.2.1.jar, C:\Users\swaya\.m2\repository\org\mongodb\mongodb-driver-core\5.2.1\mongodb-driver-core-5.2.1.jar, C:\Users\swaya\.m2\repository\org\springframework\data\spring-data-mongodb\4.4.3\spring-data-mongodb-4.4.3.jar, C:\Users\swaya\.m2\repository\org\springframework\spring-tx\6.2.3\spring-tx-6.2.3.jar, C:\Users\swaya\.m2\repository\org\springframework\spring-context\6.2.3\spring-context-6.2.3.jar, C:\Users\swaya\.m2\repository\org\springframework\spring-aop\6.2.3\spring-aop-6.2.3.jar, C:\Users\swaya\.m2\repository\io\micrometer\micrometer-observation\1.14.4\micrometer-observation-1.14.4.jar, C:\Users\swaya\.m2\repository\io\micrometer\micrometer-commons\1.14.4\micrometer-commons-1.14.4.jar, C:\Users\swaya\.m2\repository\org\springframework\spring-beans\6.2.3\spring-beans-6.2.3.jar, C:\Users\swaya\.m2\repository\org\springframework\spring-expression\6.2.3\spring-expression-6.2.3.jar, C:\Users\swaya\.m2\repository\org\springframework\data\spring-data-commons\3.4.3\spring-data-commons-3.4.3.jar, C:\Users\swaya\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar, C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.4.3\spring-boot-starter-validation-3.4.3.jar, C:\Users\swaya\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.36\tomcat-embed-el-10.1.36.jar, C:\Users\swaya\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.2.Final\hibernate-validator-8.0.2.Final.jar, C:\Users\swaya\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar, C:\Users\swaya\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar, C:\Users\swaya\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar, C:\Users\swaya\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.18.2\jackson-annotations-2.18.2.jar, C:\Users\swaya\.m2\repository\org\projectlombok\lombok\1.18.36\lombok-1.18.36.jar]
-[DEBUG]   (f) compileSourceRoots = [C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java]
+[DEBUG]   (f) basedir = C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common
+[DEBUG]   (f) buildDirectory = C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target
+[DEBUG]   (f) compilePath = [C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\classes, C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter-data-mongodb\3.4.3\spring-boot-starter-data-mongodb-3.4.3.jar, C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter\3.4.3\spring-boot-starter-3.4.3.jar, C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot\3.4.3\spring-boot-3.4.3.jar, C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.4.3\spring-boot-autoconfigure-3.4.3.jar, C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.4.3\spring-boot-starter-logging-3.4.3.jar, C:\Users\swaya\.m2\repository\ch\qos\logback\logback-classic\1.5.16\logback-classic-1.5.16.jar, C:\Users\swaya\.m2\repository\ch\qos\logback\logback-core\1.5.16\logback-core-1.5.16.jar, C:\Users\swaya\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar, C:\Users\swaya\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar, C:\Users\swaya\.m2\repository\org\slf4j\jul-to-slf4j\2.0.16\jul-to-slf4j-2.0.16.jar, C:\Users\swaya\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar, C:\Users\swaya\.m2\repository\org\springframework\spring-core\6.2.3\spring-core-6.2.3.jar, C:\Users\swaya\.m2\repository\org\springframework\spring-jcl\6.2.3\spring-jcl-6.2.3.jar, C:\Users\swaya\.m2\repository\org\yaml\snakeyaml\2.3\snakeyaml-2.3.jar, C:\Users\swaya\.m2\repository\org\mongodb\mongodb-driver-sync\5.2.1\mongodb-driver-sync-5.2.1.jar, C:\Users\swaya\.m2\repository\org\mongodb\bson\5.2.1\bson-5.2.1.jar, C:\Users\swaya\.m2\repository\org\mongodb\mongodb-driver-core\5.2.1\mongodb-driver-core-5.2.1.jar, C:\Users\swaya\.m2\repository\org\springframework\data\spring-data-mongodb\4.4.3\spring-data-mongodb-4.4.3.jar, C:\Users\swaya\.m2\repository\org\springframework\spring-tx\6.2.3\spring-tx-6.2.3.jar, C:\Users\swaya\.m2\repository\org\springframework\spring-context\6.2.3\spring-context-6.2.3.jar, C:\Users\swaya\.m2\repository\org\springframework\spring-aop\6.2.3\spring-aop-6.2.3.jar, C:\Users\swaya\.m2\repository\io\micrometer\micrometer-observation\1.14.4\micrometer-observation-1.14.4.jar, C:\Users\swaya\.m2\repository\io\micrometer\micrometer-commons\1.14.4\micrometer-commons-1.14.4.jar, C:\Users\swaya\.m2\repository\org\springframework\spring-beans\6.2.3\spring-beans-6.2.3.jar, C:\Users\swaya\.m2\repository\org\springframework\spring-expression\6.2.3\spring-expression-6.2.3.jar, C:\Users\swaya\.m2\repository\org\springframework\data\spring-data-commons\3.4.3\spring-data-commons-3.4.3.jar, C:\Users\swaya\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar, C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.4.3\spring-boot-starter-validation-3.4.3.jar, C:\Users\swaya\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.36\tomcat-embed-el-10.1.36.jar, C:\Users\swaya\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.2.Final\hibernate-validator-8.0.2.Final.jar, C:\Users\swaya\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar, C:\Users\swaya\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar, C:\Users\swaya\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar, C:\Users\swaya\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.18.2\jackson-annotations-2.18.2.jar, C:\Users\swaya\.m2\repository\org\projectlombok\lombok\1.18.36\lombok-1.18.36.jar]
+[DEBUG]   (f) compileSourceRoots = [C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java]
 [DEBUG]   (f) compilerId = javac
 [DEBUG]   (f) createMissingPackageInfoClass = true
 [DEBUG]   (f) debug = true
@@ -783,12 +783,12 @@ includes []
 [DEBUG]   (f) forceJavacCompilerUse = false
 [DEBUG]   (f) forceLegacyJavacApi = false
 [DEBUG]   (f) fork = false
-[DEBUG]   (f) generatedSourcesDirectory = C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\generated-sources\annotations
+[DEBUG]   (f) generatedSourcesDirectory = C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\generated-sources\annotations
 [DEBUG]   (f) mojoExecution = org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile {execution: default-compile}
 [DEBUG]   (f) optimize = false
-[DEBUG]   (f) outputDirectory = C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\classes
+[DEBUG]   (f) outputDirectory = C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\classes
 [DEBUG]   (f) parameters = true
-[DEBUG]   (f) project = MavenProject: com.finsight:finsight-common:1.0.0-SNAPSHOT @ C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\pom.xml
+[DEBUG]   (f) project = MavenProject: com.finsight:finsight-common:1.0.0-SNAPSHOT @ C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\pom.xml
 [DEBUG]   (f) projectArtifact = com.finsight:finsight-common:jar:1.0.0-SNAPSHOT
 [DEBUG]   (s) release = 21
 [DEBUG]   (f) session = org.apache.maven.execution.MavenSession@73fb1d7f
@@ -803,85 +803,85 @@ includes []
 [DEBUG]   (f) verbose = false
 [DEBUG] -- end configuration --
 [DEBUG] Using compiler 'javac'.
-[DEBUG] Adding C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\generated-sources\annotations to compile source roots:
-  C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java
+[DEBUG] Adding C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\generated-sources\annotations to compile source roots:
+  C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java
 [DEBUG] New compile source roots:
-  C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java
-  C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\generated-sources\annotations
+  C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java
+  C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\generated-sources\annotations
 [DEBUG] Dependency collection stats {ConflictMarker.analyzeTime=21400, ConflictMarker.markTime=52300, ConflictMarker.nodeCount=2, ConflictIdSorter.graphTime=5300, ConflictIdSorter.topsortTime=8400, ConflictIdSorter.conflictIdCount=1, ConflictIdSorter.conflictIdCycleCount=0, ConflictResolver.totalTime=91600, ConflictResolver.conflictItemCount=1, DfDependencyCollector.collectTime=5665200, DfDependencyCollector.transformTime=197100}
 [DEBUG] CompilerReuseStrategy: reuseCreated
 [DEBUG] useIncrementalCompilation enabled
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\ResetPasswordRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\RecurringRule.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\RegisterRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\transaction\TransactionResponse.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\budget\BudgetResponse.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Goal.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\budget\UpdateBudgetRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\ApiResponse.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\budget\CreateBudgetRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\recurring\CreateRecurringRuleRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\recurring\UpdateRecurringRuleRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Account.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\recurring\RecurringRuleResponse.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\UpdateProfileRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Budget.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\AuthResponse.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\goal\CreateGoalRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\transaction\CreateTransactionRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\transaction\UpdateTransactionRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\account\CreateAccountRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\goal\GoalResponse.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\exception\ApiException.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Category.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\account\AccountResponse.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\category\UpdateCategoryRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\ImportResult.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\RefreshTokenRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\PaginatedResponse.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\User.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\LoginRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Transaction.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\goal\UpdateGoalRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\account\UpdateAccountRequest.java
-[INFO] 	Stale source detected: C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\category\CreateCategoryRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\account\AccountResponse.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\account\CreateAccountRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\account\UpdateAccountRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\ApiResponse.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\AuthResponse.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\LoginRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\RefreshTokenRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\RegisterRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\ResetPasswordRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\UpdateProfileRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\budget\BudgetResponse.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\budget\CreateBudgetRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\budget\UpdateBudgetRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\category\CreateCategoryRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\category\UpdateCategoryRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\goal\CreateGoalRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\goal\GoalResponse.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\goal\UpdateGoalRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\ImportResult.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\PaginatedResponse.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\recurring\CreateRecurringRuleRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\recurring\RecurringRuleResponse.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\recurring\UpdateRecurringRuleRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\transaction\CreateTransactionRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\transaction\TransactionResponse.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\transaction\UpdateTransactionRequest.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\exception\ApiException.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Account.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Budget.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Category.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Goal.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\RecurringRule.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Transaction.java
-[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\User.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\ResetPasswordRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\RecurringRule.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\RegisterRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\transaction\TransactionResponse.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\budget\BudgetResponse.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Goal.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\budget\UpdateBudgetRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\ApiResponse.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\budget\CreateBudgetRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\recurring\CreateRecurringRuleRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\recurring\UpdateRecurringRuleRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Account.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\recurring\RecurringRuleResponse.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\UpdateProfileRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Budget.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\AuthResponse.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\goal\CreateGoalRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\transaction\CreateTransactionRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\transaction\UpdateTransactionRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\account\CreateAccountRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\goal\GoalResponse.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\exception\ApiException.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Category.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\account\AccountResponse.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\category\UpdateCategoryRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\ImportResult.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\RefreshTokenRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\PaginatedResponse.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\User.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\LoginRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Transaction.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\goal\UpdateGoalRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\account\UpdateAccountRequest.java
+[INFO] 	Stale source detected: C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\category\CreateCategoryRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\account\AccountResponse.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\account\CreateAccountRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\account\UpdateAccountRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\ApiResponse.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\AuthResponse.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\LoginRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\RefreshTokenRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\RegisterRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\ResetPasswordRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\auth\UpdateProfileRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\budget\BudgetResponse.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\budget\CreateBudgetRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\budget\UpdateBudgetRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\category\CreateCategoryRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\category\UpdateCategoryRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\goal\CreateGoalRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\goal\GoalResponse.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\goal\UpdateGoalRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\ImportResult.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\PaginatedResponse.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\recurring\CreateRecurringRuleRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\recurring\RecurringRuleResponse.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\recurring\UpdateRecurringRuleRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\transaction\CreateTransactionRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\transaction\TransactionResponse.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\dto\transaction\UpdateTransactionRequest.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\exception\ApiException.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Account.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Budget.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Category.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Goal.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\RecurringRule.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\Transaction.java
+[INFO] 	Input tree files (+): C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java\com\finsight\common\model\User.java
 [INFO] Recompiling the module because of changed source code.
 [DEBUG] Classpath:
-[DEBUG]  C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\classes
+[DEBUG]  C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\classes
 [DEBUG]  C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter-data-mongodb\3.4.3\spring-boot-starter-data-mongodb-3.4.3.jar
 [DEBUG]  C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter\3.4.3\spring-boot-starter-3.4.3.jar
 [DEBUG]  C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot\3.4.3\spring-boot-3.4.3.jar
@@ -918,10 +918,10 @@ includes []
 [DEBUG]  C:\Users\swaya\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.18.2\jackson-annotations-2.18.2.jar
 [DEBUG]  C:\Users\swaya\.m2\repository\org\projectlombok\lombok\1.18.36\lombok-1.18.36.jar
 [DEBUG] Source roots:
-[DEBUG]  C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java
-[DEBUG]  C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\generated-sources\annotations
+[DEBUG]  C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java
+[DEBUG]  C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\generated-sources\annotations
 [DEBUG] Command line options:
-[DEBUG] -d C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\classes -classpath C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\classes;C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter-data-mongodb\3.4.3\spring-boot-starter-data-mongodb-3.4.3.jar;C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter\3.4.3\spring-boot-starter-3.4.3.jar;C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot\3.4.3\spring-boot-3.4.3.jar;C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.4.3\spring-boot-autoconfigure-3.4.3.jar;C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.4.3\spring-boot-starter-logging-3.4.3.jar;C:\Users\swaya\.m2\repository\ch\qos\logback\logback-classic\1.5.16\logback-classic-1.5.16.jar;C:\Users\swaya\.m2\repository\ch\qos\logback\logback-core\1.5.16\logback-core-1.5.16.jar;C:\Users\swaya\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;C:\Users\swaya\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;C:\Users\swaya\.m2\repository\org\slf4j\jul-to-slf4j\2.0.16\jul-to-slf4j-2.0.16.jar;C:\Users\swaya\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\swaya\.m2\repository\org\springframework\spring-core\6.2.3\spring-core-6.2.3.jar;C:\Users\swaya\.m2\repository\org\springframework\spring-jcl\6.2.3\spring-jcl-6.2.3.jar;C:\Users\swaya\.m2\repository\org\yaml\snakeyaml\2.3\snakeyaml-2.3.jar;C:\Users\swaya\.m2\repository\org\mongodb\mongodb-driver-sync\5.2.1\mongodb-driver-sync-5.2.1.jar;C:\Users\swaya\.m2\repository\org\mongodb\bson\5.2.1\bson-5.2.1.jar;C:\Users\swaya\.m2\repository\org\mongodb\mongodb-driver-core\5.2.1\mongodb-driver-core-5.2.1.jar;C:\Users\swaya\.m2\repository\org\springframework\data\spring-data-mongodb\4.4.3\spring-data-mongodb-4.4.3.jar;C:\Users\swaya\.m2\repository\org\springframework\spring-tx\6.2.3\spring-tx-6.2.3.jar;C:\Users\swaya\.m2\repository\org\springframework\spring-context\6.2.3\spring-context-6.2.3.jar;C:\Users\swaya\.m2\repository\org\springframework\spring-aop\6.2.3\spring-aop-6.2.3.jar;C:\Users\swaya\.m2\repository\io\micrometer\micrometer-observation\1.14.4\micrometer-observation-1.14.4.jar;C:\Users\swaya\.m2\repository\io\micrometer\micrometer-commons\1.14.4\micrometer-commons-1.14.4.jar;C:\Users\swaya\.m2\repository\org\springframework\spring-beans\6.2.3\spring-beans-6.2.3.jar;C:\Users\swaya\.m2\repository\org\springframework\spring-expression\6.2.3\spring-expression-6.2.3.jar;C:\Users\swaya\.m2\repository\org\springframework\data\spring-data-commons\3.4.3\spring-data-commons-3.4.3.jar;C:\Users\swaya\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.4.3\spring-boot-starter-validation-3.4.3.jar;C:\Users\swaya\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.36\tomcat-embed-el-10.1.36.jar;C:\Users\swaya\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.2.Final\hibernate-validator-8.0.2.Final.jar;C:\Users\swaya\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\swaya\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\swaya\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\swaya\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.18.2\jackson-annotations-2.18.2.jar;C:\Users\swaya\.m2\repository\org\projectlombok\lombok\1.18.36\lombok-1.18.36.jar; -sourcepath C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\src\main\java;C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\generated-sources\annotations; -s C:\Users\swaya\Downloads\WealthWise-Finance-Tracker-master\WealthWise-Finance-Tracker-master\backend\finsight-common\target\generated-sources\annotations -processorpath C:\Users\swaya\.m2\repository\org\projectlombok\lombok\1.18.36\lombok-1.18.36.jar; -g -parameters --release 21 -encoding UTF-8 -XDuseUnsharedTable=true
+[DEBUG] -d C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\classes -classpath C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\classes;C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter-data-mongodb\3.4.3\spring-boot-starter-data-mongodb-3.4.3.jar;C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter\3.4.3\spring-boot-starter-3.4.3.jar;C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot\3.4.3\spring-boot-3.4.3.jar;C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\3.4.3\spring-boot-autoconfigure-3.4.3.jar;C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter-logging\3.4.3\spring-boot-starter-logging-3.4.3.jar;C:\Users\swaya\.m2\repository\ch\qos\logback\logback-classic\1.5.16\logback-classic-1.5.16.jar;C:\Users\swaya\.m2\repository\ch\qos\logback\logback-core\1.5.16\logback-core-1.5.16.jar;C:\Users\swaya\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.24.3\log4j-to-slf4j-2.24.3.jar;C:\Users\swaya\.m2\repository\org\apache\logging\log4j\log4j-api\2.24.3\log4j-api-2.24.3.jar;C:\Users\swaya\.m2\repository\org\slf4j\jul-to-slf4j\2.0.16\jul-to-slf4j-2.0.16.jar;C:\Users\swaya\.m2\repository\jakarta\annotation\jakarta.annotation-api\2.1.1\jakarta.annotation-api-2.1.1.jar;C:\Users\swaya\.m2\repository\org\springframework\spring-core\6.2.3\spring-core-6.2.3.jar;C:\Users\swaya\.m2\repository\org\springframework\spring-jcl\6.2.3\spring-jcl-6.2.3.jar;C:\Users\swaya\.m2\repository\org\yaml\snakeyaml\2.3\snakeyaml-2.3.jar;C:\Users\swaya\.m2\repository\org\mongodb\mongodb-driver-sync\5.2.1\mongodb-driver-sync-5.2.1.jar;C:\Users\swaya\.m2\repository\org\mongodb\bson\5.2.1\bson-5.2.1.jar;C:\Users\swaya\.m2\repository\org\mongodb\mongodb-driver-core\5.2.1\mongodb-driver-core-5.2.1.jar;C:\Users\swaya\.m2\repository\org\springframework\data\spring-data-mongodb\4.4.3\spring-data-mongodb-4.4.3.jar;C:\Users\swaya\.m2\repository\org\springframework\spring-tx\6.2.3\spring-tx-6.2.3.jar;C:\Users\swaya\.m2\repository\org\springframework\spring-context\6.2.3\spring-context-6.2.3.jar;C:\Users\swaya\.m2\repository\org\springframework\spring-aop\6.2.3\spring-aop-6.2.3.jar;C:\Users\swaya\.m2\repository\io\micrometer\micrometer-observation\1.14.4\micrometer-observation-1.14.4.jar;C:\Users\swaya\.m2\repository\io\micrometer\micrometer-commons\1.14.4\micrometer-commons-1.14.4.jar;C:\Users\swaya\.m2\repository\org\springframework\spring-beans\6.2.3\spring-beans-6.2.3.jar;C:\Users\swaya\.m2\repository\org\springframework\spring-expression\6.2.3\spring-expression-6.2.3.jar;C:\Users\swaya\.m2\repository\org\springframework\data\spring-data-commons\3.4.3\spring-data-commons-3.4.3.jar;C:\Users\swaya\.m2\repository\org\slf4j\slf4j-api\2.0.16\slf4j-api-2.0.16.jar;C:\Users\swaya\.m2\repository\org\springframework\boot\spring-boot-starter-validation\3.4.3\spring-boot-starter-validation-3.4.3.jar;C:\Users\swaya\.m2\repository\org\apache\tomcat\embed\tomcat-embed-el\10.1.36\tomcat-embed-el-10.1.36.jar;C:\Users\swaya\.m2\repository\org\hibernate\validator\hibernate-validator\8.0.2.Final\hibernate-validator-8.0.2.Final.jar;C:\Users\swaya\.m2\repository\jakarta\validation\jakarta.validation-api\3.0.2\jakarta.validation-api-3.0.2.jar;C:\Users\swaya\.m2\repository\org\jboss\logging\jboss-logging\3.6.1.Final\jboss-logging-3.6.1.Final.jar;C:\Users\swaya\.m2\repository\com\fasterxml\classmate\1.7.0\classmate-1.7.0.jar;C:\Users\swaya\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.18.2\jackson-annotations-2.18.2.jar;C:\Users\swaya\.m2\repository\org\projectlombok\lombok\1.18.36\lombok-1.18.36.jar; -sourcepath C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\src\main\java;C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\generated-sources\annotations; -s C:\Users\swaya\Downloads\FinSight-Finance-Tracker-master\FinSight-Finance-Tracker-master\backend\finsight-common\target\generated-sources\annotations -processorpath C:\Users\swaya\.m2\repository\org\projectlombok\lombok\1.18.36\lombok-1.18.36.jar; -g -parameters --release 21 -encoding UTF-8 -XDuseUnsharedTable=true
 [DEBUG] incrementalBuildHelper#beforeRebuildExecution
 [INFO] Compiling 34 source files with javac [debug parameters release 21] to target\classes
 [INFO] ------------------------------------------------------------------------

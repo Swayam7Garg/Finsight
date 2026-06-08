@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Health check script for WealthWise API
+# Health check script for FinSight API
 URL="${1:-http://localhost:4000/api/health}"
 TIMEOUT="${2:-5}"
 

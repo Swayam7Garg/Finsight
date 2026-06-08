@@ -1,4 +1,4 @@
-# MCP Server — WealthWise
+# MCP Server — FinSight
 
 [![MCP SDK](https://img.shields.io/badge/MCP_SDK-1.12-5a67d8?logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJ3aGl0ZSI+PHBhdGggZD0iTTEyIDJMMiA3bDEwIDUgMTAtNS0xMC01ek0yIDE3bDEwIDUgMTAtNS0xMC01LTEwIDV6TTIgMTJsMTAgNSAxMC01Ii8+PC9zdmc+&logoColor=white)](https://modelcontextprotocol.io/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178c6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
@@ -9,7 +9,7 @@
 [![Docker](https://img.shields.io/badge/Docker-Multi--Stage-2496ed?logo=docker&logoColor=white)](https://docs.docker.com/build/building/multi-stage/)
 [![Podman](https://img.shields.io/badge/Podman-Ready-892ca0?logo=podman&logoColor=white)](https://podman.io/)
 
-A **Model Context Protocol (MCP)** server that exposes WealthWise's financial data as structured tools and resources for AI agents. It implements the [MCP specification](https://modelcontextprotocol.io/) (JSON-RPC 2.0) with SSE and stdio transports, connects directly to MongoDB using the same Mongoose schemas as the REST API, and scopes every operation to the authenticated user via JWT.
+A **Model Context Protocol (MCP)** server that exposes FinSight's financial data as structured tools and resources for AI agents. It implements the [MCP specification](https://modelcontextprotocol.io/) (JSON-RPC 2.0) with SSE and stdio transports, connects directly to MongoDB using the same Mongoose schemas as the REST API, and scopes every operation to the authenticated user via JWT.
 
 ---
 
@@ -141,10 +141,10 @@ Resources provide read-only, pre-aggregated views of the user's financial data. 
 
 | Resource URI | Description |
 |-------------|-------------|
-| `wealthwise://summary` | Current month income, expenses, savings rate, and account balances |
-| `wealthwise://budget-status` | Active budgets with spent and remaining amounts |
-| `wealthwise://goal-progress` | All savings goals with percentage complete |
-| `wealthwise://upcoming-bills` | Recurring payments due within the next 30 days |
+| `finsight://summary` | Current month income, expenses, savings rate, and account balances |
+| `finsight://budget-status` | Active budgets with spent and remaining amounts |
+| `finsight://goal-progress` | All savings goals with percentage complete |
+| `finsight://upcoming-bills` | Recurring payments due within the next 30 days |
 
 ---
 
@@ -174,7 +174,7 @@ MCP_TRANSPORT=stdio MCP_USER_ID=<userId> MONGODB_URI=<uri> JWT_SECRET=<secret> n
 
 ## Authentication
 
-The MCP server uses the same JWT tokens as the WealthWise REST API.
+The MCP server uses the same JWT tokens as the FinSight REST API.
 
 | Transport | How the token is provided |
 |-----------|--------------------------|
@@ -207,13 +207,13 @@ All environment variables are validated at startup using a Zod schema. The serve
 npm run dev -w mcp
 
 # Build (esbuild, outputs to mcp/dist/)
-npx turbo build --filter=@wealthwise/mcp
+npx turbo build --filter=@finsight/mcp
 
 # Type-check
 npm run lint -w mcp
 
 # Run tests
-npx turbo test --filter=@wealthwise/mcp
+npx turbo test --filter=@finsight/mcp
 ```
 
 The dev server uses `tsx watch` for automatic restarts on file changes. The production build uses `esbuild` targeting Node 20 with CommonJS output and sourcemaps.
@@ -229,7 +229,7 @@ The dev server uses `tsx watch` for automatic restarts on file changes. The prod
 
 ```bash
 # Run all MCP tests
-npx turbo test --filter=@wealthwise/mcp
+npx turbo test --filter=@finsight/mcp
 
 # Run in watch mode
 npm run test:watch -w mcp
@@ -273,26 +273,26 @@ CMD ["node", "dist/index.js"]
 
 ```bash
 # Build the image (Docker)
-docker build -t wealthwise-mcp ./mcp
+docker build -t finsight-mcp ./mcp
 
 # Build the image (Podman)
-podman build -f mcp/Containerfile -t wealthwise-mcp ./mcp
+podman build -f mcp/Containerfile -t finsight-mcp ./mcp
 
 # Run with SSE transport
 docker run -p 5100:5100 \
-  -e MONGODB_URI=mongodb://host.docker.internal:27017/wealthwise \
+  -e MONGODB_URI=mongodb://host.docker.internal:27017/finsight \
   -e JWT_SECRET=your-secret-here-minimum-32-chars \
   -e MCP_TRANSPORT=sse \
   -e NODE_ENV=production \
-  wealthwise-mcp
+  finsight-mcp
 
 # Or with Podman (use host.containers.internal instead of host.docker.internal)
 podman run -p 5100:5100 \
-  -e MONGODB_URI=mongodb://host.containers.internal:27017/wealthwise \
+  -e MONGODB_URI=mongodb://host.containers.internal:27017/finsight \
   -e JWT_SECRET=your-secret-here-minimum-32-chars \
   -e MCP_TRANSPORT=sse \
   -e NODE_ENV=production \
-  wealthwise-mcp
+  finsight-mcp
 ```
 
 The container exposes port `5100` and defaults to SSE transport in production mode.

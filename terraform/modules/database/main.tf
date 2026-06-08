@@ -4,7 +4,7 @@ resource "aws_docdb_subnet_group" "main" {
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-docdb-subnet-group"
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -20,7 +20,7 @@ resource "aws_docdb_cluster_parameter_group" "main" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -48,7 +48,7 @@ resource "aws_security_group" "docdb" {
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-docdb-sg"
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -69,7 +69,7 @@ resource "aws_docdb_cluster" "main" {
   storage_encrypted               = true
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -82,7 +82,7 @@ resource "aws_docdb_cluster_instance" "main" {
   instance_class     = var.instance_class
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }

@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: default-deny
-  namespace: wealthwise
+  namespace: finsight
 spec:
   podSelector: {}
   policyTypes:
@@ -13,18 +13,18 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-api-ingress
-  namespace: wealthwise
+  namespace: finsight
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: wealthwise-api
+      app.kubernetes.io/name: finsight-api
   policyTypes:
     - Ingress
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              app.kubernetes.io/name: wealthwise-web
+              app.kubernetes.io/name: finsight-web
         - namespaceSelector:
             matchLabels:
               app.kubernetes.io/name: ingress-nginx
@@ -36,11 +36,11 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-api-egress-mongodb
-  namespace: wealthwise
+  namespace: finsight
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: wealthwise-api
+      app.kubernetes.io/name: finsight-api
   policyTypes:
     - Egress
   egress:
@@ -58,18 +58,18 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-mcp-ingress
-  namespace: wealthwise
+  namespace: finsight
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: wealthwise-mcp
+      app.kubernetes.io/name: finsight-mcp
   policyTypes:
     - Ingress
   ingress:
     - from:
         - podSelector:
             matchLabels:
-              app.kubernetes.io/name: wealthwise-agentic-ai
+              app.kubernetes.io/name: finsight-agentic-ai
         - namespaceSelector:
             matchLabels:
               app.kubernetes.io/name: ingress-nginx
@@ -82,11 +82,11 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-mcp-egress-mongodb
-  namespace: wealthwise
+  namespace: finsight
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: wealthwise-mcp
+      app.kubernetes.io/name: finsight-mcp
   policyTypes:
     - Egress
   egress:
@@ -104,11 +104,11 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-agentic-ai-ingress
-  namespace: wealthwise
+  namespace: finsight
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: wealthwise-agentic-ai
+      app.kubernetes.io/name: finsight-agentic-ai
   policyTypes:
     - Ingress
   ingress:
@@ -125,18 +125,18 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-agentic-ai-egress
-  namespace: wealthwise
+  namespace: finsight
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: wealthwise-agentic-ai
+      app.kubernetes.io/name: finsight-agentic-ai
   policyTypes:
     - Egress
   egress:
     - to:
         - podSelector:
             matchLabels:
-              app.kubernetes.io/name: wealthwise-mcp
+              app.kubernetes.io/name: finsight-mcp
       ports:
         - protocol: TCP
           port: 5100
@@ -153,11 +153,11 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-web-ingress
-  namespace: wealthwise
+  namespace: finsight
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: wealthwise-web
+      app.kubernetes.io/name: finsight-web
   policyTypes:
     - Ingress
   ingress:
@@ -173,18 +173,18 @@ apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
   name: allow-web-egress-api
-  namespace: wealthwise
+  namespace: finsight
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: wealthwise-web
+      app.kubernetes.io/name: finsight-web
   policyTypes:
     - Egress
   egress:
     - to:
         - podSelector:
             matchLabels:
-              app.kubernetes.io/name: wealthwise-api
+              app.kubernetes.io/name: finsight-api
       ports:
         - protocol: TCP
           port: 4000

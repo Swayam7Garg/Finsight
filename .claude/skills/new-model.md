@@ -1,4 +1,4 @@
-Scaffold a new Mongoose model with its full CRUD service for WealthWise.
+Scaffold a new Mongoose model with its full CRUD service for FinSight.
 
 Entity name: $ARGUMENTS
 

@@ -1,9 +1,9 @@
 [ERROR] COMPILATION ERROR : 
-[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[6,48] cannot find symbol
+[ERROR] /C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[6,48] cannot find symbol
   symbol:   class StdioServerParameters
   location: package io.modelcontextprotocol.server.transport
 [ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project finsight-agentic: Compilation failure
-[ERROR] /C:/Users/swaya/Downloads/WealthWise-Finance-Tracker-master/WealthWise-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[6,48] cannot find symbol
+[ERROR] /C:/Users/swaya/Downloads/FinSight-Finance-Tracker-master/FinSight-Finance-Tracker-master/backend/finsight-agentic/src/main/java/com/finsight/agentic/config/AgentConfig.java:[6,48] cannot find symbol
 [ERROR]   symbol:   class StdioServerParameters
 [ERROR]   location: package io.modelcontextprotocol.server.transport
 [ERROR] 

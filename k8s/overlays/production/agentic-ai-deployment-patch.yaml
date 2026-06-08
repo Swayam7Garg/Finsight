@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wealthwise-agentic-ai
-  namespace: wealthwise
+  name: finsight-agentic-ai
+  namespace: finsight
 spec:
   replicas: 2
   template:

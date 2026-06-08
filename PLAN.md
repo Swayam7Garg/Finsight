@@ -1,4 +1,4 @@
-# WealthWise - Smart Personal Finance Manager
+# FinSight - Smart Personal Finance Manager
 
 ## Vision
 
@@ -757,7 +757,7 @@ personal-finance-app/
 
 ```env
 # Database
-MONGODB_URI=mongodb://localhost:27017/wealthwise
+MONGODB_URI=mongodb://localhost:27017/finsight
 
 # Auth
 JWT_SECRET=your-jwt-secret-min-32-chars

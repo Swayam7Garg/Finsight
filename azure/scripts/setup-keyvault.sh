@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Populate Azure Key Vault secrets for WealthWise
+# Populate Azure Key Vault secrets for FinSight
 : "${KEY_VAULT_NAME:?KEY_VAULT_NAME is required}"
 : "${JWT_SECRET:?JWT_SECRET is required}"
 : "${JWT_REFRESH_SECRET:?JWT_REFRESH_SECRET is required}"

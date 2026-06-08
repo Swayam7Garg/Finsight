@@ -2,7 +2,7 @@ resource "aws_sns_topic" "alarms" {
   name = "${var.project_name}-${var.environment}-alarms"
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -127,7 +127,7 @@ resource "aws_cloudwatch_metric_alarm" "api_high_cpu" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -151,7 +151,7 @@ resource "aws_cloudwatch_metric_alarm" "web_high_cpu" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -175,7 +175,7 @@ resource "aws_cloudwatch_metric_alarm" "mcp_high_cpu" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -199,7 +199,7 @@ resource "aws_cloudwatch_metric_alarm" "agentic_ai_high_cpu" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -223,7 +223,7 @@ resource "aws_cloudwatch_metric_alarm" "mcp_unhealthy_hosts" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -247,7 +247,7 @@ resource "aws_cloudwatch_metric_alarm" "agentic_ai_unhealthy_hosts" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -271,7 +271,7 @@ resource "aws_cloudwatch_metric_alarm" "high_5xx" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -295,7 +295,7 @@ resource "aws_cloudwatch_metric_alarm" "api_unhealthy_hosts" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -319,7 +319,7 @@ resource "aws_cloudwatch_metric_alarm" "web_unhealthy_hosts" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }

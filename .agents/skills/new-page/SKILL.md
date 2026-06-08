@@ -1,12 +1,12 @@
 ---
 name: new-page
 description: >
-  Scaffold a complete new Next.js dashboard page for the WealthWise web app.
+  Scaffold a complete new Next.js dashboard page for the FinSight web app.
   Triggers when asked to "add a page", "create a dashboard screen", "build a UI for <feature>",
   or scaffold any new frontend feature end-to-end. Does not trigger for API-only or backend tasks.
 ---
 
-Scaffold a complete new dashboard page for the WealthWise web app following all project conventions.
+Scaffold a complete new dashboard page for the FinSight web app following all project conventions.
 
 The page/feature name is provided in the task prompt.
 
@@ -63,7 +63,7 @@ Create at minimum:
 - `<Entity>Form.tsx` — create/edit form
 
 All components must:
-- Use React Hook Form + `zodResolver` with schema from `@wealthwise/shared-types`
+- Use React Hook Form + `zodResolver` with schema from `@finsight/shared-types`
 - Use shadcn/ui from `components/ui/` before building custom elements
 - Handle loading (use `<Skeleton />`), error, and empty states explicitly
 - Work in both light and dark themes (always check `.dark` class)
@@ -77,7 +77,7 @@ import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
-  title: '<Feature> | WealthWise',
+  title: '<Feature> | FinSight',
 };
 
 export default function <Feature>Page() {
@@ -101,15 +101,15 @@ Default export required by Next.js.
 
 - No `any` types. No raw `fetch`. No `useEffect` + fetch patterns.
 - Named exports everywhere except the page itself.
-- Every form uses `zodResolver` with schemas from `@wealthwise/shared-types`.
+- Every form uses `zodResolver` with schemas from `@finsight/shared-types`.
 - Strict null checks — handle `undefined` from queries explicitly.
 
 ## Verification
 
 After scaffolding, run:
 ```bash
-npx turbo lint --filter=@wealthwise/web
-npx turbo test --filter=@wealthwise/web
+npx turbo lint --filter=@finsight/web
+npx turbo test --filter=@finsight/web
 ```
 
 Report all created file paths and the URL path for the new page.

@@ -1,4 +1,4 @@
-# Shared AnalysisTemplate for WealthWise canary and blue-green rollouts.
+# Shared AnalysisTemplate for FinSight canary and blue-green rollouts.
 #
 # Prerequisites:
 #   - Prometheus is deployed in the cluster (e.g., kube-prometheus-stack)
@@ -7,7 +7,7 @@
 #     "web" provider pointing to the service's health endpoint.
 #
 # Apply to all namespaces that run rollouts:
-#   kubectl apply -f analysis-template.yaml -n wealthwise-production
+#   kubectl apply -f analysis-template.yaml -n finsight-production
 #
 # Parameters:
 #   service-name  — Kubernetes service name to query metrics for
@@ -16,16 +16,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AnalysisTemplate
 metadata:
-  name: wealthwise-success-rate
-  namespace: wealthwise-production
+  name: finsight-success-rate
+  namespace: finsight-production
   labels:
-    app.kubernetes.io/part-of: wealthwise
+    app.kubernetes.io/part-of: finsight
     app.kubernetes.io/managed-by: argo-rollouts
 spec:
   args:
     - name: service-name
     - name: namespace
-      value: wealthwise-production
+      value: finsight-production
 
   metrics:
     # ── Metric 1: HTTP success rate ────────────────────────────────────────

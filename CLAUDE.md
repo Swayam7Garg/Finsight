@@ -1,4 +1,4 @@
-# CLAUDE.md - WealthWise
+# CLAUDE.md - FinSight
 
 Project-level instructions for Claude Code. These supplement the global `~/.claude/CLAUDE.md` with project-specific conventions.
 
@@ -6,7 +6,7 @@ Project-level instructions for Claude Code. These supplement the global `~/.clau
 
 ## Project Overview
 
-WealthWise is a full-stack personal finance app built as a **Turborepo monorepo** with three packages:
+FinSight is a full-stack personal finance app built as a **Turborepo monorepo** with three packages:
 
 - `apps/api` - Express 4 REST API (TypeScript, Mongoose, MongoDB)
 - `apps/web` - Next.js 14 App Router (React 18, Tailwind CSS, shadcn/ui)
@@ -21,9 +21,9 @@ WealthWise is a full-stack personal finance app built as a **Turborepo monorepo*
 | Start dev | `npm run dev` |
 | Build all | `npm run build` |
 | Run all tests | `npm run test` |
-| Run API tests only | `npx turbo test --filter=@wealthwise/api` |
-| Run web tests only | `npx turbo test --filter=@wealthwise/web` |
-| Run schema tests only | `npx turbo test --filter=@wealthwise/shared-types` |
+| Run API tests only | `npx turbo test --filter=@finsight/api` |
+| Run web tests only | `npx turbo test --filter=@finsight/web` |
+| Run schema tests only | `npx turbo test --filter=@finsight/shared-types` |
 | Lint (type-check) | `npm run lint` |
 | Format | `npm run format` |
 | Seed categories | `npm run db:seed` |
@@ -35,9 +35,9 @@ WealthWise is a full-stack personal finance app built as a **Turborepo monorepo*
 
 When filtering with Turborepo, use the `name` field from each `package.json`:
 
-- `@wealthwise/api`
-- `@wealthwise/web`
-- `@wealthwise/shared-types`
+- `@finsight/api`
+- `@finsight/web`
+- `@finsight/shared-types`
 
 ---
 
@@ -77,7 +77,7 @@ Pattern for a new page:
 - Every schema file exports: Zod schemas, enums, and response schemas.
 - `types/index.ts` infers all TypeScript types from Zod schemas.
 - Never hand-write types that can be inferred from schemas.
-- Both `apps/api` and `apps/web` import from `@wealthwise/shared-types`.
+- Both `apps/api` and `apps/web` import from `@finsight/shared-types`.
 
 ---
 
@@ -96,7 +96,7 @@ Pattern for a new page:
 
 ### Frontend
 - All data fetching goes through TanStack Query hooks. No raw `fetch` in components.
-- Forms use React Hook Form + `zodResolver` with schemas from `@wealthwise/shared-types`.
+- Forms use React Hook Form + `zodResolver` with schemas from `@finsight/shared-types`.
 - Toast notifications (Sonner) on every mutation: success and error.
 - Handle loading, error, and empty states for every data-fetching component.
 
@@ -181,7 +181,7 @@ See `.env.example` for all required variables. Key ones:
 
 ## Common Gotchas
 
-- **Turbo filter names**: Use `@wealthwise/api`, not `api`. The package `name` field is what Turbo uses.
+- **Turbo filter names**: Use `@finsight/api`, not `api`. The package `name` field is what Turbo uses.
 - **Shared types build order**: `shared-types` must build before `api` or `web`. Turbo handles this via `dependsOn: ["^build"]`.
 - **CSS variables**: Theme colors use HSL without the `hsl()` wrapper - Tailwind adds it. Format: `220 13% 91%`, not `hsl(220, 13%, 91%)`.
 - **NextAuth route**: The catch-all is at `app/api/auth/[...nextauth]/route.ts`. Don't add other files in `app/api/`.

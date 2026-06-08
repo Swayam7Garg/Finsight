@@ -1,10 +1,10 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: wealthwise-ingress
-  namespace: wealthwise
+  name: finsight-ingress
+  namespace: finsight
   labels:
-    app.kubernetes.io/part-of: wealthwise
+    app.kubernetes.io/part-of: finsight
   annotations:
     nginx.ingress.kubernetes.io/rate-limit: "10"
     nginx.ingress.kubernetes.io/rate-limit-window: "1m"
@@ -14,37 +14,37 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - wealthwise.example.com
-      secretName: wealthwise-tls
+        - finsight.example.com
+      secretName: finsight-tls
   rules:
-    - host: wealthwise.example.com
+    - host: finsight.example.com
       http:
         paths:
           - path: /api
             pathType: Prefix
             backend:
               service:
-                name: wealthwise-api
+                name: finsight-api
                 port:
                   number: 4000
           - path: /mcp
             pathType: Prefix
             backend:
               service:
-                name: wealthwise-mcp
+                name: finsight-mcp
                 port:
                   number: 5100
           - path: /agent
             pathType: Prefix
             backend:
               service:
-                name: wealthwise-agentic-ai
+                name: finsight-agentic-ai
                 port:
                   number: 5200
           - path: /
             pathType: Prefix
             backend:
               service:
-                name: wealthwise-web
+                name: finsight-web
                 port:
                   number: 3000

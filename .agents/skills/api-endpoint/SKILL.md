@@ -1,12 +1,12 @@
 ---
 name: api-endpoint
 description: >
-  Scaffold a complete new API endpoint for the WealthWise Express API.
+  Scaffold a complete new API endpoint for the FinSight Express API.
   Triggers when asked to "add an endpoint", "create a route", "build an API for <entity>",
   or scaffold any new REST resource end-to-end. Does not trigger for frontend-only tasks.
 ---
 
-Scaffold a complete new API endpoint for the WealthWise API following all project conventions.
+Scaffold a complete new API endpoint for the FinSight API following all project conventions.
 
 The entity/resource name is provided in the task prompt.
 
@@ -76,7 +76,7 @@ Rules:
 ### 5. Route — `apps/api/src/routes/<entity>.route.ts`
 
 - Apply `authenticate` middleware before all routes
-- Apply `validate` middleware with Zod schemas from `@wealthwise/shared-types`
+- Apply `validate` middleware with Zod schemas from `@finsight/shared-types`
 - Add JSDoc Swagger annotations for every endpoint
 - Register the router in `apps/api/src/routes/index.ts`
 
@@ -91,8 +91,8 @@ Rules:
 
 After scaffolding, run:
 ```bash
-npx turbo lint --filter=@wealthwise/api
-npx turbo test --filter=@wealthwise/api
+npx turbo lint --filter=@finsight/api
+npx turbo test --filter=@finsight/api
 ```
 
 Report all created file paths and the registered route paths (e.g., `GET /api/v1/<entities>`).

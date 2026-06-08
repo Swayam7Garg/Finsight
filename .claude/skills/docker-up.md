@@ -1,4 +1,4 @@
-Start the WealthWise development environment with Docker Compose or Podman Compose.
+Start the FinSight development environment with Docker Compose or Podman Compose.
 
 Mode: $ARGUMENTS
 

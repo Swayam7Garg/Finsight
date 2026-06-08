@@ -1,6 +1,6 @@
 # `.agents/skills` README
 
-This directory contains the Codex skill system for WealthWise. Skills are reusable workflow instructions that teach Codex how to handle recurring repository tasks such as scaffolding endpoints, creating pages, seeding data, running health checks, or validating a branch before a PR.
+This directory contains the Codex skill system for FinSight. Skills are reusable workflow instructions that teach Codex how to handle recurring repository tasks such as scaffolding endpoints, creating pages, seeding data, running health checks, or validating a branch before a PR.
 
 These skills are referenced by the root [`AGENTS.md`](../../AGENTS.md), which advertises them to Codex and defines when they should be loaded explicitly or implicitly.
 
@@ -91,7 +91,7 @@ Key rules:
 - Every query filters by `userId`
 - Use `ApiError` factories
 - Named exports only
-- Verify with `npx turbo lint --filter=@wealthwise/api` and `npx turbo test --filter=@wealthwise/api`
+- Verify with `npx turbo lint --filter=@finsight/api` and `npx turbo test --filter=@finsight/api`
 
 ### `db-seed`
 
@@ -246,7 +246,7 @@ Bad examples:
 Skills should reference commands that actually exist in this repository, such as:
 - `npm run dev`
 - `npm run lint`
-- `npx turbo test --filter=@wealthwise/api`
+- `npx turbo test --filter=@finsight/api`
 
 If package names or scripts change, update the affected skills immediately.
 

@@ -1,6 +1,6 @@
-# @wealthwise/web
+# @finsight/web
 
-Next.js 14 frontend for WealthWise -- the authenticated dashboard where users manage accounts, transactions, budgets, goals, recurring payments, and analytics. Part of the [WealthWise monorepo](../../README.md).
+Next.js 14 frontend for FinSight -- the authenticated dashboard where users manage accounts, transactions, budgets, goals, recurring payments, and analytics. Part of the [FinSight monorepo](../../README.md).
 
 ---
 
@@ -19,7 +19,7 @@ Next.js 14 frontend for WealthWise -- the authenticated dashboard where users ma
 | Notifications | Sonner (toast) |
 | Date handling | date-fns 3 |
 | CSV import | PapaParse |
-| Shared schemas | `@wealthwise/shared-types` (Zod schemas + inferred types) |
+| Shared schemas | `@finsight/shared-types` (Zod schemas + inferred types) |
 
 ---
 
@@ -28,8 +28,8 @@ Next.js 14 frontend for WealthWise -- the authenticated dashboard where users ma
 ### Prerequisites
 
 - Node.js >= 18
-- The API server (`@wealthwise/api`) running on port 4000 (or set `NEXT_PUBLIC_API_URL`)
-- `@wealthwise/shared-types` built (`npx turbo build --filter=@wealthwise/shared-types`)
+- The API server (`@finsight/api`) running on port 4000 (or set `NEXT_PUBLIC_API_URL`)
+- `@finsight/shared-types` built (`npx turbo build --filter=@finsight/shared-types`)
 
 ### Environment Variables
 
@@ -49,7 +49,7 @@ Copy `.env.example` at the monorepo root and fill in the web-specific values:
 npm run dev              # starts all packages (recommended)
 
 # Or just the web app (shared-types must be built first)
-npx turbo dev --filter=@wealthwise/web
+npx turbo dev --filter=@finsight/web
 ```
 
 The app starts on [http://localhost:3000](http://localhost:3000).
@@ -333,7 +333,7 @@ colors: {
 ## State Management
 
 - **Server state**: TanStack Query. Default stale time is 5 minutes, GC time is 10 minutes.
-- **Form state**: React Hook Form with `zodResolver` and schemas from `@wealthwise/shared-types`.
+- **Form state**: React Hook Form with `zodResolver` and schemas from `@finsight/shared-types`.
 - **No global client state library** (no Redux, Zustand, etc.). URL params handle filter/page state.
 
 ---
@@ -362,7 +362,7 @@ colors: {
 
 ```bash
 # From monorepo root
-npx turbo test --filter=@wealthwise/web
+npx turbo test --filter=@finsight/web
 
 # Watch mode
 cd apps/web && npx vitest --watch
@@ -437,7 +437,7 @@ apps/web/
 
 4. **Create components** -- Add `src/components/<entity>/` with feature-specific components. Use shadcn/ui primitives, React Hook Form for forms, and Sonner toasts on mutations.
 
-5. **Types** -- Add Zod schemas in `@wealthwise/shared-types` first. Import inferred types in your hooks and components.
+5. **Types** -- Add Zod schemas in `@finsight/shared-types` first. Import inferred types in your hooks and components.
 
 ---
 

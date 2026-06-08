@@ -1,7 +1,7 @@
-# Argo CD Application — WealthWise Dev
+# Argo CD Application — FinSight Dev
 #
 # Sources:   k8s/overlays/dev  (Kustomize)
-# Target:    wealthwise-dev namespace, in-cluster
+# Target:    finsight-dev namespace, in-cluster
 # Sync:      Automated — prune + self-heal enabled
 #            Dev is the fast-feedback environment; all pushes to main auto-deploy.
 #
@@ -11,37 +11,37 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: wealthwise-dev
+  name: finsight-dev
   namespace: argocd
   labels:
-    app.kubernetes.io/name: wealthwise
+    app.kubernetes.io/name: finsight
     app.kubernetes.io/component: gitops
     environment: dev
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
     # Slack / webhook notifications (requires Argo CD Notifications controller)
-    notifications.argoproj.io/subscribe.on-sync-failed.slack: wealthwise-alerts
-    notifications.argoproj.io/subscribe.on-health-degraded.slack: wealthwise-alerts
+    notifications.argoproj.io/subscribe.on-sync-failed.slack: finsight-alerts
+    notifications.argoproj.io/subscribe.on-health-degraded.slack: finsight-alerts
 spec:
-  project: wealthwise
+  project: finsight
 
   # ── Source ─────────────────────────────────────────────────────────────────
   source:
-    repoURL: https://github.com/hoangsonww/wealthwise.git
+    repoURL: https://github.com/hoangsonww/finsight.git
     targetRevision: HEAD         # Always tracks the tip of the default branch
     path: k8s/overlays/dev
     kustomize:
       # Override the image tags to the latest build.
-      # In CI, use: argocd app set wealthwise-dev --kustomize-image ...
+      # In CI, use: argocd app set finsight-dev --kustomize-image ...
       images:
-        - ghcr.io/hoangsonww/wealthwise-api:latest
-        - ghcr.io/hoangsonww/wealthwise-web:latest
+        - ghcr.io/hoangsonww/finsight-api:latest
+        - ghcr.io/hoangsonww/finsight-web:latest
 
   # ── Destination ────────────────────────────────────────────────────────────
   destination:
     server: https://kubernetes.default.svc
-    namespace: wealthwise-dev
+    namespace: finsight-dev
 
   # ── Sync policy ────────────────────────────────────────────────────────────
   syncPolicy:

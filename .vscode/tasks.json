@@ -26,7 +26,7 @@
     {
       "label": "Dev: API Only",
       "type": "shell",
-      "command": "npx turbo dev --filter=@wealthwise/api",
+      "command": "npx turbo dev --filter=@finsight/api",
       "presentation": {
         "panel": "dedicated",
         "reveal": "always",
@@ -38,7 +38,7 @@
     {
       "label": "Dev: Web Only",
       "type": "shell",
-      "command": "npx turbo dev --filter=@wealthwise/web",
+      "command": "npx turbo dev --filter=@finsight/web",
       "presentation": {
         "panel": "dedicated",
         "reveal": "always",
@@ -64,7 +64,7 @@
     {
       "label": "Test: API",
       "type": "shell",
-      "command": "npx turbo test --filter=@wealthwise/api",
+      "command": "npx turbo test --filter=@finsight/api",
       "group": "test",
       "presentation": {
         "panel": "shared",
@@ -75,7 +75,7 @@
     {
       "label": "Test: Web",
       "type": "shell",
-      "command": "npx turbo test --filter=@wealthwise/web",
+      "command": "npx turbo test --filter=@finsight/web",
       "group": "test",
       "presentation": {
         "panel": "shared",
@@ -86,7 +86,7 @@
     {
       "label": "Test: Shared Types",
       "type": "shell",
-      "command": "npx turbo test --filter=@wealthwise/shared-types",
+      "command": "npx turbo test --filter=@finsight/shared-types",
       "group": "test",
       "presentation": {
         "panel": "shared",

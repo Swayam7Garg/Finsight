@@ -1,4 +1,4 @@
-# Argo CD AppProject — WealthWise
+# Argo CD AppProject — FinSight
 #
 # Defines RBAC boundaries, allowed source repos, and allowed destination clusters/namespaces.
 # Apply once during cluster bootstrap:
@@ -7,30 +7,30 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: wealthwise
+  name: finsight
   namespace: argocd
   # Prevent accidental deletion via the Argo CD UI
   finalizers:
     - resources-finalizer.argocd.argoproj.io
 spec:
-  description: "WealthWise personal finance application — all environments"
+  description: "FinSight personal finance application — all environments"
 
   # ── Allowed source repositories ────────────────────────────────────────────
   sourceRepos:
-    - "https://github.com/hoangsonww/wealthwise.git"
+    - "https://github.com/hoangsonww/finsight.git"
     # Helm stable chart repository (if Helm charts used as dependency)
     - "https://charts.helm.sh/stable"
 
   # ── Allowed destination clusters and namespaces ────────────────────────────
   destinations:
     - server: https://kubernetes.default.svc
-      namespace: wealthwise-dev
+      namespace: finsight-dev
     - server: https://kubernetes.default.svc
-      namespace: wealthwise-staging
+      namespace: finsight-staging
     - server: https://kubernetes.default.svc
-      namespace: wealthwise-production
+      namespace: finsight-production
     - server: https://kubernetes.default.svc
-      namespace: wealthwise               # base / catch-all
+      namespace: finsight               # base / catch-all
 
   # ── Cluster-scoped resources the project is allowed to manage ─────────────
   clusterResourceWhitelist:
@@ -58,7 +58,7 @@ spec:
       schedule: "* * * * *"
       duration: 24h
       applications:
-        - "wealthwise-dev"
+        - "finsight-dev"
       manualSync: true
 
     # Restrict production automated sync to business hours UTC Mon-Fri
@@ -66,7 +66,7 @@ spec:
       schedule: "0 6 * * 1-5"
       duration: 10h
       applications:
-        - "wealthwise-production"
+        - "finsight-production"
       manualSync: true          # manual sync is always allowed outside the window
 
   # ── RBAC roles ─────────────────────────────────────────────────────────────
@@ -75,24 +75,24 @@ spec:
     - name: developer
       description: "Read all apps; sync dev environment"
       policies:
-        - p, proj:wealthwise:developer, applications, get,    wealthwise/*, allow
-        - p, proj:wealthwise:developer, applications, sync,   wealthwise/wealthwise-dev, allow
-        - p, proj:wealthwise:developer, applications, action, wealthwise/wealthwise-dev, allow
+        - p, proj:finsight:developer, applications, get,    finsight/*, allow
+        - p, proj:finsight:developer, applications, sync,   finsight/finsight-dev, allow
+        - p, proj:finsight:developer, applications, action, finsight/finsight-dev, allow
       groups:
-        - wealthwise-developers
+        - finsight-developers
 
     # Release engineers: full sync on staging + production
     - name: release-engineer
       description: "Full control over staging and production"
       policies:
-        - p, proj:wealthwise:release-engineer, applications, *, wealthwise/*, allow
+        - p, proj:finsight:release-engineer, applications, *, finsight/*, allow
       groups:
-        - wealthwise-release
+        - finsight-release
 
     # CI/CD service account: sync all apps (used by GitHub Actions / Jenkins)
     - name: ci-deployer
       description: "Automated deployment from CI pipelines"
       policies:
-        - p, proj:wealthwise:ci-deployer, applications, sync,   wealthwise/*, allow
-        - p, proj:wealthwise:ci-deployer, applications, get,    wealthwise/*, allow
-        - p, proj:wealthwise:ci-deployer, applications, action, wealthwise/*, allow
+        - p, proj:finsight:ci-deployer, applications, sync,   finsight/*, allow
+        - p, proj:finsight:ci-deployer, applications, get,    finsight/*, allow
+        - p, proj:finsight:ci-deployer, applications, action, finsight/*, allow

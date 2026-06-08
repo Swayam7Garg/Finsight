@@ -1,5 +1,5 @@
 {
-  "family": "wealthwise-api",
+  "family": "finsight-api",
   "networkMode": "awsvpc",
   "requiresCompatibilities": ["FARGATE"],
   "cpu": "512",
@@ -8,8 +8,8 @@
   "taskRoleArn": "${TASK_ROLE_ARN}",
   "containerDefinitions": [
     {
-      "name": "wealthwise-api",
-      "image": "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/wealthwise-api:latest",
+      "name": "finsight-api",
+      "image": "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com/finsight-api:latest",
       "essential": true,
       "portMappings": [
         {
@@ -34,21 +34,21 @@
       "secrets": [
         {
           "name": "JWT_SECRET",
-          "valueFrom": "arn:aws:secretsmanager:${AWS_REGION}:${AWS_ACCOUNT_ID}:secret:wealthwise/jwt-secret"
+          "valueFrom": "arn:aws:secretsmanager:${AWS_REGION}:${AWS_ACCOUNT_ID}:secret:finsight/jwt-secret"
         },
         {
           "name": "JWT_REFRESH_SECRET",
-          "valueFrom": "arn:aws:secretsmanager:${AWS_REGION}:${AWS_ACCOUNT_ID}:secret:wealthwise/jwt-refresh-secret"
+          "valueFrom": "arn:aws:secretsmanager:${AWS_REGION}:${AWS_ACCOUNT_ID}:secret:finsight/jwt-refresh-secret"
         },
         {
           "name": "MONGODB_URI",
-          "valueFrom": "arn:aws:secretsmanager:${AWS_REGION}:${AWS_ACCOUNT_ID}:secret:wealthwise/mongodb-uri"
+          "valueFrom": "arn:aws:secretsmanager:${AWS_REGION}:${AWS_ACCOUNT_ID}:secret:finsight/mongodb-uri"
         }
       ],
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-          "awslogs-group": "/ecs/wealthwise-api",
+          "awslogs-group": "/ecs/finsight-api",
           "awslogs-region": "${AWS_REGION}",
           "awslogs-stream-prefix": "api"
         }

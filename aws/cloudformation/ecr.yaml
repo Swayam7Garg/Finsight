@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: WealthWise ECR repositories with lifecycle policies and image scanning
+Description: FinSight ECR repositories with lifecycle policies and image scanning
 
 Parameters:
   EnvironmentName:
@@ -10,7 +10,7 @@ Resources:
   APIRepository:
     Type: AWS::ECR::Repository
     Properties:
-      RepositoryName: wealthwise-api
+      RepositoryName: finsight-api
       ImageScanningConfiguration:
         ScanOnPush: true
       LifecyclePolicy:
@@ -47,12 +47,12 @@ Resources:
           }
       Tags:
         - Key: Name
-          Value: wealthwise-api
+          Value: finsight-api
 
   WebRepository:
     Type: AWS::ECR::Repository
     Properties:
-      RepositoryName: wealthwise-web
+      RepositoryName: finsight-web
       ImageScanningConfiguration:
         ScanOnPush: true
       LifecyclePolicy:
@@ -89,7 +89,7 @@ Resources:
           }
       Tags:
         - Key: Name
-          Value: wealthwise-web
+          Value: finsight-web
 
 Outputs:
   APIRepositoryUri:

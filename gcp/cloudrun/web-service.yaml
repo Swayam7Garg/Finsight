@@ -1,9 +1,9 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: wealthwise-web
+  name: finsight-web
   labels:
-    app: wealthwise-web
+    app: finsight-web
   annotations:
     run.googleapis.com/ingress: internal-and-cloud-load-balancing
 spec:
@@ -17,7 +17,7 @@ spec:
       containerConcurrency: 80
       timeoutSeconds: 300
       containers:
-        - image: ${REGION}-docker.pkg.dev/${PROJECT_ID}/wealthwise-web/web:latest
+        - image: ${REGION}-docker.pkg.dev/${PROJECT_ID}/finsight-web/web:latest
           ports:
             - containerPort: 3000
           resources:

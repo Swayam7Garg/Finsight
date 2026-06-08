@@ -1,13 +1,13 @@
-# WealthWise Copilot Instructions
+# FinSight Copilot Instructions
 
 - This repository is a Turborepo monorepo for a personal finance product. Main packages are `apps/api`, `apps/web`, `packages/shared-types`, `mcp`, and `agentic-ai`.
 - Prefer the smallest defensible change that matches existing local patterns. Read nearby files before introducing new structure, abstractions, or dependencies.
 - Keep unrelated files untouched. Do not opportunistically refactor while solving a scoped task.
-- Use the exact Turbo package names when filtering tasks: `@wealthwise/api`, `@wealthwise/web`, `@wealthwise/shared-types`, `@wealthwise/mcp`, and `@wealthwise/agentic-ai`.
+- Use the exact Turbo package names when filtering tasks: `@finsight/api`, `@finsight/web`, `@finsight/shared-types`, `@finsight/mcp`, and `@finsight/agentic-ai`.
 
 ## API rules
 
-- `apps/api` uses Express 4, TypeScript, Mongoose, and Zod schemas from `@wealthwise/shared-types`.
+- `apps/api` uses Express 4, TypeScript, Mongoose, and Zod schemas from `@finsight/shared-types`.
 - Every database query must filter by `userId`. There is no cross-user access pattern.
 - Keep layer boundaries strict:
   - `routes/`: routing and Swagger JSDoc only
@@ -23,7 +23,7 @@
 - `apps/web` uses Next.js 14 App Router, React 18, Tailwind CSS, shadcn/ui, TanStack Query v5, React Hook Form, and Sonner.
 - Use TanStack Query for all remote data fetching. Do not introduce raw `fetch` inside React components.
 - Use `apps/web/src/lib/api-client.ts` for API calls. Do not manually attach auth tokens.
-- Use React Hook Form + `zodResolver` with schemas from `@wealthwise/shared-types`.
+- Use React Hook Form + `zodResolver` with schemas from `@finsight/shared-types`.
 - Show Sonner success and error toasts for every mutation.
 - Handle loading, error, and empty states explicitly on data-driven screens.
 - Use Tailwind CSS only. Prefer existing shadcn/ui primitives in `components/ui/` before building custom UI.

@@ -1,14 +1,14 @@
 {
-  "name": "wealthwise",
+  "name": "finsight",
   "private": true,
   "author": "Son Nguyen",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hoangsonww/WealthWise-Finance-Tracker.git"
+    "url": "git+https://github.com/hoangsonww/FinSight-Finance-Tracker.git"
   },
   "bugs": {
-    "url": "https://github.com/hoangsonww/WealthWise-Finance-Tracker/issues"
+    "url": "https://github.com/hoangsonww/FinSight-Finance-Tracker/issues"
   },
   "workspaces": [
     "apps/*",

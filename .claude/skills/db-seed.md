@@ -1,4 +1,4 @@
-Seed the WealthWise database.
+Seed the FinSight database.
 
 Arguments: $ARGUMENTS
 

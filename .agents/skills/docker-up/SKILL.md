@@ -1,12 +1,12 @@
 ---
 name: docker-up
 description: >
-  Manage the WealthWise Docker/Podman Compose development environment.
+  Manage the FinSight Docker/Podman Compose development environment.
   Triggers when asked to "start Docker", "start Podman", "bring up the containers", "stop Docker",
   "show Docker logs", or "restart the dev environment". Does NOT trigger implicitly.
 ---
 
-Manage the WealthWise container development environment (Docker or Podman).
+Manage the FinSight container development environment (Docker or Podman).
 
 ## Runtime detection
 

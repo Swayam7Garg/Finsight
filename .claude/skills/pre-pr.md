@@ -1,4 +1,4 @@
-Run the full pre-PR checklist for WealthWise and report pass/fail for each gate.
+Run the full pre-PR checklist for FinSight and report pass/fail for each gate.
 
 ## Checklist
 

@@ -7,7 +7,7 @@ resource "aws_ecs_cluster" "main" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -17,7 +17,7 @@ resource "aws_cloudwatch_log_group" "api" {
   retention_in_days = 30
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -27,7 +27,7 @@ resource "aws_cloudwatch_log_group" "web" {
   retention_in_days = 30
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -37,7 +37,7 @@ resource "aws_cloudwatch_log_group" "mcp" {
   retention_in_days = 30
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -47,7 +47,7 @@ resource "aws_cloudwatch_log_group" "agentic_ai" {
   retention_in_days = 30
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -86,7 +86,7 @@ resource "aws_ecs_task_definition" "api" {
   ])
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -125,7 +125,7 @@ resource "aws_ecs_task_definition" "web" {
   ])
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -164,7 +164,7 @@ resource "aws_ecs_task_definition" "mcp" {
   ])
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -203,7 +203,7 @@ resource "aws_ecs_task_definition" "agentic_ai" {
   ])
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -255,7 +255,7 @@ resource "aws_security_group" "ecs_tasks" {
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-ecs-sg"
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -279,7 +279,7 @@ resource "aws_ecs_service" "api" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -303,7 +303,7 @@ resource "aws_ecs_service" "web" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -327,7 +327,7 @@ resource "aws_ecs_service" "mcp" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -351,7 +351,7 @@ resource "aws_ecs_service" "agentic_ai" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }

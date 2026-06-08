@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-namespace: wealthwise
+namespace: finsight
 
 resources:
   - ../../base
@@ -13,11 +13,11 @@ patches:
   - path: agentic-ai-deployment-patch.yaml
   - target:
       kind: Ingress
-      name: wealthwise-ingress
+      name: finsight-ingress
     patch: |-
       - op: replace
         path: /spec/tls/0/hosts/0
-        value: wealthwise.example.com
+        value: finsight.example.com
       - op: replace
         path: /spec/rules/0/host
-        value: wealthwise.example.com
+        value: finsight.example.com

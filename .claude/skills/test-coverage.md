@@ -1,4 +1,4 @@
-Run the full WealthWise test suite with coverage and summarize results.
+Run the full FinSight test suite with coverage and summarize results.
 
 Filter: $ARGUMENTS
 
@@ -6,9 +6,9 @@ Filter: $ARGUMENTS
 
 ### 1. Determine scope
 - If no argument: run all packages
-- If "api": run `npx turbo test:coverage --filter=@wealthwise/api`
-- If "web": run `npx turbo test:coverage --filter=@wealthwise/web`
-- If "types" or "shared-types": run `npx turbo test:coverage --filter=@wealthwise/shared-types`
+- If "api": run `npx turbo test:coverage --filter=@finsight/api`
+- If "web": run `npx turbo test:coverage --filter=@finsight/web`
+- If "types" or "shared-types": run `npx turbo test:coverage --filter=@finsight/shared-types`
 - Otherwise: run the full suite with `npm run test:coverage`
 
 ### 2. Run the tests

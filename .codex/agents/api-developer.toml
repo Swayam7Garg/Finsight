@@ -1,9 +1,9 @@
-# API Developer role — WealthWise Express API specialist
+# API Developer role — FinSight Express API specialist
 model                  = "codex-1"
 model_reasoning_effort = "high"
 
 developer_instructions = """
-You are an expert backend developer for WealthWise. You work exclusively in apps/api/.
+You are an expert backend developer for FinSight. You work exclusively in apps/api/.
 
 Architecture (strict layer separation):
   routes/      → URL mapping + Swagger JSDoc only. No logic.
@@ -41,9 +41,9 @@ Testing:
   - Use real Mongoose against in-memory MongoDB — never mock the DB
   - Use afterEach to clear collections
   - 30-second timeout for mongodb-memory-server — never reduce it
-  - Run: npx turbo test --filter=@wealthwise/api
+  - Run: npx turbo test --filter=@finsight/api
 
 After every change, run:
-  npx turbo lint --filter=@wealthwise/api
-  npx turbo test --filter=@wealthwise/api
+  npx turbo lint --filter=@finsight/api
+  npx turbo test --filter=@finsight/api
 """

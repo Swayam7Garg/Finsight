@@ -1,13 +1,13 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: wealthwise-agentic-ai-hpa
-  namespace: wealthwise
+  name: finsight-agentic-ai-hpa
+  namespace: finsight
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: wealthwise-agentic-ai
+    name: finsight-agentic-ai
   minReplicas: 2
   maxReplicas: 6
   metrics:

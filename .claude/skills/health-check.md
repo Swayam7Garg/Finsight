@@ -1,4 +1,4 @@
-Check the health of the running WealthWise API and web services.
+Check the health of the running FinSight API and web services.
 
 Target: $ARGUMENTS
 

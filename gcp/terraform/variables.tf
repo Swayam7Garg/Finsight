@@ -15,12 +15,12 @@ variable "domain" {
 }
 
 variable "api_image" {
-  description = "Container image for the API (e.g. REGION-docker.pkg.dev/PROJECT/wealthwise-api/api:TAG)"
+  description = "Container image for the API (e.g. REGION-docker.pkg.dev/PROJECT/finsight-api/api:TAG)"
   type        = string
 }
 
 variable "web_image" {
-  description = "Container image for the web frontend (e.g. REGION-docker.pkg.dev/PROJECT/wealthwise-web/web:TAG)"
+  description = "Container image for the web frontend (e.g. REGION-docker.pkg.dev/PROJECT/finsight-web/web:TAG)"
   type        = string
 }
 

@@ -1,6 +1,6 @@
 terraform {
   backend "gcs" {
-    bucket = "wealthwise-terraform-state"
+    bucket = "finsight-terraform-state"
     prefix = "gcp"
   }
 }

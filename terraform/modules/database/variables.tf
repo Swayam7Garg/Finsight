@@ -25,7 +25,7 @@ variable "backup_retention_period" {
 variable "master_username" {
   description = "Master username for DocumentDB"
   type        = string
-  default     = "wealthwise"
+  default     = "finsight"
 }
 
 variable "master_password" {
@@ -57,5 +57,5 @@ variable "environment" {
 variable "project_name" {
   description = "Project name used for resource naming"
   type        = string
-  default     = "wealthwise"
+  default     = "finsight"
 }

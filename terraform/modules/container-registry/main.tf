@@ -13,7 +13,7 @@ resource "aws_ecr_repository" "main" {
   }
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }

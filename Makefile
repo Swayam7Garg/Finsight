@@ -1,7 +1,7 @@
 # ==============================================================================
-# WealthWise — Makefile
+# FinSight — Makefile
 # ==============================================================================
-# Production-ready build, test, and operations automation for the WealthWise
+# Production-ready build, test, and operations automation for the FinSight
 # Turborepo monorepo. Works on Linux, macOS, and Windows (Git Bash / WSL).
 #
 # Usage:
@@ -25,9 +25,9 @@ PODMAN_PROD     := podman-compose -f podman-compose.prod.yml
 TURBO           := npx turbo
 
 # Package filter names (must match package.json "name" fields)
-PKG_API         := @wealthwise/api
-PKG_WEB         := @wealthwise/web
-PKG_SHARED      := @wealthwise/shared-types
+PKG_API         := @finsight/api
+PKG_WEB         := @finsight/web
+PKG_SHARED      := @finsight/shared-types
 
 # Colors for terminal output
 COLOR_RESET     := \033[0m
@@ -46,7 +46,7 @@ TIMESTAMP       := $(shell date +%Y%m%d_%H%M%S)
 .PHONY: help
 help: ## Show this help message
 	@echo ""
-	@echo "  WealthWise — Available Targets"
+	@echo "  FinSight — Available Targets"
 	@echo "  ==============================="
 	@echo ""
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
@@ -168,13 +168,13 @@ db-seed-demo: ## Seed demo data (destructive — replaces demo user data)
 db-backup: ## Backup production MongoDB to ./backups/
 	@mkdir -p backups
 	$(COMPOSE_PROD) exec -T mongodb mongodump \
-		--db wealthwise --archive --gzip > backups/wealthwise_$(TIMESTAMP).archive.gz
-	@echo -e "$(COLOR_GREEN)Backup saved to backups/wealthwise_$(TIMESTAMP).archive.gz$(COLOR_RESET)"
+		--db finsight --archive --gzip > backups/finsight_$(TIMESTAMP).archive.gz
+	@echo -e "$(COLOR_GREEN)Backup saved to backups/finsight_$(TIMESTAMP).archive.gz$(COLOR_RESET)"
 
 .PHONY: db-restore
 db-restore: ## Restore MongoDB from backup (usage: make db-restore BACKUP=backups/file.archive.gz)
 ifndef BACKUP
-	$(error BACKUP is required. Usage: make db-restore BACKUP=backups/wealthwise_20260303.archive.gz)
+	$(error BACKUP is required. Usage: make db-restore BACKUP=backups/finsight_20260303.archive.gz)
 endif
 	cat $(BACKUP) | $(COMPOSE_PROD) exec -T mongodb mongorestore \
 		--archive --gzip --drop
@@ -275,7 +275,7 @@ prod-shell-api: ## Open shell in production API container
 
 .PHONY: prod-shell-mongo
 prod-shell-mongo: ## Open mongosh in production MongoDB container
-	$(COMPOSE_PROD) exec mongodb mongosh wealthwise
+	$(COMPOSE_PROD) exec mongodb mongosh finsight
 
 # ------------------------------------------------------------------------------
 # Production Deploy Workflow

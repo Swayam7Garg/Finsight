@@ -1,7 +1,7 @@
 {
-  "serviceName": "wealthwise-web",
+  "serviceName": "finsight-web",
   "cluster": "${CLUSTER_NAME}",
-  "taskDefinition": "wealthwise-web",
+  "taskDefinition": "finsight-web",
   "desiredCount": 2,
   "launchType": "FARGATE",
   "networkConfiguration": {
@@ -14,7 +14,7 @@
   "loadBalancers": [
     {
       "targetGroupArn": "${WEB_TARGET_GROUP_ARN}",
-      "containerName": "wealthwise-web",
+      "containerName": "finsight-web",
       "containerPort": 3000
     }
   ],

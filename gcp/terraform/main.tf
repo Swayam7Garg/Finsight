@@ -1,4 +1,4 @@
-# WealthWise GCP Infrastructure
+# FinSight GCP Infrastructure
 
 terraform {
   required_version = ">= 1.5"
@@ -33,9 +33,9 @@ resource "google_project_service" "apis" {
 # Artifact Registry
 resource "google_artifact_registry_repository" "api" {
   location      = var.region
-  repository_id = "wealthwise-api"
+  repository_id = "finsight-api"
   format        = "DOCKER"
-  description   = "WealthWise API container images"
+  description   = "FinSight API container images"
 
   cleanup_policies {
     id     = "keep-recent"
@@ -50,9 +50,9 @@ resource "google_artifact_registry_repository" "api" {
 
 resource "google_artifact_registry_repository" "web" {
   location      = var.region
-  repository_id = "wealthwise-web"
+  repository_id = "finsight-web"
   format        = "DOCKER"
-  description   = "WealthWise Web container images"
+  description   = "FinSight Web container images"
 
   cleanup_policies {
     id     = "keep-recent"
@@ -67,9 +67,9 @@ resource "google_artifact_registry_repository" "web" {
 
 resource "google_artifact_registry_repository" "mcp" {
   location      = var.region
-  repository_id = "wealthwise-mcp"
+  repository_id = "finsight-mcp"
   format        = "DOCKER"
-  description   = "WealthWise MCP server container images"
+  description   = "FinSight MCP server container images"
 
   cleanup_policies {
     id     = "keep-recent"
@@ -84,9 +84,9 @@ resource "google_artifact_registry_repository" "mcp" {
 
 resource "google_artifact_registry_repository" "agentic_ai" {
   location      = var.region
-  repository_id = "wealthwise-agentic-ai"
+  repository_id = "finsight-agentic-ai"
   format        = "DOCKER"
-  description   = "WealthWise Agentic AI container images"
+  description   = "FinSight Agentic AI container images"
 
   cleanup_policies {
     id     = "keep-recent"
@@ -101,7 +101,7 @@ resource "google_artifact_registry_repository" "agentic_ai" {
 
 # VPC Connector for Cloud Run → MongoDB Atlas
 resource "google_vpc_access_connector" "connector" {
-  name          = "wealthwise-connector"
+  name          = "finsight-connector"
   region        = var.region
   ip_cidr_range = "10.8.0.0/28"
   network       = "default"
@@ -111,23 +111,23 @@ resource "google_vpc_access_connector" "connector" {
 
 # Service accounts
 resource "google_service_account" "api" {
-  account_id   = "wealthwise-api"
-  display_name = "WealthWise API Service Account"
+  account_id   = "finsight-api"
+  display_name = "FinSight API Service Account"
 }
 
 resource "google_service_account" "web" {
-  account_id   = "wealthwise-web"
-  display_name = "WealthWise Web Service Account"
+  account_id   = "finsight-web"
+  display_name = "FinSight Web Service Account"
 }
 
 resource "google_service_account" "mcp" {
-  account_id   = "wealthwise-mcp"
-  display_name = "WealthWise MCP Service Account"
+  account_id   = "finsight-mcp"
+  display_name = "FinSight MCP Service Account"
 }
 
 resource "google_service_account" "agentic_ai" {
-  account_id   = "wealthwise-agentic-ai"
-  display_name = "WealthWise Agentic AI Service Account"
+  account_id   = "finsight-agentic-ai"
+  display_name = "FinSight Agentic AI Service Account"
 }
 
 # Secret Manager access for API
@@ -164,7 +164,7 @@ resource "google_secret_manager_secret_iam_member" "agentic_ai_secrets" {
 
 # Cloud Run - API
 resource "google_cloud_run_v2_service" "api" {
-  name     = "wealthwise-api"
+  name     = "finsight-api"
   location = var.region
 
   template {
@@ -265,7 +265,7 @@ resource "google_cloud_run_v2_service" "api" {
 
 # Cloud Run - Web
 resource "google_cloud_run_v2_service" "web" {
-  name     = "wealthwise-web"
+  name     = "finsight-web"
   location = var.region
 
   template {
@@ -351,7 +351,7 @@ resource "google_cloud_run_v2_service" "web" {
 
 # Cloud Run - MCP
 resource "google_cloud_run_v2_service" "mcp" {
-  name     = "wealthwise-mcp"
+  name     = "finsight-mcp"
   location = var.region
 
   template {
@@ -447,7 +447,7 @@ resource "google_cloud_run_v2_service" "mcp" {
 
 # Cloud Run - Agentic AI
 resource "google_cloud_run_v2_service" "agentic_ai" {
-  name     = "wealthwise-agentic-ai"
+  name     = "finsight-agentic-ai"
   location = var.region
 
   template {
@@ -538,7 +538,7 @@ resource "google_cloud_run_v2_service" "agentic_ai" {
 
 # Serverless NEGs for Load Balancer
 resource "google_compute_region_network_endpoint_group" "api_neg" {
-  name                  = "wealthwise-api-neg"
+  name                  = "finsight-api-neg"
   network_endpoint_type = "SERVERLESS"
   region                = var.region
 
@@ -548,7 +548,7 @@ resource "google_compute_region_network_endpoint_group" "api_neg" {
 }
 
 resource "google_compute_region_network_endpoint_group" "web_neg" {
-  name                  = "wealthwise-web-neg"
+  name                  = "finsight-web-neg"
   network_endpoint_type = "SERVERLESS"
   region                = var.region
 
@@ -558,7 +558,7 @@ resource "google_compute_region_network_endpoint_group" "web_neg" {
 }
 
 resource "google_compute_region_network_endpoint_group" "mcp_neg" {
-  name                  = "wealthwise-mcp-neg"
+  name                  = "finsight-mcp-neg"
   network_endpoint_type = "SERVERLESS"
   region                = var.region
 
@@ -568,7 +568,7 @@ resource "google_compute_region_network_endpoint_group" "mcp_neg" {
 }
 
 resource "google_compute_region_network_endpoint_group" "agentic_ai_neg" {
-  name                  = "wealthwise-agentic-ai-neg"
+  name                  = "finsight-agentic-ai-neg"
   network_endpoint_type = "SERVERLESS"
   region                = var.region
 
@@ -579,7 +579,7 @@ resource "google_compute_region_network_endpoint_group" "agentic_ai_neg" {
 
 # Backend services
 resource "google_compute_backend_service" "api" {
-  name                  = "wealthwise-api-backend"
+  name                  = "finsight-api-backend"
   load_balancing_scheme = "EXTERNAL_MANAGED"
   protocol              = "HTTPS"
 
@@ -589,7 +589,7 @@ resource "google_compute_backend_service" "api" {
 }
 
 resource "google_compute_backend_service" "web" {
-  name                  = "wealthwise-web-backend"
+  name                  = "finsight-web-backend"
   load_balancing_scheme = "EXTERNAL_MANAGED"
   protocol              = "HTTPS"
 
@@ -599,7 +599,7 @@ resource "google_compute_backend_service" "web" {
 }
 
 resource "google_compute_backend_service" "mcp" {
-  name                  = "wealthwise-mcp-backend"
+  name                  = "finsight-mcp-backend"
   load_balancing_scheme = "EXTERNAL_MANAGED"
   protocol              = "HTTPS"
 
@@ -609,7 +609,7 @@ resource "google_compute_backend_service" "mcp" {
 }
 
 resource "google_compute_backend_service" "agentic_ai" {
-  name                  = "wealthwise-agentic-ai-backend"
+  name                  = "finsight-agentic-ai-backend"
   load_balancing_scheme = "EXTERNAL_MANAGED"
   protocol              = "HTTPS"
 
@@ -620,7 +620,7 @@ resource "google_compute_backend_service" "agentic_ai" {
 
 # URL Map
 resource "google_compute_url_map" "default" {
-  name            = "wealthwise-url-map"
+  name            = "finsight-url-map"
   default_service = google_compute_backend_service.web.id
 
   host_rule {
@@ -641,7 +641,7 @@ resource "google_compute_url_map" "default" {
 
 # SSL Certificate
 resource "google_compute_managed_ssl_certificate" "default" {
-  name = "wealthwise-ssl-cert"
+  name = "finsight-ssl-cert"
 
   managed {
     domains = [var.domain]
@@ -650,19 +650,19 @@ resource "google_compute_managed_ssl_certificate" "default" {
 
 # HTTPS Proxy
 resource "google_compute_target_https_proxy" "default" {
-  name             = "wealthwise-https-proxy"
+  name             = "finsight-https-proxy"
   url_map          = google_compute_url_map.default.id
   ssl_certificates = [google_compute_managed_ssl_certificate.default.id]
 }
 
 # Global IP
 resource "google_compute_global_address" "default" {
-  name = "wealthwise-lb-ip"
+  name = "finsight-lb-ip"
 }
 
 # Forwarding rule
 resource "google_compute_global_forwarding_rule" "https" {
-  name                  = "wealthwise-https-rule"
+  name                  = "finsight-https-rule"
   ip_protocol           = "TCP"
   load_balancing_scheme = "EXTERNAL_MANAGED"
   port_range            = "443"
@@ -672,7 +672,7 @@ resource "google_compute_global_forwarding_rule" "https" {
 
 # HTTP → HTTPS redirect
 resource "google_compute_url_map" "redirect" {
-  name = "wealthwise-http-redirect"
+  name = "finsight-http-redirect"
 
   default_url_redirect {
     https_redirect         = true
@@ -682,12 +682,12 @@ resource "google_compute_url_map" "redirect" {
 }
 
 resource "google_compute_target_http_proxy" "redirect" {
-  name    = "wealthwise-http-proxy"
+  name    = "finsight-http-proxy"
   url_map = google_compute_url_map.redirect.id
 }
 
 resource "google_compute_global_forwarding_rule" "http" {
-  name                  = "wealthwise-http-rule"
+  name                  = "finsight-http-rule"
   ip_protocol           = "TCP"
   load_balancing_scheme = "EXTERNAL_MANAGED"
   port_range            = "80"
@@ -697,7 +697,7 @@ resource "google_compute_global_forwarding_rule" "http" {
 
 # Cloud Armor security policy
 resource "google_compute_security_policy" "default" {
-  name = "wealthwise-security-policy"
+  name = "finsight-security-policy"
 
   rule {
     action   = "allow"

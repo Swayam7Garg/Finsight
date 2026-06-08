@@ -1,13 +1,13 @@
-# Argo CD Application — WealthWise Production
+# Argo CD Application — FinSight Production
 #
 # Sources:   k8s/overlays/production  (Kustomize)
-# Target:    wealthwise-production namespace, in-cluster
+# Target:    finsight-production namespace, in-cluster
 # Sync:      MANUAL — automated sync is deliberately disabled for production.
 #            Deployments are gated by human approval in Jenkins / GitLab.
 #
 # Rollout strategy: Argo Rollouts (canary for API, blue-green for Web).
 # Apply the rollout resources separately:
-#   kubectl apply -f k8s/argo-rollouts/ -n wealthwise-production
+#   kubectl apply -f k8s/argo-rollouts/ -n finsight-production
 #
 # Workflow:
 #   1. CI pushes new image SHA to GHCR
@@ -17,8 +17,8 @@
 #   5. Argo Rollouts handles canary / blue-green promotion
 #
 # Manual sync via CLI:
-#   argocd app sync wealthwise-production --prune
-#   argocd app wait wealthwise-production --health --timeout 600
+#   argocd app sync finsight-production --prune
+#   argocd app wait finsight-production --health --timeout 600
 #
 # Apply:
 #   kubectl apply -f app-production.yaml -n argocd
@@ -26,41 +26,41 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: wealthwise-production
+  name: finsight-production
   namespace: argocd
   labels:
-    app.kubernetes.io/name: wealthwise
+    app.kubernetes.io/name: finsight
     app.kubernetes.io/component: gitops
     environment: production
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
     # Notify on all sync and health events in production
-    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: wealthwise-releases
-    notifications.argoproj.io/subscribe.on-sync-failed.slack: wealthwise-alerts
-    notifications.argoproj.io/subscribe.on-health-degraded.slack: wealthwise-alerts
-    notifications.argoproj.io/subscribe.on-deployed.slack: wealthwise-releases
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: finsight-releases
+    notifications.argoproj.io/subscribe.on-sync-failed.slack: finsight-alerts
+    notifications.argoproj.io/subscribe.on-health-degraded.slack: finsight-alerts
+    notifications.argoproj.io/subscribe.on-deployed.slack: finsight-releases
 
 spec:
-  project: wealthwise
+  project: finsight
 
   # ── Source ─────────────────────────────────────────────────────────────────
   source:
-    repoURL: https://github.com/hoangsonww/wealthwise.git
+    repoURL: https://github.com/hoangsonww/finsight.git
     targetRevision: HEAD
     path: k8s/overlays/production
     kustomize:
       # Image tags pinned to exact SHA from the release pipeline.
-      # Update via: argocd app set wealthwise-production \
-      #   --kustomize-image ghcr.io/hoangsonww/wealthwise-api:<sha>
+      # Update via: argocd app set finsight-production \
+      #   --kustomize-image ghcr.io/hoangsonww/finsight-api:<sha>
       images:
-        - ghcr.io/hoangsonww/wealthwise-api:latest
-        - ghcr.io/hoangsonww/wealthwise-web:latest
+        - ghcr.io/hoangsonww/finsight-api:latest
+        - ghcr.io/hoangsonww/finsight-web:latest
 
   # ── Destination ────────────────────────────────────────────────────────────
   destination:
     server: https://kubernetes.default.svc
-    namespace: wealthwise-production
+    namespace: finsight-production
 
   # ── Sync policy — NO automated sync in production ─────────────────────────
   syncPolicy:

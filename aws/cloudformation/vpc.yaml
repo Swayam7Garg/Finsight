@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: WealthWise VPC - 3 AZs, public/private subnets, NAT Gateway
+Description: FinSight VPC - 3 AZs, public/private subnets, NAT Gateway
 
 Parameters:
   EnvironmentName:
@@ -21,14 +21,14 @@ Resources:
       EnableDnsHostnames: true
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName}-wealthwise-vpc
+          Value: !Sub ${EnvironmentName}-finsight-vpc
 
   InternetGateway:
     Type: AWS::EC2::InternetGateway
     Properties:
       Tags:
         - Key: Name
-          Value: !Sub ${EnvironmentName}-wealthwise-igw
+          Value: !Sub ${EnvironmentName}-finsight-igw
 
   InternetGatewayAttachment:
     Type: AWS::EC2::VPCGatewayAttachment
@@ -193,7 +193,7 @@ Resources:
   FlowLogGroup:
     Type: AWS::Logs::LogGroup
     Properties:
-      LogGroupName: !Sub /vpc/${EnvironmentName}-wealthwise
+      LogGroupName: !Sub /vpc/${EnvironmentName}-finsight
       RetentionInDays: 30
 
   FlowLogRole:

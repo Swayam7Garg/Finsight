@@ -1,12 +1,12 @@
-# WealthWise OCI Deployment
+# FinSight OCI Deployment
 
 ## Architecture
 
 ```
 OCI Load Balancer (HTTPS)
 └── OKE Cluster (Kubernetes)
-    ├── wealthwise-api (Deployment)
-    └── wealthwise-web (Deployment)
+    ├── finsight-api (Deployment)
+    └── finsight-web (Deployment)
 
 MongoDB Atlas (external, VCN peered)
 ```
@@ -15,7 +15,7 @@ MongoDB Atlas (external, VCN peered)
 
 - OCI CLI installed and configured
 - kubectl installed
-- Compartment created for WealthWise resources
+- Compartment created for FinSight resources
 - MongoDB Atlas cluster with VCN peering configured
 
 ## Quick Start
@@ -51,6 +51,6 @@ MongoDB Atlas (external, VCN peered)
 
 Images are stored in OCI Container Registry (OCIR):
 ```
-<region>.ocir.io/<namespace>/wealthwise-api
-<region>.ocir.io/<namespace>/wealthwise-web
+<region>.ocir.io/<namespace>/finsight-api
+<region>.ocir.io/<namespace>/finsight-web
 ```

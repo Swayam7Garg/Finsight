@@ -1,12 +1,12 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: wealthwise-api
+  name: finsight-api
   labels:
-    app: wealthwise-api
+    app: finsight-api
   annotations:
     run.googleapis.com/ingress: internal-and-cloud-load-balancing
-    run.googleapis.com/vpc-access-connector: projects/${PROJECT_ID}/locations/${REGION}/connectors/wealthwise-connector
+    run.googleapis.com/vpc-access-connector: projects/${PROJECT_ID}/locations/${REGION}/connectors/finsight-connector
     run.googleapis.com/vpc-access-egress: private-ranges-only
 spec:
   template:
@@ -18,9 +18,9 @@ spec:
     spec:
       containerConcurrency: 80
       timeoutSeconds: 300
-      serviceAccountName: wealthwise-api@${PROJECT_ID}.iam.gserviceaccount.com
+      serviceAccountName: finsight-api@${PROJECT_ID}.iam.gserviceaccount.com
       containers:
-        - image: ${REGION}-docker.pkg.dev/${PROJECT_ID}/wealthwise-api/api:latest
+        - image: ${REGION}-docker.pkg.dev/${PROJECT_ID}/finsight-api/api:latest
           ports:
             - containerPort: 4000
           resources:

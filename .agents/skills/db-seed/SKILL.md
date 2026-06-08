@@ -1,12 +1,12 @@
 ---
 name: db-seed
 description: >
-  Seed the WealthWise MongoDB database with categories or demo data.
+  Seed the FinSight MongoDB database with categories or demo data.
   Triggers when asked to "seed the database", "add demo data", "populate categories",
   or "set up test data". Does NOT trigger implicitly during general development tasks.
 ---
 
-Seed the WealthWise database using the project's built-in seed scripts.
+Seed the FinSight database using the project's built-in seed scripts.
 
 ## Behavior by argument
 

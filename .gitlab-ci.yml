@@ -1,5 +1,5 @@
 # Copyright (c) 2026 Son Nguyen
-# GitLab CI/CD Pipeline for WealthWise
+# GitLab CI/CD Pipeline for FinSight
 #
 # Pipeline stages:
 #   preflight → check → test → build → docker → deploy
@@ -99,7 +99,7 @@ preflight:
   <<: *rules-always
   script:
     - echo "╔══════════════════════════════════════╗"
-    - echo "║     WealthWise GitLab CI/CD          ║"
+    - echo "║     FinSight GitLab CI/CD          ║"
     - echo "╚══════════════════════════════════════╝"
     - echo "Branch  → $CI_COMMIT_BRANCH"
     - echo "SHA     → $CI_COMMIT_SHORT_SHA"
@@ -142,7 +142,7 @@ test-shared-types:
   <<: [*npm-cache-pull, *install, *rules-always]
   needs: [format-check, type-check]
   script:
-    - npx turbo test --filter=@wealthwise/shared-types
+    - npx turbo test --filter=@finsight/shared-types
   coverage: '/Statements\s*:\s*([\d.]+)%/'
   artifacts:
     when: always
@@ -161,7 +161,7 @@ test-api:
   needs: [format-check, type-check]
   timeout: 10 minutes        # mongodb-memory-server cold-start buffer
   script:
-    - npx turbo test --filter=@wealthwise/api
+    - npx turbo test --filter=@finsight/api
   coverage: '/Statements\s*:\s*([\d.]+)%/'
   artifacts:
     when: always
@@ -179,7 +179,7 @@ test-web:
   <<: [*npm-cache-pull, *install, *rules-always]
   needs: [format-check, type-check]
   script:
-    - npx turbo test --filter=@wealthwise/web
+    - npx turbo test --filter=@finsight/web
   coverage: '/Statements\s*:\s*([\d.]+)%/'
   artifacts:
     when: always
@@ -201,7 +201,7 @@ build-api:
   <<: [*npm-cache-pull, *install, *rules-always]
   needs: [test-api, test-shared-types]
   script:
-    - npx turbo build --filter=@wealthwise/api...
+    - npx turbo build --filter=@finsight/api...
   artifacts:
     paths:
       - apps/api/dist/
@@ -213,7 +213,7 @@ build-web:
   <<: [*npm-cache-pull, *install, *rules-always]
   needs: [test-web, test-shared-types]
   script:
-    - npx turbo build --filter=@wealthwise/web...
+    - npx turbo build --filter=@finsight/web...
   artifacts:
     paths:
       - apps/web/.next/
@@ -293,18 +293,18 @@ deploy-staging:
   needs: [docker-api, docker-web]
   environment:
     name: staging
-    url: https://staging.wealthwise.app
+    url: https://staging.finsight.app
   script:
     - kubectl config use-context staging  # or set via KUBECONFIG file variable
     - |
-      kubectl set image deployment/wealthwise-api \
+      kubectl set image deployment/finsight-api \
         api=$API_IMAGE:$CI_COMMIT_SHORT_SHA \
-        -n wealthwise-staging
-      kubectl set image deployment/wealthwise-web \
+        -n finsight-staging
+      kubectl set image deployment/finsight-web \
         web=$WEB_IMAGE:$CI_COMMIT_SHORT_SHA \
-        -n wealthwise-staging
-      kubectl rollout status deployment/wealthwise-api -n wealthwise-staging --timeout=5m
-      kubectl rollout status deployment/wealthwise-web -n wealthwise-staging --timeout=5m
+        -n finsight-staging
+      kubectl rollout status deployment/finsight-api -n finsight-staging --timeout=5m
+      kubectl rollout status deployment/finsight-web -n finsight-staging --timeout=5m
     - echo "✅ Staging deployed → $CI_ENVIRONMENT_URL"
 
 deploy-production:
@@ -316,16 +316,16 @@ deploy-production:
   allow_failure: false
   environment:
     name: production
-    url: https://wealthwise.app
+    url: https://finsight.app
   script:
     - kubectl config use-context production
     - |
-      kubectl set image deployment/wealthwise-api \
+      kubectl set image deployment/finsight-api \
         api=$API_IMAGE:$CI_COMMIT_SHORT_SHA \
-        -n wealthwise-production
-      kubectl set image deployment/wealthwise-web \
+        -n finsight-production
+      kubectl set image deployment/finsight-web \
         web=$WEB_IMAGE:$CI_COMMIT_SHORT_SHA \
-        -n wealthwise-production
-      kubectl rollout status deployment/wealthwise-api -n wealthwise-production --timeout=10m
-      kubectl rollout status deployment/wealthwise-web -n wealthwise-production --timeout=10m
+        -n finsight-production
+      kubectl rollout status deployment/finsight-api -n finsight-production --timeout=10m
+      kubectl rollout status deployment/finsight-web -n finsight-production --timeout=10m
     - echo "✅ Production deployed → $CI_ENVIRONMENT_URL"

@@ -6,7 +6,7 @@ resource "aws_route53_zone" "main" {
   name = var.domain_name
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -16,7 +16,7 @@ resource "aws_acm_certificate" "main" {
   validation_method = "DNS"
 
   tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 

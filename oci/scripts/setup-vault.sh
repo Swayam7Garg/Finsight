@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Create secrets in OCI Vault for WealthWise
+# Create secrets in OCI Vault for FinSight
 : "${COMPARTMENT_OCID:?COMPARTMENT_OCID is required}"
 : "${VAULT_OCID:?VAULT_OCID is required}"
 : "${KEY_OCID:?KEY_OCID is required}"
@@ -24,13 +24,13 @@ create_secret() {
         --key-id "${KEY_OCID}" \
         --secret-name "${name}" \
         --secret-content-content "${encoded}" \
-        --description "WealthWise ${name}" 2>/dev/null || \
+        --description "FinSight ${name}" 2>/dev/null || \
     echo "Secret ${name} may already exist. Update manually if needed."
 }
 
-create_secret "wealthwise-jwt-secret" "${JWT_SECRET}"
-create_secret "wealthwise-jwt-refresh-secret" "${JWT_REFRESH_SECRET}"
-create_secret "wealthwise-nextauth-secret" "${NEXTAUTH_SECRET}"
-create_secret "wealthwise-mongodb-uri" "${MONGODB_URI}"
+create_secret "finsight-jwt-secret" "${JWT_SECRET}"
+create_secret "finsight-jwt-refresh-secret" "${JWT_REFRESH_SECRET}"
+create_secret "finsight-nextauth-secret" "${NEXTAUTH_SECRET}"
+create_secret "finsight-mongodb-uri" "${MONGODB_URI}"
 
 echo "==> All secrets configured."

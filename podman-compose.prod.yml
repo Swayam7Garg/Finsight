@@ -1,13 +1,13 @@
 services:
   mongodb:
     image: docker.io/library/mongo:7
-    container_name: wealthwise-mongodb-prod
+    container_name: finsight-mongodb-prod
     volumes:
       - mongodb_data_prod:/data/db
     environment:
-      MONGO_INITDB_DATABASE: wealthwise
+      MONGO_INITDB_DATABASE: finsight
     networks:
-      - wealthwise-network
+      - finsight-network
     restart: always
     healthcheck:
       test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
@@ -33,12 +33,12 @@ services:
     build:
       context: .
       dockerfile: apps/api/Containerfile.prod
-    container_name: wealthwise-api-prod
+    container_name: finsight-api-prod
     expose:
       - "4000"
     environment:
       - NODE_ENV=production
-      - MONGODB_URI=mongodb://mongodb:27017/wealthwise
+      - MONGODB_URI=mongodb://mongodb:27017/finsight
       - JWT_SECRET=${JWT_SECRET}
       - JWT_REFRESH_SECRET=${JWT_REFRESH_SECRET}
       - API_PORT=4000
@@ -47,7 +47,7 @@ services:
       mongodb:
         condition: service_healthy
     networks:
-      - wealthwise-network
+      - finsight-network
     restart: always
     security_opt:
       - no-new-privileges
@@ -75,7 +75,7 @@ services:
     build:
       context: .
       dockerfile: apps/web/Containerfile.prod
-    container_name: wealthwise-web-prod
+    container_name: finsight-web-prod
     expose:
       - "3000"
     environment:
@@ -88,7 +88,7 @@ services:
       api:
         condition: service_healthy
     networks:
-      - wealthwise-network
+      - finsight-network
     restart: always
     security_opt:
       - no-new-privileges
@@ -116,12 +116,12 @@ services:
     build:
       context: .
       dockerfile: mcp/Containerfile.prod
-    container_name: wealthwise-mcp-prod
+    container_name: finsight-mcp-prod
     expose:
       - "5100"
     environment:
       - NODE_ENV=production
-      - MONGODB_URI=mongodb://mongodb:27017/wealthwise
+      - MONGODB_URI=mongodb://mongodb:27017/finsight
       - JWT_SECRET=${JWT_SECRET}
       - MCP_TRANSPORT=sse
       - MCP_PORT=5100
@@ -129,7 +129,7 @@ services:
       mongodb:
         condition: service_healthy
     networks:
-      - wealthwise-network
+      - finsight-network
     restart: always
     security_opt:
       - no-new-privileges
@@ -157,7 +157,7 @@ services:
     build:
       context: .
       dockerfile: agentic-ai/Containerfile.prod
-    container_name: wealthwise-agentic-ai-prod
+    container_name: finsight-agentic-ai-prod
     expose:
       - "5200"
     environment:
@@ -170,7 +170,7 @@ services:
       mcp:
         condition: service_healthy
     networks:
-      - wealthwise-network
+      - finsight-network
     restart: always
     security_opt:
       - no-new-privileges
@@ -196,7 +196,7 @@ services:
 
   nginx:
     image: docker.io/library/nginx:alpine
-    container_name: wealthwise-nginx-prod
+    container_name: finsight-nginx-prod
     ports:
       - "80:80"
       - "443:443"
@@ -213,7 +213,7 @@ services:
       agentic-ai:
         condition: service_healthy
     networks:
-      - wealthwise-network
+      - finsight-network
     restart: always
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/"]
@@ -239,5 +239,5 @@ volumes:
   mongodb_data_prod:
 
 networks:
-  wealthwise-network:
+  finsight-network:
     driver: bridge

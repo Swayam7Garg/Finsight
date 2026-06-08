@@ -6,9 +6,9 @@ steps:
       - '-f'
       - 'apps/api/Dockerfile.prod'
       - '-t'
-      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/wealthwise-api/api:${SHORT_SHA}'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/finsight-api/api:${SHORT_SHA}'
       - '-t'
-      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/wealthwise-api/api:latest'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/finsight-api/api:latest'
       - '.'
 
   # Build Web image
@@ -18,18 +18,18 @@ steps:
       - '-f'
       - 'apps/web/Dockerfile.prod'
       - '-t'
-      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/wealthwise-web/web:${SHORT_SHA}'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/finsight-web/web:${SHORT_SHA}'
       - '-t'
-      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/wealthwise-web/web:latest'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/finsight-web/web:latest'
       - '.'
 
   # Push API image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', '--all-tags', '${_REGION}-docker.pkg.dev/${PROJECT_ID}/wealthwise-api/api']
+    args: ['push', '--all-tags', '${_REGION}-docker.pkg.dev/${PROJECT_ID}/finsight-api/api']
 
   # Push Web image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', '--all-tags', '${_REGION}-docker.pkg.dev/${PROJECT_ID}/wealthwise-web/web']
+    args: ['push', '--all-tags', '${_REGION}-docker.pkg.dev/${PROJECT_ID}/finsight-web/web']
 
   # Deploy API to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
@@ -37,9 +37,9 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'wealthwise-api'
+      - 'finsight-api'
       - '--image'
-      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/wealthwise-api/api:${SHORT_SHA}'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/finsight-api/api:${SHORT_SHA}'
       - '--region'
       - '${_REGION}'
       - '--quiet'
@@ -50,9 +50,9 @@ steps:
     args:
       - 'run'
       - 'deploy'
-      - 'wealthwise-web'
+      - 'finsight-web'
       - '--image'
-      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/wealthwise-web/web:${SHORT_SHA}'
+      - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/finsight-web/web:${SHORT_SHA}'
       - '--region'
       - '${_REGION}'
       - '--quiet'
@@ -63,7 +63,7 @@ steps:
     args:
       - '-c'
       - |
-        API_URL=$(gcloud run services describe wealthwise-api --region=${_REGION} --format='value(status.url)')
+        API_URL=$(gcloud run services describe finsight-api --region=${_REGION} --format='value(status.url)')
         curl --fail --silent --max-time 10 "$${API_URL}/api/health" || exit 1
         echo "Smoke test passed!"
 
@@ -71,8 +71,8 @@ substitutions:
   _REGION: us-central1
 
 images:
-  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/wealthwise-api/api:${SHORT_SHA}'
-  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/wealthwise-web/web:${SHORT_SHA}'
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/finsight-api/api:${SHORT_SHA}'
+  - '${_REGION}-docker.pkg.dev/${PROJECT_ID}/finsight-web/web:${SHORT_SHA}'
 
 options:
   logging: CLOUD_LOGGING_ONLY

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Deploy WealthWise to Azure Container Apps
+# Deploy FinSight to Azure Container Apps
 : "${AZURE_SUBSCRIPTION_ID:?AZURE_SUBSCRIPTION_ID is required}"
 : "${RESOURCE_GROUP:?RESOURCE_GROUP is required}"
 : "${ACR_NAME:?ACR_NAME is required}"
@@ -20,19 +20,19 @@ az acr login --name "${ACR_NAME}"
 
 echo "==> Building and pushing API image..."
 docker build -f "${REPO_ROOT}/apps/api/Dockerfile.prod" \
-    -t "${ACR_LOGIN_SERVER}/wealthwise-api:${GIT_SHA}" \
-    -t "${ACR_LOGIN_SERVER}/wealthwise-api:latest" \
+    -t "${ACR_LOGIN_SERVER}/finsight-api:${GIT_SHA}" \
+    -t "${ACR_LOGIN_SERVER}/finsight-api:latest" \
     "${REPO_ROOT}"
-docker push "${ACR_LOGIN_SERVER}/wealthwise-api:${GIT_SHA}"
-docker push "${ACR_LOGIN_SERVER}/wealthwise-api:latest"
+docker push "${ACR_LOGIN_SERVER}/finsight-api:${GIT_SHA}"
+docker push "${ACR_LOGIN_SERVER}/finsight-api:latest"
 
 echo "==> Building and pushing Web image..."
 docker build -f "${REPO_ROOT}/apps/web/Dockerfile.prod" \
-    -t "${ACR_LOGIN_SERVER}/wealthwise-web:${GIT_SHA}" \
-    -t "${ACR_LOGIN_SERVER}/wealthwise-web:latest" \
+    -t "${ACR_LOGIN_SERVER}/finsight-web:${GIT_SHA}" \
+    -t "${ACR_LOGIN_SERVER}/finsight-web:latest" \
     "${REPO_ROOT}"
-docker push "${ACR_LOGIN_SERVER}/wealthwise-web:${GIT_SHA}"
-docker push "${ACR_LOGIN_SERVER}/wealthwise-web:latest"
+docker push "${ACR_LOGIN_SERVER}/finsight-web:${GIT_SHA}"
+docker push "${ACR_LOGIN_SERVER}/finsight-web:latest"
 
 echo "==> Deploying Bicep template..."
 az deployment group create \
@@ -40,7 +40,7 @@ az deployment group create \
     --template-file "${SCRIPT_DIR}/../bicep/main.bicep" \
     --parameters \
         environment="${ENVIRONMENT}" \
-        apiImage="${ACR_LOGIN_SERVER}/wealthwise-api:${GIT_SHA}" \
-        webImage="${ACR_LOGIN_SERVER}/wealthwise-web:${GIT_SHA}"
+        apiImage="${ACR_LOGIN_SERVER}/finsight-api:${GIT_SHA}" \
+        webImage="${ACR_LOGIN_SERVER}/finsight-web:${GIT_SHA}"
 
 echo "==> Deployment complete!"

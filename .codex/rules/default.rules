@@ -1,4 +1,4 @@
-# WealthWise — Codex command rules
+# FinSight — Codex command rules
 # Starlark syntax. Loaded at Codex startup.
 # Controls which commands run without prompting vs. require approval vs. are blocked.
 #
@@ -21,7 +21,7 @@ prefix_rule(
     pattern    = ["npx", "turbo"],
     decision   = "allow",
     justification = "Turbo pipeline commands are safe build/test operations.",
-    match      = ["npx turbo test --filter=@wealthwise/api", "npx turbo build"],
+    match      = ["npx turbo test --filter=@finsight/api", "npx turbo build"],
 )
 
 # npx tsc — type-checking

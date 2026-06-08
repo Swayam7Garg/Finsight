@@ -1,4 +1,4 @@
-# WealthWise Kubernetes Deployment
+# FinSight Kubernetes Deployment
 
 ## Prerequisites
 
@@ -41,7 +41,7 @@ Or External Secrets Operator with your cloud provider's secret manager.
 Update image tags in the kustomization overlay:
 ```yaml
 images:
-  - name: wealthwise-api
-    newName: your-registry/wealthwise-api
+  - name: finsight-api
+    newName: your-registry/finsight-api
     newTag: "v1.0.0"
 ```

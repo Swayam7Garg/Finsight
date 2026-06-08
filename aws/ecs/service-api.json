@@ -1,7 +1,7 @@
 {
-  "serviceName": "wealthwise-api",
+  "serviceName": "finsight-api",
   "cluster": "${CLUSTER_NAME}",
-  "taskDefinition": "wealthwise-api",
+  "taskDefinition": "finsight-api",
   "desiredCount": 2,
   "launchType": "FARGATE",
   "networkConfiguration": {
@@ -14,7 +14,7 @@
   "loadBalancers": [
     {
       "targetGroupArn": "${API_TARGET_GROUP_ARN}",
-      "containerName": "wealthwise-api",
+      "containerName": "finsight-api",
       "containerPort": 4000
     }
   ],

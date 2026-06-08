@@ -1,4 +1,4 @@
-# Contributing to WealthWise
+# Contributing to FinSight
 
 Thanks for taking the time to contribute. Please read this guide before opening a PR or issue.
 
@@ -36,8 +36,8 @@ This project follows the [Contributor Covenant Code of Conduct](CODE_OF_CONDUCT.
 **Option A — Native (recommended for development):**
 
 ```bash
-git clone https://github.com/<owner>/wealthwise.git
-cd wealthwise
+git clone https://github.com/<owner>/finsight.git
+cd finsight
 npm install
 cp .env.example apps/api/.env
 cp .env.example apps/web/.env.local
@@ -67,9 +67,9 @@ The repo is a **Turborepo monorepo** with three packages:
 
 | Package | Path | Description |
 |---------|------|-------------|
-| `@wealthwise/api` | `apps/api` | Express 4 REST API |
-| `@wealthwise/web` | `apps/web` | Next.js 14 frontend |
-| `@wealthwise/shared-types` | `packages/shared-types` | Zod schemas + TS types |
+| `@finsight/api` | `apps/api` | Express 4 REST API |
+| `@finsight/web` | `apps/web` | Next.js 14 frontend |
+| `@finsight/shared-types` | `packages/shared-types` | Zod schemas + TS types |
 
 **Adding a new API endpoint:**
 1. Add Zod schema to `packages/shared-types/src/schemas/`
@@ -126,9 +126,9 @@ Tests live in `__tests__/` directories next to their source:
 
 ```bash
 npm run test                                          # all packages
-npx turbo test --filter=@wealthwise/api               # API only
-npx turbo test --filter=@wealthwise/web               # web only
-npx turbo test --filter=@wealthwise/shared-types      # schema tests only
+npx turbo test --filter=@finsight/api               # API only
+npx turbo test --filter=@finsight/web               # web only
+npx turbo test --filter=@finsight/shared-types      # schema tests only
 ```
 
 **Rules:**

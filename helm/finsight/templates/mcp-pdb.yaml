@@ -1,0 +1,14 @@
+{{- if and .Values.mcp.enabled .Values.mcp.pdb.enabled }}
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: {{ include "finsight.fullname" . }}-mcp-pdb
+  namespace: {{ include "finsight.namespace" . }}
+  labels:
+    {{- include "finsight.mcp.labels" . | nindent 4 }}
+spec:
+  minAvailable: {{ .Values.mcp.pdb.minAvailable }}
+  selector:
+    matchLabels:
+      {{- include "finsight.mcp.selectorLabels" . | nindent 6 }}
+{{- end }}

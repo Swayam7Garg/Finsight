@@ -1,4 +1,4 @@
-# WealthWise OCI Infrastructure
+# FinSight OCI Infrastructure
 
 terraform {
   required_version = ">= 1.5"
@@ -23,12 +23,12 @@ data "oci_containerengine_cluster_option" "default" {
 # VCN
 resource "oci_core_vcn" "main" {
   compartment_id = var.compartment_ocid
-  display_name   = "wealthwise-vcn"
+  display_name   = "finsight-vcn"
   cidr_blocks    = ["10.0.0.0/16"]
-  dns_label      = "wealthwise"
+  dns_label      = "finsight"
 
   freeform_tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -37,7 +37,7 @@ resource "oci_core_vcn" "main" {
 resource "oci_core_internet_gateway" "main" {
   compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.main.id
-  display_name   = "wealthwise-igw"
+  display_name   = "finsight-igw"
   enabled        = true
 }
 
@@ -45,14 +45,14 @@ resource "oci_core_internet_gateway" "main" {
 resource "oci_core_nat_gateway" "main" {
   compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.main.id
-  display_name   = "wealthwise-natgw"
+  display_name   = "finsight-natgw"
 }
 
 # Service Gateway
 resource "oci_core_service_gateway" "main" {
   compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.main.id
-  display_name   = "wealthwise-sgw"
+  display_name   = "finsight-sgw"
 
   services {
     service_id = data.oci_core_services.all.services[0].id
@@ -71,7 +71,7 @@ data "oci_core_services" "all" {
 resource "oci_core_subnet" "public" {
   compartment_id    = var.compartment_ocid
   vcn_id            = oci_core_vcn.main.id
-  display_name      = "wealthwise-public-subnet"
+  display_name      = "finsight-public-subnet"
   cidr_block        = "10.0.0.0/24"
   dns_label         = "pub"
   route_table_id    = oci_core_route_table.public.id
@@ -82,7 +82,7 @@ resource "oci_core_subnet" "public" {
 resource "oci_core_subnet" "private" {
   compartment_id             = var.compartment_ocid
   vcn_id                     = oci_core_vcn.main.id
-  display_name               = "wealthwise-private-subnet"
+  display_name               = "finsight-private-subnet"
   cidr_block                 = "10.0.10.0/24"
   dns_label                  = "priv"
   prohibit_public_ip_on_vnic = true
@@ -94,7 +94,7 @@ resource "oci_core_subnet" "private" {
 resource "oci_core_route_table" "public" {
   compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.main.id
-  display_name   = "wealthwise-public-rt"
+  display_name   = "finsight-public-rt"
 
   route_rules {
     network_entity_id = oci_core_internet_gateway.main.id
@@ -106,7 +106,7 @@ resource "oci_core_route_table" "public" {
 resource "oci_core_route_table" "private" {
   compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.main.id
-  display_name   = "wealthwise-private-rt"
+  display_name   = "finsight-private-rt"
 
   route_rules {
     network_entity_id = oci_core_nat_gateway.main.id
@@ -125,7 +125,7 @@ resource "oci_core_route_table" "private" {
 resource "oci_core_security_list" "public" {
   compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.main.id
-  display_name   = "wealthwise-public-sl"
+  display_name   = "finsight-public-sl"
 
   ingress_security_rules {
     protocol  = "6"
@@ -157,7 +157,7 @@ resource "oci_core_security_list" "public" {
 resource "oci_core_security_list" "private" {
   compartment_id = var.compartment_ocid
   vcn_id         = oci_core_vcn.main.id
-  display_name   = "wealthwise-private-sl"
+  display_name   = "finsight-private-sl"
 
   ingress_security_rules {
     protocol  = "6"
@@ -176,7 +176,7 @@ resource "oci_core_security_list" "private" {
 resource "oci_containerengine_cluster" "main" {
   compartment_id     = var.compartment_ocid
   kubernetes_version = var.kubernetes_version
-  name               = "wealthwise-oke"
+  name               = "finsight-oke"
   vcn_id             = oci_core_vcn.main.id
 
   endpoint_config {
@@ -189,7 +189,7 @@ resource "oci_containerengine_cluster" "main" {
   }
 
   freeform_tags = {
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -199,7 +199,7 @@ resource "oci_containerengine_node_pool" "main" {
   cluster_id         = oci_containerengine_cluster.main.id
   compartment_id     = var.compartment_ocid
   kubernetes_version = var.kubernetes_version
-  name               = "wealthwise-pool"
+  name               = "finsight-pool"
 
   node_shape = var.node_shape
 
@@ -217,7 +217,7 @@ resource "oci_containerengine_node_pool" "main" {
     }
 
     freeform_tags = {
-      Project     = "wealthwise"
+      Project     = "finsight"
       Environment = var.environment
     }
   }
@@ -231,26 +231,26 @@ resource "oci_containerengine_node_pool" "main" {
 # OCIR Repositories
 resource "oci_artifacts_container_repository" "api" {
   compartment_id = var.compartment_ocid
-  display_name   = "wealthwise-api"
+  display_name   = "finsight-api"
   is_public      = false
 }
 
 resource "oci_artifacts_container_repository" "web" {
   compartment_id = var.compartment_ocid
-  display_name   = "wealthwise-web"
+  display_name   = "finsight-web"
   is_public      = false
 }
 
 # OCI Vault
 resource "oci_kms_vault" "main" {
   compartment_id = var.compartment_ocid
-  display_name   = "wealthwise-vault"
+  display_name   = "finsight-vault"
   vault_type     = "DEFAULT"
 }
 
 resource "oci_kms_key" "main" {
   compartment_id      = var.compartment_ocid
-  display_name        = "wealthwise-key"
+  display_name        = "finsight-key"
   management_endpoint = oci_kms_vault.main.management_endpoint
 
   key_shape {

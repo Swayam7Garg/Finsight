@@ -1,4 +1,4 @@
-# WealthWise — Codex project configuration
+# FinSight — Codex project configuration
 # Committed to the repository so all developers share the same agent setup.
 # Personal overrides go in ~/.codex/config.toml (gitignored).
 
@@ -32,7 +32,7 @@ config_file = "agents/worker.toml"
 
 [agents.api-developer]
 description = """
-Expert in the WealthWise Express API layer (apps/api/).
+Expert in the FinSight Express API layer (apps/api/).
 Use for creating endpoints, writing services, fixing API bugs, or reviewing API code.
 Knows all ApiError factories, asyncHandler, userId filtering, and Mongoose patterns.
 Do NOT use for frontend work.
@@ -41,7 +41,7 @@ config_file = "agents/api-developer.toml"
 
 [agents.web-developer]
 description = """
-Expert in the WealthWise Next.js 14 frontend (apps/web/).
+Expert in the FinSight Next.js 14 frontend (apps/web/).
 Use for building pages, components, hooks, and forms, or fixing frontend bugs.
 Knows TanStack Query v5, apiClient, shadcn/ui, Sonner, and Next.js App Router quirks.
 Do NOT use for API or schema work.
@@ -50,7 +50,7 @@ config_file = "agents/web-developer.toml"
 
 [agents.schema-author]
 description = """
-Expert in the WealthWise shared type system (packages/shared-types/).
+Expert in the FinSight shared type system (packages/shared-types/).
 Use for adding Zod schemas, updating types, and ensuring consumers stay in sync.
 Knows the Create/Update/Response schema pattern and z.infer<> type inference.
 Do NOT use for API implementation or frontend UI work.

@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: wealthwise-config
-  namespace: wealthwise
+  name: finsight-config
+  namespace: finsight
 data:
   API_PORT: "4000"
   MCP_PORT: "5100"

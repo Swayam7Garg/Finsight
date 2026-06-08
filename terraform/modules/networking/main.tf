@@ -5,7 +5,7 @@ resource "aws_vpc" "main" {
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-vpc"
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -15,7 +15,7 @@ resource "aws_internet_gateway" "main" {
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-igw"
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -30,7 +30,7 @@ resource "aws_subnet" "public" {
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-public-${count.index + 1}"
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -44,7 +44,7 @@ resource "aws_subnet" "private" {
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-private-${count.index + 1}"
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -54,7 +54,7 @@ resource "aws_eip" "nat" {
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-nat-eip"
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -65,7 +65,7 @@ resource "aws_nat_gateway" "main" {
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-nat"
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 
@@ -82,7 +82,7 @@ resource "aws_route_table" "public" {
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-public-rt"
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }
@@ -97,7 +97,7 @@ resource "aws_route_table" "private" {
 
   tags = {
     Name        = "${var.project_name}-${var.environment}-private-rt"
-    Project     = "wealthwise"
+    Project     = "finsight"
     Environment = var.environment
   }
 }

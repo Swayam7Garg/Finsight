@@ -1,10 +1,10 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: WealthWise CloudWatch monitoring - dashboards, alarms, SNS notifications
+Description: FinSight CloudWatch monitoring - dashboards, alarms, SNS notifications
 
 Parameters:
   ClusterName:
     Type: String
-    Default: wealthwise
+    Default: finsight
 
   ALBFullName:
     Type: String
@@ -23,7 +23,7 @@ Resources:
   AlertTopic:
     Type: AWS::SNS::Topic
     Properties:
-      TopicName: !Sub ${EnvironmentName}-wealthwise-alerts
+      TopicName: !Sub ${EnvironmentName}-finsight-alerts
       Tags:
         - Key: Environment
           Value: !Ref EnvironmentName
@@ -39,7 +39,7 @@ Resources:
   MonitoringDashboard:
     Type: AWS::CloudWatch::Dashboard
     Properties:
-      DashboardName: !Sub ${EnvironmentName}-wealthwise
+      DashboardName: !Sub ${EnvironmentName}-finsight
       DashboardBody: !Sub |
         {
           "widgets": [
@@ -52,8 +52,8 @@ Resources:
               "properties": {
                 "title": "ECS CPU Utilization",
                 "metrics": [
-                  ["AWS/ECS", "CPUUtilization", "ClusterName", "${ClusterName}", "ServiceName", "wealthwise-api", { "label": "API CPU" }],
-                  ["AWS/ECS", "CPUUtilization", "ClusterName", "${ClusterName}", "ServiceName", "wealthwise-web", { "label": "Web CPU" }]
+                  ["AWS/ECS", "CPUUtilization", "ClusterName", "${ClusterName}", "ServiceName", "finsight-api", { "label": "API CPU" }],
+                  ["AWS/ECS", "CPUUtilization", "ClusterName", "${ClusterName}", "ServiceName", "finsight-web", { "label": "Web CPU" }]
                 ],
                 "view": "timeSeries",
                 "stacked": false,
@@ -72,8 +72,8 @@ Resources:
               "properties": {
                 "title": "ECS Memory Utilization",
                 "metrics": [
-                  ["AWS/ECS", "MemoryUtilization", "ClusterName", "${ClusterName}", "ServiceName", "wealthwise-api", { "label": "API Memory" }],
-                  ["AWS/ECS", "MemoryUtilization", "ClusterName", "${ClusterName}", "ServiceName", "wealthwise-web", { "label": "Web Memory" }]
+                  ["AWS/ECS", "MemoryUtilization", "ClusterName", "${ClusterName}", "ServiceName", "finsight-api", { "label": "API Memory" }],
+                  ["AWS/ECS", "MemoryUtilization", "ClusterName", "${ClusterName}", "ServiceName", "finsight-web", { "label": "Web Memory" }]
                 ],
                 "view": "timeSeries",
                 "stacked": false,
@@ -123,7 +123,7 @@ Resources:
   APICPUAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmName: !Sub ${EnvironmentName}-wealthwise-api-cpu-high
+      AlarmName: !Sub ${EnvironmentName}-finsight-api-cpu-high
       AlarmDescription: API service CPU utilization exceeds 80%
       MetricName: CPUUtilization
       Namespace: AWS/ECS
@@ -136,7 +136,7 @@ Resources:
         - Name: ClusterName
           Value: !Ref ClusterName
         - Name: ServiceName
-          Value: wealthwise-api
+          Value: finsight-api
       AlarmActions:
         - !Ref AlertTopic
       OKActions:
@@ -147,7 +147,7 @@ Resources:
   WebCPUAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmName: !Sub ${EnvironmentName}-wealthwise-web-cpu-high
+      AlarmName: !Sub ${EnvironmentName}-finsight-web-cpu-high
       AlarmDescription: Web service CPU utilization exceeds 80%
       MetricName: CPUUtilization
       Namespace: AWS/ECS
@@ -160,7 +160,7 @@ Resources:
         - Name: ClusterName
           Value: !Ref ClusterName
         - Name: ServiceName
-          Value: wealthwise-web
+          Value: finsight-web
       AlarmActions:
         - !Ref AlertTopic
       OKActions:
@@ -171,7 +171,7 @@ Resources:
   ALB5xxAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmName: !Sub ${EnvironmentName}-wealthwise-alb-5xx-high
+      AlarmName: !Sub ${EnvironmentName}-finsight-alb-5xx-high
       AlarmDescription: ALB 5xx error rate exceeds 1%
       Metrics:
         - Id: e1
@@ -212,7 +212,7 @@ Resources:
   UnhealthyTargetsAlarm:
     Type: AWS::CloudWatch::Alarm
     Properties:
-      AlarmName: !Sub ${EnvironmentName}-wealthwise-unhealthy-targets
+      AlarmName: !Sub ${EnvironmentName}-finsight-unhealthy-targets
       AlarmDescription: One or more targets are unhealthy
       MetricName: UnHealthyHostCount
       Namespace: AWS/ApplicationELB

@@ -1,4 +1,4 @@
-# WealthWise AWS Deployment
+# FinSight AWS Deployment
 
 ## Architecture
 
@@ -7,8 +7,8 @@ Internet
    |
    v
   ALB (Application Load Balancer)
-   |--- /api/*  --> ECS Fargate (wealthwise-api, port 4000)
-   |--- /*      --> ECS Fargate (wealthwise-web, port 3000)
+   |--- /api/*  --> ECS Fargate (finsight-api, port 4000)
+   |--- /*      --> ECS Fargate (finsight-web, port 3000)
    |
    v
   DocumentDB (MongoDB-compatible)
@@ -37,7 +37,7 @@ Deploy CloudFormation stacks in this order (each depends on the previous):
    ```bash
    aws cloudformation deploy \
      --template-file aws/cloudformation/vpc.yaml \
-     --stack-name wealthwise-vpc \
+     --stack-name finsight-vpc \
      --parameter-overrides EnvironmentName=production
    ```
 
@@ -45,7 +45,7 @@ Deploy CloudFormation stacks in this order (each depends on the previous):
    ```bash
    aws cloudformation deploy \
      --template-file aws/cloudformation/ecr.yaml \
-     --stack-name wealthwise-ecr
+     --stack-name finsight-ecr
    ```
 
 3. **Secrets** - Application secrets
@@ -55,7 +55,7 @@ Deploy CloudFormation stacks in this order (each depends on the previous):
 
    aws cloudformation deploy \
      --template-file aws/cloudformation/secrets.yaml \
-     --stack-name wealthwise-secrets \
+     --stack-name finsight-secrets \
      --capabilities CAPABILITY_IAM
    ```
 
@@ -63,12 +63,12 @@ Deploy CloudFormation stacks in this order (each depends on the previous):
    ```bash
    aws cloudformation deploy \
      --template-file aws/cloudformation/documentdb.yaml \
-     --stack-name wealthwise-documentdb \
+     --stack-name finsight-documentdb \
      --parameter-overrides \
        VPCId=<vpc-id> \
        PrivateSubnetIds=<subnet-1>,<subnet-2>,<subnet-3> \
        ECSSecurityGroupId=<ecs-sg-id> \
-       MasterUsername=wealthwise \
+       MasterUsername=finsight \
        MasterUserPassword=<password>
    ```
 
@@ -76,7 +76,7 @@ Deploy CloudFormation stacks in this order (each depends on the previous):
    ```bash
    aws cloudformation deploy \
      --template-file aws/cloudformation/alb.yaml \
-     --stack-name wealthwise-alb \
+     --stack-name finsight-alb \
      --parameter-overrides \
        VPCId=<vpc-id> \
        PublicSubnetIds=<subnet-1>,<subnet-2>,<subnet-3> \
@@ -85,7 +85,7 @@ Deploy CloudFormation stacks in this order (each depends on the previous):
 
 6. **ECS Services** - Create the cluster and services
    ```bash
-   aws ecs create-cluster --cluster-name wealthwise
+   aws ecs create-cluster --cluster-name finsight
 
    # Register task definitions
    aws ecs register-task-definition --cli-input-json file://aws/ecs/task-definition-api.json
@@ -100,9 +100,9 @@ Deploy CloudFormation stacks in this order (each depends on the previous):
    ```bash
    aws cloudformation deploy \
      --template-file aws/cloudformation/monitoring.yaml \
-     --stack-name wealthwise-monitoring \
+     --stack-name finsight-monitoring \
      --parameter-overrides \
-       ClusterName=wealthwise \
+       ClusterName=finsight \
        ALBFullName=<alb-full-name> \
        AlertEmail=ops@example.com
    ```

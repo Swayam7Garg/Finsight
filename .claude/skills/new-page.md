@@ -1,4 +1,4 @@
-Scaffold a complete new dashboard page for the WealthWise web app following all project conventions.
+Scaffold a complete new dashboard page for the FinSight web app following all project conventions.
 
 The page/feature name is: $ARGUMENTS
 
@@ -47,7 +47,7 @@ All components must:
 
 ## Standards
 - No `any` types. No raw `fetch`. No default exports except the page.
-- All forms use `zodResolver` with schemas from `@wealthwise/shared-types`
+- All forms use `zodResolver` with schemas from `@finsight/shared-types`
 - TanStack Query for all data fetching — no `useEffect` + fetch patterns
 - Sonner toasts on every mutation
 

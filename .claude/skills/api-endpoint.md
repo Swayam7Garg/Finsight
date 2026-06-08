@@ -1,4 +1,4 @@
-Scaffold a complete new API endpoint for the WealthWise API following all project conventions.
+Scaffold a complete new API endpoint for the FinSight API following all project conventions.
 
 The entity/resource name is: $ARGUMENTS
 
