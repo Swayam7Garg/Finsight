@@ -380,7 +380,7 @@ function DangerZoneTab() {
     setIsDeleting(true);
 
     try {
-      await apiClient.delete("/auth/me");
+      await apiClient.delete("/auth/account");
       toast.success("Account deleted. Redirecting...");
       window.location.href = "/login";
     } catch {

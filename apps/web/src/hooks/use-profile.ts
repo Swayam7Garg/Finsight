@@ -15,7 +15,7 @@ export function useProfile() {
   return useQuery({
     queryKey: profileKeys.me(),
     queryFn: async () => {
-      const res = await apiClient.get<ApiResponse<UserResponse>>("/auth/me");
+      const res = await apiClient.get<ApiResponse<UserResponse>>("/auth/profile");
       return res.data;
     },
   });
@@ -27,7 +27,7 @@ export function useUpdateProfile() {
 
   return useMutation({
     mutationFn: async (data: UpdateProfileInput) => {
-      const res = await apiClient.patch<ApiResponse<UserResponse>>("/auth/me", data);
+      const res = await apiClient.patch<ApiResponse<UserResponse>>("/auth/profile", data);
       return res.data;
     },
     onSuccess: async (updatedUser) => {
