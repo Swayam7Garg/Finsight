@@ -38,8 +38,8 @@ export function useTransactions(filters: Partial<TransactionQuery> = {}) {
     queryKey: transactionKeys.list(filters),
     queryFn: async () => {
       const qs = buildQueryString(filters);
-      const res = await apiClient.get<PaginatedResponse<TransactionResponse>>(`/transactions${qs}`);
-      return res;
+      const res = await apiClient.get<ApiResponse<PaginatedResponse<TransactionResponse>>>(`/transactions${qs}`);
+      return res.data;
     },
   });
 }
@@ -153,7 +153,7 @@ export function useSearchTransactions(search: string) {
   return useQuery({
     queryKey: transactionKeys.search(search),
     queryFn: async () => {
-      const res = await apiClient.get<PaginatedResponse<TransactionResponse>>(
+      const res = await apiClient.get<ApiResponse<PaginatedResponse<TransactionResponse>>>(
         `/transactions/search?q=${encodeURIComponent(search)}`
       );
       return res.data;
