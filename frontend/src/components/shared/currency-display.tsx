@@ -11,7 +11,7 @@ interface CurrencyDisplayProps {
 
 export function CurrencyDisplay({
   amount,
-  currency = "USD",
+  currency = "INR",
   type = "neutral",
   showSign = true,
   className,

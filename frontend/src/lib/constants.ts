@@ -101,9 +101,10 @@ export const BUDGET_PERIODS = [
 // Currency
 // ---------------------------------------------------------------------------
 
-export const DEFAULT_CURRENCY = "USD";
+export const DEFAULT_CURRENCY = "INR";
 
 export const CURRENCIES = [
+  { value: "INR", label: "Indian Rupee", symbol: "₹" },
   { value: "USD", label: "US Dollar", symbol: "$" },
   { value: "EUR", label: "Euro", symbol: "\u20AC" },
   { value: "GBP", label: "British Pound", symbol: "\u00A3" },
