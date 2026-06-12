@@ -1,7 +1,0 @@
-interface:
-  display_name: "Docker Up/Down"
-  short_description: "Start, stop, or inspect the FinSight Docker dev environment"
-  brand_color: "#0EA5E9"
-
-policy:
-  allow_implicit_invocation: false
