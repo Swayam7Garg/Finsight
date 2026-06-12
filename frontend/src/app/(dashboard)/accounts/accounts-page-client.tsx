@@ -89,7 +89,7 @@ function AccountFormDialog({
       name: account?.name ?? "",
       type: account?.type ?? "checking",
       balance: account?.balance ?? 0,
-      currency: account?.currency ?? "USD",
+      currency: account?.currency ?? "INR",
       color: account?.color ?? "#6366f1",
     },
   });
@@ -175,7 +175,7 @@ function AccountFormDialog({
                 <SelectValue placeholder="Select currency" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="USD">USD - US Dollar</SelectItem>
+                <SelectItem value="INR">INR - Indian Rupee</SelectItem>
                 <SelectItem value="EUR">EUR - Euro</SelectItem>
                 <SelectItem value="GBP">GBP - British Pound</SelectItem>
                 <SelectItem value="JPY">JPY - Japanese Yen</SelectItem>

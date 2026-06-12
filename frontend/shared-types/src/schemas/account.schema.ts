@@ -25,7 +25,7 @@ export const createAccountSchema = z.object({
     .string()
     .length(3, "Currency must be a 3-character ISO code")
     .toUpperCase()
-    .default("USD"),
+    .default("INR"),
   color: z
     .string()
     .regex(hexColorRegex, "Color must be a valid hex color (e.g. #6366f1)")

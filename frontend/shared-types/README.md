@@ -54,7 +54,7 @@ if (!result.success) {
 
 | Schema | Fields | Notes |
 |--------|--------|-------|
-| `createAccountSchema` | `name` (1-50 chars), `type`, `balance` (default 0), `currency` (default "USD"), `color` (default "#6366f1") | Balance must be finite; color is hex |
+| `createAccountSchema` | `name` (1-50 chars), `type`, `balance` (default 0), `currency` (default "INR"), `color` (default "#6366f1") | Balance must be finite; color is hex |
 | `updateAccountSchema` | All fields from create, all optional | Same validations apply |
 | `accountResponseSchema` | `id`, `userId`, `name`, `type`, `balance`, `currency`, `color`, `isArchived`, `createdAt`, `updatedAt` | API response shape |
 

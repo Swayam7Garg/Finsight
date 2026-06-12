@@ -153,7 +153,7 @@ describe("updateProfileSchema", () => {
 
   it("rejects currency with wrong length", () => {
     expect(updateProfileSchema.safeParse({ currency: "US" }).success).toBe(false);
-    expect(updateProfileSchema.safeParse({ currency: "USDX" }).success).toBe(false);
+    expect(updateProfileSchema.safeParse({ currency: "INRX" }).success).toBe(false);
   });
 });
 
@@ -182,7 +182,7 @@ describe("createAccountSchema", () => {
     expect(result.success).toBe(true);
     if (result.success) {
       expect(result.data.balance).toBe(0);
-      expect(result.data.currency).toBe("USD");
+      expect(result.data.currency).toBe("INR");
       expect(result.data.color).toBe("#6366f1");
     }
   });
@@ -1037,7 +1037,7 @@ describe("advisorChatResponseSchema", () => {
         savingsThisMonth: 2320,
         savingsRate: 37.42,
         upcomingBills30Days: 3,
-        currency: "USD",
+        currency: "INR",
       },
     });
 

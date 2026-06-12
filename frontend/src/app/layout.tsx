@@ -26,7 +26,7 @@ const webApplicationJsonLd = {
   offers: {
     "@type": "Offer",
     price: "0",
-    priceCurrency: "USD",
+    priceCurrency: "INR",
   },
   description: SITE_DESCRIPTION,
 };
