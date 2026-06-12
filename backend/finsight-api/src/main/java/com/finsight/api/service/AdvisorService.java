@@ -41,8 +41,9 @@ public class AdvisorService {
     @Value("${app.gemini.api-key:}")
     private String geminiApiKey;
 
-    private static final String GEMINI_API_URL =
-            "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=";
+    private static final String GEMINI_MODEL = "gemini-1.5-flash";
+    private static final String GEMINI_BASE_URL =
+            "https://generativelanguage.googleapis.com/v1beta/models/";
 
     public boolean isConfigured() {
         return geminiApiKey != null && !geminiApiKey.isBlank();
@@ -71,10 +72,17 @@ public class AdvisorService {
                     "suggestions", suggestions,
                     "actions", List.of()
             );
-        } catch (Exception e) {
-            log.error("AI Advisor error for user {}: {}", userId, e.getMessage(), e);
+        } catch (GeminiApiException e) {
+            log.error("Gemini API error for user {} [{}]: {}", userId, e.getStatusCode(), e.getBody());
             return Map.of(
-                    "reply", "I'm having trouble connecting to the AI service right now. Please try again in a moment.",
+                    "reply", "AI service returned an error (HTTP " + e.getStatusCode() + "). Check that your GOOGLE_AI_API_KEY is valid and has access to Gemini 1.5 Flash.",
+                    "suggestions", List.of(),
+                    "actions", List.of()
+            );
+        } catch (Exception e) {
+            log.error("AI Advisor unexpected error for user {}: {}", userId, e.getMessage(), e);
+            return Map.of(
+                    "reply", "Unexpected error: " + e.getMessage(),
                     "suggestions", List.of(),
                     "actions", List.of()
             );
@@ -180,29 +188,32 @@ public class AdvisorService {
                 """;
     }
 
+    /** Custom exception to carry Gemini HTTP status + body */
+    private static class GeminiApiException extends RuntimeException {
+        private final int statusCode;
+        private final String body;
+        GeminiApiException(int statusCode, String body) {
+            super("Gemini HTTP " + statusCode);
+            this.statusCode = statusCode;
+            this.body = body;
+        }
+        int getStatusCode() { return statusCode; }
+        String getBody() { return body; }
+    }
+
     /**
-     * Calls the Gemini REST API with the system prompt, conversation history, and user message.
+     * Calls the Gemini REST API using systemInstruction + multi-turn contents.
      */
     @SuppressWarnings("unchecked")
     private String callGemini(String systemPrompt, String userMessage, List<Map<String, String>> history) throws Exception {
         List<Map<String, Object>> contents = new ArrayList<>();
-
-        // Inject system context as the first user turn (Gemini doesn't have a system role)
-        contents.add(Map.of(
-                "role", "user",
-                "parts", List.of(Map.of("text", systemPrompt))
-        ));
-        contents.add(Map.of(
-                "role", "model",
-                "parts", List.of(Map.of("text", "Understood! I have your financial data loaded. How can I help you today?"))
-        ));
 
         // Add conversation history
         if (history != null) {
             for (Map<String, String> msg : history) {
                 String role = "user".equals(msg.get("role")) ? "user" : "model";
                 String text = msg.getOrDefault("content", msg.getOrDefault("text", ""));
-                if (!text.isBlank()) {
+                if (text != null && !text.isBlank()) {
                     contents.add(Map.of(
                             "role", role,
                             "parts", List.of(Map.of("text", text))
@@ -217,20 +228,27 @@ public class AdvisorService {
                 "parts", List.of(Map.of("text", userMessage))
         ));
 
-        Map<String, Object> requestBody = Map.of(
-                "contents", contents,
-                "generationConfig", Map.of(
-                        "temperature", 0.7,
-                        "maxOutputTokens", 1024,
-                        "topP", 0.95
-                )
-        );
+        // Use Gemini systemInstruction for the system prompt (correct API format)
+        Map<String, Object> requestBody = new LinkedHashMap<>();
+        requestBody.put("systemInstruction", Map.of(
+                "parts", List.of(Map.of("text", systemPrompt))
+        ));
+        requestBody.put("contents", contents);
+        requestBody.put("generationConfig", Map.of(
+                "temperature", 0.7,
+                "maxOutputTokens", 1024,
+                "topP", 0.95
+        ));
 
         String json = objectMapper.writeValueAsString(requestBody);
+        String url = GEMINI_BASE_URL + GEMINI_MODEL + ":generateContent?key=" + geminiApiKey;
+
+        log.debug("Calling Gemini API: model={}, historySize={}", GEMINI_MODEL,
+                history != null ? history.size() : 0);
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(GEMINI_API_URL + geminiApiKey))
+                .uri(URI.create(url))
                 .header("Content-Type", "application/json")
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .build();
@@ -238,14 +256,13 @@ public class AdvisorService {
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         if (response.statusCode() != 200) {
-            log.error("Gemini API error {}: {}", response.statusCode(), response.body());
-            throw new RuntimeException("Gemini API returned status " + response.statusCode());
+            throw new GeminiApiException(response.statusCode(), response.body());
         }
 
         Map<String, Object> responseMap = objectMapper.readValue(response.body(), Map.class);
         List<Map<String, Object>> candidates = (List<Map<String, Object>>) responseMap.get("candidates");
         if (candidates == null || candidates.isEmpty()) {
-            throw new RuntimeException("Empty response from Gemini");
+            throw new RuntimeException("Empty candidates in Gemini response: " + response.body());
         }
 
         Map<String, Object> content = (Map<String, Object>) candidates.get(0).get("content");
