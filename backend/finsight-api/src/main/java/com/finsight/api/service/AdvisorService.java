@@ -74,8 +74,15 @@ public class AdvisorService {
             );
         } catch (GeminiApiException e) {
             log.error("Gemini API error for user {} [{}]: {}", userId, e.getStatusCode(), e.getBody());
+            
+            // Try to extract a clean message from Google's JSON error
+            String errorMessage = "AI service returned an error (HTTP " + e.getStatusCode() + ").";
+            if (e.getBody() != null && !e.getBody().isBlank()) {
+                errorMessage += " Details: " + e.getBody();
+            }
+            
             return Map.of(
-                    "reply", "AI service returned an error (HTTP " + e.getStatusCode() + "). Check that your GOOGLE_AI_API_KEY is valid and has access to Gemini 1.5 Flash.",
+                    "reply", errorMessage,
                     "suggestions", List.of(),
                     "actions", List.of()
             );
@@ -248,7 +255,7 @@ public class AdvisorService {
         ));
 
         String json = objectMapper.writeValueAsString(requestBody);
-        String url = GEMINI_BASE_URL + GEMINI_MODEL + ":generateContent?key=" + geminiApiKey;
+        String url = GEMINI_BASE_URL + GEMINI_MODEL + ":generateContent?key=" + geminiApiKey.trim();
 
         log.debug("Calling Gemini API: model={}, historySize={}", GEMINI_MODEL,
                 history != null ? history.size() : 0);
