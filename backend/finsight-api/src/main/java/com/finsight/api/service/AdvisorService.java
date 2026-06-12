@@ -41,7 +41,7 @@ public class AdvisorService {
     @Value("${app.gemini.api-key:}")
     private String geminiApiKey;
 
-    private static final String GEMINI_MODEL = "gemini-1.5-flash";
+    private static final String GEMINI_MODEL = "gemini-pro";
     private static final String GEMINI_BASE_URL =
             "https://generativelanguage.googleapis.com/v1beta/models/";
 
@@ -202,13 +202,24 @@ public class AdvisorService {
     }
 
     /**
-     * Calls the Gemini REST API using systemInstruction + multi-turn contents.
+     * Calls the Gemini REST API using multi-turn conversation.
+     * Uses gemini-pro which is universally available on all AI Studio API keys.
      */
     @SuppressWarnings("unchecked")
     private String callGemini(String systemPrompt, String userMessage, List<Map<String, String>> history) throws Exception {
         List<Map<String, Object>> contents = new ArrayList<>();
 
-        // Add conversation history
+        // Inject system context as the first user turn (gemini-pro doesn't support systemInstruction)
+        contents.add(Map.of(
+                "role", "user",
+                "parts", List.of(Map.of("text", systemPrompt))
+        ));
+        contents.add(Map.of(
+                "role", "model",
+                "parts", List.of(Map.of("text", "Understood! I have your financial data loaded. How can I help you today?"))
+        ));
+
+        // Add prior conversation history
         if (history != null) {
             for (Map<String, String> msg : history) {
                 String role = "user".equals(msg.get("role")) ? "user" : "model";
@@ -228,11 +239,7 @@ public class AdvisorService {
                 "parts", List.of(Map.of("text", userMessage))
         ));
 
-        // Use Gemini systemInstruction for the system prompt (correct API format)
         Map<String, Object> requestBody = new LinkedHashMap<>();
-        requestBody.put("systemInstruction", Map.of(
-                "parts", List.of(Map.of("text", systemPrompt))
-        ));
         requestBody.put("contents", contents);
         requestBody.put("generationConfig", Map.of(
                 "temperature", 0.7,
