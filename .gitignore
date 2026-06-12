@@ -51,3 +51,22 @@ npm-debug.log*
 
 .vercel
 vercel.json
+
+# Cloud / DevOps Infrastructure
+aws/
+gcp/
+azure/
+oci/
+k8s/
+helm/
+argocd/
+nginx/
+terraform/
+
+# Agents / IDE configuration
+.agents/
+.codex/
+.claude/
+.githooks/
+.husky/
+
