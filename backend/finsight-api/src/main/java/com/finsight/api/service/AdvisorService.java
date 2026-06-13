@@ -41,9 +41,16 @@ public class AdvisorService {
     @Value("${app.gemini.api-key:}")
     private String geminiApiKey;
 
-    private static final String GEMINI_MODEL = "gemini-1.5-flash";
+    // Model fallback chain — tries each in order until one succeeds.
+    // AI Studio free-tier keys work on v1beta with these model IDs.
+    private static final List<String> GEMINI_MODELS = List.of(
+            "gemini-2.0-flash",
+            "gemini-1.5-flash",
+            "gemini-1.5-flash-latest",
+            "gemini-pro"
+    );
     private static final String GEMINI_BASE_URL =
-            "https://generativelanguage.googleapis.com/v1/models/";
+            "https://generativelanguage.googleapis.com/v1beta/models/";
 
     public boolean isConfigured() {
         return geminiApiKey != null && !geminiApiKey.isBlank();
@@ -210,13 +217,13 @@ public class AdvisorService {
 
     /**
      * Calls the Gemini REST API using multi-turn conversation.
-     * Uses gemini-pro which is universally available on all AI Studio API keys.
+     * Tries each model in GEMINI_MODELS in order until one succeeds.
      */
     @SuppressWarnings("unchecked")
     private String callGemini(String systemPrompt, String userMessage, List<Map<String, String>> history) throws Exception {
         List<Map<String, Object>> contents = new ArrayList<>();
 
-        // Inject system context as the first user turn (gemini-pro doesn't support systemInstruction)
+        // Inject system context as the first user/model turn pair
         contents.add(Map.of(
                 "role", "user",
                 "parts", List.of(Map.of("text", systemPrompt))
@@ -255,33 +262,46 @@ public class AdvisorService {
         ));
 
         String json = objectMapper.writeValueAsString(requestBody);
-        String url = GEMINI_BASE_URL + GEMINI_MODEL + ":generateContent?key=" + geminiApiKey.trim();
-
-        log.debug("Calling Gemini API: model={}, historySize={}", GEMINI_MODEL,
-                history != null ? history.size() : 0);
-
         HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
-                .header("Content-Type", "application/json")
-                .POST(HttpRequest.BodyPublishers.ofString(json))
-                .build();
 
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        // Try each model in order — stop at the first success
+        GeminiApiException lastException = null;
+        for (String model : GEMINI_MODELS) {
+            String url = GEMINI_BASE_URL + model + ":generateContent?key=" + geminiApiKey.trim();
+            log.info("Trying Gemini model: {}", model);
 
-        if (response.statusCode() != 200) {
-            throw new GeminiApiException(response.statusCode(), response.body());
+            HttpRequest request = HttpRequest.newBuilder()
+                    .uri(URI.create(url))
+                    .header("Content-Type", "application/json")
+                    .POST(HttpRequest.BodyPublishers.ofString(json))
+                    .build();
+
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+            if (response.statusCode() == 200) {
+                log.info("Gemini succeeded with model: {}", model);
+                Map<String, Object> responseMap = objectMapper.readValue(response.body(), Map.class);
+                List<Map<String, Object>> candidates = (List<Map<String, Object>>) responseMap.get("candidates");
+                if (candidates == null || candidates.isEmpty()) {
+                    throw new RuntimeException("Empty candidates in Gemini response: " + response.body());
+                }
+                Map<String, Object> content = (Map<String, Object>) candidates.get(0).get("content");
+                List<Map<String, Object>> parts = (List<Map<String, Object>>) content.get("parts");
+                return (String) parts.get(0).get("text");
+            }
+
+            log.warn("Gemini model {} failed with HTTP {}: {}", model, response.statusCode(), response.body());
+            lastException = new GeminiApiException(response.statusCode(), response.body());
+
+            // Only fall through to next model on 404 (model not found)
+            if (response.statusCode() != 404) {
+                throw lastException;
+            }
         }
 
-        Map<String, Object> responseMap = objectMapper.readValue(response.body(), Map.class);
-        List<Map<String, Object>> candidates = (List<Map<String, Object>>) responseMap.get("candidates");
-        if (candidates == null || candidates.isEmpty()) {
-            throw new RuntimeException("Empty candidates in Gemini response: " + response.body());
-        }
-
-        Map<String, Object> content = (Map<String, Object>) candidates.get(0).get("content");
-        List<Map<String, Object>> parts = (List<Map<String, Object>>) content.get("parts");
-        return (String) parts.get(0).get("text");
+        // All models exhausted
+        throw lastException != null ? lastException
+                : new RuntimeException("No Gemini models available for this API key.");
     }
 
     private List<String> generateSuggestions(String userMessage) {

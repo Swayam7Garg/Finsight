@@ -36,7 +36,7 @@ public class Account {
     private double balance = 0;
 
     @Builder.Default
-    private String currency = "USD";
+    private String currency = "INR";
 
     @Builder.Default
     private String color = "#6366f1";
