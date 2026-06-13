@@ -42,11 +42,12 @@ public class AdvisorService {
     private String geminiApiKey;
 
     // Model fallback chain — tries each in order until one succeeds.
-    // AI Studio free-tier keys work on v1beta with these model IDs.
+    // Start with older models first as some free-tier projects only have access to them.
     private static final List<String> GEMINI_MODELS = List.of(
-            "gemini-2.0-flash",
             "gemini-1.5-flash",
             "gemini-1.5-flash-latest",
+            "gemini-1.5-flash-8b",
+            "gemini-2.0-flash",
             "gemini-pro"
     );
     private static final String GEMINI_BASE_URL =
@@ -293,8 +294,8 @@ public class AdvisorService {
             log.warn("Gemini model {} failed with HTTP {}: {}", model, response.statusCode(), response.body());
             lastException = new GeminiApiException(response.statusCode(), response.body());
 
-            // Only fall through to next model on 404 (model not found)
-            if (response.statusCode() != 404) {
+            // Fall through to next model on 404 (not found) or 429 (quota exhausted for this model)
+            if (response.statusCode() != 404 && response.statusCode() != 429) {
                 throw lastException;
             }
         }
