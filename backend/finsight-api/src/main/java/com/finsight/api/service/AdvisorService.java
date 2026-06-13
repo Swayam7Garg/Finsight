@@ -44,10 +44,12 @@ public class AdvisorService {
     // Model fallback chain — tries each in order until one succeeds.
     // Start with older models first as some free-tier projects only have access to them.
     private static final List<String> GEMINI_MODELS = List.of(
+            "gemini-2.0-flash-lite",
             "gemini-1.5-flash",
             "gemini-1.5-flash-latest",
             "gemini-1.5-flash-8b",
             "gemini-2.0-flash",
+            "gemini-1.5-pro",
             "gemini-pro"
     );
     private static final String GEMINI_BASE_URL =
@@ -294,8 +296,8 @@ public class AdvisorService {
             log.warn("Gemini model {} failed with HTTP {}: {}", model, response.statusCode(), response.body());
             lastException = new GeminiApiException(response.statusCode(), response.body());
 
-            // Fall through to next model on 404 (not found) or 429 (quota exhausted for this model)
-            if (response.statusCode() != 404 && response.statusCode() != 429) {
+            // Fall through to next model on 404, 429, or 403 — try all models before giving up
+            if (response.statusCode() != 404 && response.statusCode() != 429 && response.statusCode() != 403) {
                 throw lastException;
             }
         }
