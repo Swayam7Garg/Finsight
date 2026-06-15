@@ -7,6 +7,7 @@ import {
   Landmark,
   Repeat,
   BarChart3,
+  Activity,
   Sparkles,
   Settings,
   Wallet,
@@ -37,6 +38,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Accounts", href: "/accounts", icon: Landmark },
   { label: "Recurring", href: "/recurring", icon: Repeat },
   { label: "Analytics", href: "/analytics", icon: BarChart3 },
+  { label: "Health Score", href: "/financial-health", icon: Activity },
   { label: "AI Advisor", href: "/advisor", icon: Sparkles },
   { label: "Settings", href: "/settings", icon: Settings },
 ];

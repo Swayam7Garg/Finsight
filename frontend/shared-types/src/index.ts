@@ -71,6 +71,15 @@ export {
   advisorChatResponseSchema,
 } from "./schemas/advisor.schema";
 
+export {
+  financialHealthGradeEnum,
+  financialHealthStatusEnum,
+  recommendationPriorityEnum,
+  financialHealthBreakdownItemSchema,
+  financialHealthRecommendationSchema,
+  financialHealthScoreResponseSchema,
+} from "./schemas/analytics.schema";
+
 // ---------------------------------------------------------------------------
 // Type exports
 // ---------------------------------------------------------------------------
@@ -120,6 +129,13 @@ export type {
   AdvisorChatModelOutput,
   AdvisorContextStats,
   AdvisorChatResponse,
+  // Analytics
+  FinancialHealthGrade,
+  FinancialHealthStatus,
+  RecommendationPriority,
+  FinancialHealthBreakdownItem,
+  FinancialHealthRecommendation,
+  FinancialHealthScoreResponse,
   // API wrappers
   ApiResponse,
   PaginatedResponse,
