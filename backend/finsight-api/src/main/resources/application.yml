@@ -21,9 +21,8 @@ app:
     allowed-origins: ${CORS_ORIGINS:http://localhost:3000,http://localhost:3001}
   gemini:
     api-key: ${GOOGLE_AI_API_KEY:${GEMINI_API_KEY:}}
-    model: ${GEMINI_MODEL:gemini-2.5-flash}
-    model-allowlist: ${GEMINI_MODEL_ALLOWLIST:}
-    allow-pro-models: ${GEMINI_ALLOW_PRO_MODELS:false}
+  groq:
+    api-key: ${GROQ_API_KEY:}
 
 springdoc:
   api-docs:

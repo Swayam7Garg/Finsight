@@ -38,24 +38,23 @@ public class AdvisorService {
     private final MongoTemplate mongoTemplate;
     private final ObjectMapper objectMapper;
 
-    @Value("${app.gemini.api-key:}")
-    private String geminiApiKey;
+    @Value("${app.groq.api-key:}")
+    private String groqApiKey;
 
-    private static final String GEMINI_MODEL = "gemini-1.5-flash";
-    private static final String GEMINI_BASE_URL =
-            "https://generativelanguage.googleapis.com/v1/models/";
+    private static final String GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
+    private static final String GROQ_MODEL = "llama-3.3-70b-versatile";
 
     public boolean isConfigured() {
-        return geminiApiKey != null && !geminiApiKey.isBlank();
+        return groqApiKey != null && !groqApiKey.isBlank();
     }
 
     /**
-     * Main chat method — builds financial context + calls Gemini API.
+     * Main chat method — builds financial context + calls Groq API.
      */
     public Map<String, Object> chat(String userId, String userMessage, List<Map<String, String>> history) {
         if (!isConfigured()) {
             return Map.of(
-                    "reply", "AI Advisor is not yet configured. Please set the GOOGLE_AI_API_KEY environment variable.",
+                    "reply", "AI Advisor is not yet configured. Please set the GROQ_API_KEY environment variable in your deployment settings.",
                     "suggestions", List.of(),
                     "actions", List.of()
             );
@@ -64,7 +63,7 @@ public class AdvisorService {
         try {
             String context = buildFinancialContext(userId);
             String systemPrompt = buildSystemPrompt(context);
-            String reply = callGemini(systemPrompt, userMessage, history);
+            String reply = callGroq(systemPrompt, userMessage, history);
             List<String> suggestions = generateSuggestions(userMessage);
 
             return Map.of(
@@ -72,24 +71,10 @@ public class AdvisorService {
                     "suggestions", suggestions,
                     "actions", List.of()
             );
-        } catch (GeminiApiException e) {
-            log.error("Gemini API error for user {} [{}]: {}", userId, e.getStatusCode(), e.getBody());
-            
-            // Try to extract a clean message from Google's JSON error
-            String errorMessage = "AI service returned an error (HTTP " + e.getStatusCode() + ").";
-            if (e.getBody() != null && !e.getBody().isBlank()) {
-                errorMessage += " Details: " + e.getBody();
-            }
-            
-            return Map.of(
-                    "reply", errorMessage,
-                    "suggestions", List.of(),
-                    "actions", List.of()
-            );
         } catch (Exception e) {
-            log.error("AI Advisor unexpected error for user {}: {}", userId, e.getMessage(), e);
+            log.error("AI Advisor error for user {}: {}", userId, e.getMessage(), e);
             return Map.of(
-                    "reply", "Unexpected error: " + e.getMessage(),
+                    "reply", "I'm having trouble connecting to the AI service right now. Please try again in a moment.",
                     "suggestions", List.of(),
                     "actions", List.of()
             );
@@ -195,93 +180,64 @@ public class AdvisorService {
                 """;
     }
 
-    /** Custom exception to carry Gemini HTTP status + body */
-    private static class GeminiApiException extends RuntimeException {
-        private final int statusCode;
-        private final String body;
-        GeminiApiException(int statusCode, String body) {
-            super("Gemini HTTP " + statusCode);
-            this.statusCode = statusCode;
-            this.body = body;
-        }
-        int getStatusCode() { return statusCode; }
-        String getBody() { return body; }
-    }
-
     /**
-     * Calls the Gemini REST API using multi-turn conversation.
-     * Uses gemini-pro which is universally available on all AI Studio API keys.
+     * Calls the Groq API (OpenAI-compatible format).
+     * Model: llama-3.3-70b-versatile — free tier, 14,400 req/day.
      */
     @SuppressWarnings("unchecked")
-    private String callGemini(String systemPrompt, String userMessage, List<Map<String, String>> history) throws Exception {
-        List<Map<String, Object>> contents = new ArrayList<>();
+    private String callGroq(String systemPrompt, String userMessage, List<Map<String, String>> history) throws Exception {
+        List<Map<String, Object>> messages = new ArrayList<>();
 
-        // Inject system context as the first user turn (gemini-pro doesn't support systemInstruction)
-        contents.add(Map.of(
-                "role", "user",
-                "parts", List.of(Map.of("text", systemPrompt))
-        ));
-        contents.add(Map.of(
-                "role", "model",
-                "parts", List.of(Map.of("text", "Understood! I have your financial data loaded. How can I help you today?"))
-        ));
+        // System message first
+        messages.add(Map.of("role", "system", "content", systemPrompt));
 
         // Add prior conversation history
         if (history != null) {
             for (Map<String, String> msg : history) {
-                String role = "user".equals(msg.get("role")) ? "user" : "model";
+                String role = "user".equals(msg.get("role")) ? "user" : "assistant";
                 String text = msg.getOrDefault("content", msg.getOrDefault("text", ""));
                 if (text != null && !text.isBlank()) {
-                    contents.add(Map.of(
-                            "role", role,
-                            "parts", List.of(Map.of("text", text))
-                    ));
+                    messages.add(Map.of("role", role, "content", text));
                 }
             }
         }
 
         // Add current user message
-        contents.add(Map.of(
-                "role", "user",
-                "parts", List.of(Map.of("text", userMessage))
-        ));
+        messages.add(Map.of("role", "user", "content", userMessage));
 
         Map<String, Object> requestBody = new LinkedHashMap<>();
-        requestBody.put("contents", contents);
-        requestBody.put("generationConfig", Map.of(
-                "temperature", 0.7,
-                "maxOutputTokens", 1024,
-                "topP", 0.95
-        ));
+        requestBody.put("model", GROQ_MODEL);
+        requestBody.put("messages", messages);
+        requestBody.put("temperature", 0.7);
+        requestBody.put("max_tokens", 1024);
+        requestBody.put("top_p", 0.95);
 
         String json = objectMapper.writeValueAsString(requestBody);
-        String url = GEMINI_BASE_URL + GEMINI_MODEL + ":generateContent?key=" + geminiApiKey.trim();
-
-        log.debug("Calling Gemini API: model={}, historySize={}", GEMINI_MODEL,
-                history != null ? history.size() : 0);
+        log.info("Calling Groq API with model: {}", GROQ_MODEL);
 
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(url))
+                .uri(URI.create(GROQ_URL))
                 .header("Content-Type", "application/json")
+                .header("Authorization", "Bearer " + groqApiKey.trim())
                 .POST(HttpRequest.BodyPublishers.ofString(json))
                 .build();
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         if (response.statusCode() != 200) {
-            throw new GeminiApiException(response.statusCode(), response.body());
+            log.error("Groq API error HTTP {}: {}", response.statusCode(), response.body());
+            throw new RuntimeException("Groq API error (HTTP " + response.statusCode() + "): " + response.body());
         }
 
+        log.info("Groq API call successful");
         Map<String, Object> responseMap = objectMapper.readValue(response.body(), Map.class);
-        List<Map<String, Object>> candidates = (List<Map<String, Object>>) responseMap.get("candidates");
-        if (candidates == null || candidates.isEmpty()) {
-            throw new RuntimeException("Empty candidates in Gemini response: " + response.body());
+        List<Map<String, Object>> choices = (List<Map<String, Object>>) responseMap.get("choices");
+        if (choices == null || choices.isEmpty()) {
+            throw new RuntimeException("Empty choices in Groq response: " + response.body());
         }
-
-        Map<String, Object> content = (Map<String, Object>) candidates.get(0).get("content");
-        List<Map<String, Object>> parts = (List<Map<String, Object>>) content.get("parts");
-        return (String) parts.get(0).get("text");
+        Map<String, Object> message = (Map<String, Object>) choices.get(0).get("message");
+        return (String) message.get("content");
     }
 
     private List<String> generateSuggestions(String userMessage) {
