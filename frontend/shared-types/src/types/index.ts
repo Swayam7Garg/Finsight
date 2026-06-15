@@ -61,6 +61,15 @@ import {
   advisorChatResponseSchema,
 } from "../schemas/advisor.schema";
 
+import {
+  financialHealthGradeEnum,
+  financialHealthStatusEnum,
+  recommendationPriorityEnum,
+  financialHealthBreakdownItemSchema,
+  financialHealthRecommendationSchema,
+  financialHealthScoreResponseSchema,
+} from "../schemas/analytics.schema";
+
 // ---------------------------------------------------------------------------
 // User types
 // ---------------------------------------------------------------------------
@@ -129,6 +138,16 @@ export type AdvisorChatRequest = z.infer<typeof advisorChatRequestSchema>;
 export type AdvisorChatModelOutput = z.infer<typeof advisorChatModelOutputSchema>;
 export type AdvisorContextStats = z.infer<typeof advisorContextStatsSchema>;
 export type AdvisorChatResponse = z.infer<typeof advisorChatResponseSchema>;
+
+// ---------------------------------------------------------------------------
+// Analytics types
+// ---------------------------------------------------------------------------
+export type FinancialHealthGrade = z.infer<typeof financialHealthGradeEnum>;
+export type FinancialHealthStatus = z.infer<typeof financialHealthStatusEnum>;
+export type RecommendationPriority = z.infer<typeof recommendationPriorityEnum>;
+export type FinancialHealthBreakdownItem = z.infer<typeof financialHealthBreakdownItemSchema>;
+export type FinancialHealthRecommendation = z.infer<typeof financialHealthRecommendationSchema>;
+export type FinancialHealthScoreResponse = z.infer<typeof financialHealthScoreResponseSchema>;
 
 // ---------------------------------------------------------------------------
 // Generic API response wrappers
