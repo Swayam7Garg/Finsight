@@ -70,3 +70,5 @@ terraform/
 .githooks/
 .husky/
 
+# Local CSV data templates
+local-transactions.csv
