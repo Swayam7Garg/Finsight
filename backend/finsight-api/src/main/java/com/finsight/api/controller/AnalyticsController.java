@@ -1,7 +1,9 @@
 package com.finsight.api.controller;
 
 import com.finsight.api.service.AnalyticsService;
+import com.finsight.api.service.FinancialHealthScoreService;
 import com.finsight.common.dto.ApiResponse;
+import com.finsight.common.dto.analytics.FinancialHealthScoreResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +22,7 @@ import java.util.Map;
 public class AnalyticsController {
 
     private final AnalyticsService analyticsService;
+    private final FinancialHealthScoreService financialHealthScoreService;
 
     @GetMapping("/spending-by-category")
     @Operation(summary = "Get spending breakdown by category")
@@ -85,5 +88,11 @@ public class AnalyticsController {
         int m = month != null ? month : LocalDate.now().getMonthValue();
         return ResponseEntity.ok(ApiResponse.ok(
                 analyticsService.getMonthlyCategoryBreakdown(auth.getName(), y, m)));
+    }
+
+    @GetMapping("/financial-health-score")
+    @Operation(summary = "Get financial health score")
+    public ResponseEntity<ApiResponse<FinancialHealthScoreResponse>> financialHealthScore(Authentication auth) {
+        return ResponseEntity.ok(ApiResponse.ok(financialHealthScoreService.calculate(auth.getName())));
     }
 }

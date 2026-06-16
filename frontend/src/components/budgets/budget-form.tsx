@@ -106,7 +106,7 @@ export function BudgetForm({ open, onOpenChange, budget }: BudgetFormProps) {
             <Label htmlFor="amount">Budget Amount</Label>
             <div className="relative">
               <span className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground">
-                $
+                ₹
               </span>
               <Input
                 id="amount"

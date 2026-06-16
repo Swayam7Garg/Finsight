@@ -56,6 +56,30 @@ export interface CategoryMonthlyBreakdown {
   colors: Record<string, string>;
 }
 
+export interface FinancialHealthBreakdownItem {
+  key: string;
+  label: string;
+  score: number;
+  maxScore: number;
+  status: "excellent" | "good" | "fair" | "watch" | "at_risk" | "critical" | "needs_data";
+  detail: string;
+}
+
+export interface FinancialHealthRecommendation {
+  key: string;
+  title: string;
+  description: string;
+  priority: "low" | "medium" | "high";
+}
+
+export interface FinancialHealthScoreResponse {
+  score: number;
+  grade: "A" | "B" | "C" | "D" | "F";
+  breakdown: FinancialHealthBreakdownItem[];
+  recommendations: FinancialHealthRecommendation[];
+  calculatedAt: string;
+}
+
 export const analyticsKeys = {
   all: ["analytics"] as const,
   spendingByCategory: (startDate?: string, endDate?: string) =>
@@ -70,6 +94,7 @@ export const analyticsKeys = {
     [...analyticsKeys.all, "spending-by-day-of-week", startDate, endDate] as const,
   categoryMonthlyBreakdown: (months?: number) =>
     [...analyticsKeys.all, "category-monthly-breakdown", months] as const,
+  financialHealthScore: () => [...analyticsKeys.all, "financial-health-score"] as const,
 };
 
 export function useSpendingByCategory(startDate?: string, endDate?: string) {
@@ -213,6 +238,18 @@ export function useCategoryMonthlyBreakdown(months: number = 6) {
         categories: [],
         colors: {}
       };
+    },
+  });
+}
+
+export function useFinancialHealthScore() {
+  return useQuery({
+    queryKey: analyticsKeys.financialHealthScore(),
+    queryFn: async () => {
+      const res = await apiClient.get<ApiResponse<FinancialHealthScoreResponse>>(
+        "/analytics/financial-health-score"
+      );
+      return res.data;
     },
   });
 }

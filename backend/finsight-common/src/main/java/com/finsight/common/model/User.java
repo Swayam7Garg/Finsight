@@ -32,7 +32,7 @@ public class User {
     private String avatarUrl;
 
     @Builder.Default
-    private String currency = "USD";
+    private String currency = "INR";
 
     @CreatedDate
     private Instant createdAt;

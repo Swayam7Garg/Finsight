@@ -33,7 +33,7 @@ public class AccountService {
                 .name(name)
                 .type(type)
                 .balance(balance != null ? balance : 0)
-                .currency(currency != null ? currency : "USD")
+                .currency(currency != null ? currency : "INR")
                 .color(color != null ? color : "#6366f1")
                 .build();
         return toResponse(accountRepository.save(account));

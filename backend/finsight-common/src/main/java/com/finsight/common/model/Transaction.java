@@ -41,7 +41,7 @@ public class Transaction {
     private double amount;
 
     @Builder.Default
-    private String currency = "USD";
+    private String currency = "INR";
 
     private String categoryId;
 

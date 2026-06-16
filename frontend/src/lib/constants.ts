@@ -7,6 +7,7 @@ import {
   Landmark,
   Repeat,
   BarChart3,
+  Activity,
   Sparkles,
   Settings,
   Wallet,
@@ -37,6 +38,7 @@ export const NAV_ITEMS: NavItem[] = [
   { label: "Accounts", href: "/accounts", icon: Landmark },
   { label: "Recurring", href: "/recurring", icon: Repeat },
   { label: "Analytics", href: "/analytics", icon: BarChart3 },
+  { label: "Health Score", href: "/financial-health", icon: Activity },
   { label: "AI Advisor", href: "/advisor", icon: Sparkles },
   { label: "Settings", href: "/settings", icon: Settings },
 ];
@@ -101,9 +103,10 @@ export const BUDGET_PERIODS = [
 // Currency
 // ---------------------------------------------------------------------------
 
-export const DEFAULT_CURRENCY = "USD";
+export const DEFAULT_CURRENCY = "INR";
 
 export const CURRENCIES = [
+  { value: "INR", label: "Indian Rupee", symbol: "₹" },
   { value: "USD", label: "US Dollar", symbol: "$" },
   { value: "EUR", label: "Euro", symbol: "\u20AC" },
   { value: "GBP", label: "British Pound", symbol: "\u00A3" },

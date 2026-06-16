@@ -5,6 +5,7 @@ export const size = {
   height: 600,
 };
 export const contentType = "image/png";
+export const dynamic = "force-dynamic";
 
 export default function TwitterImage() {
   return new ImageResponse(

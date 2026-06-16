@@ -49,7 +49,7 @@ function ProfileTab() {
     resolver: zodResolver(updateProfileSchema),
     defaultValues: {
       name: "",
-      currency: "USD",
+      currency: "INR",
     },
   });
 
@@ -179,7 +179,7 @@ function ProfileTab() {
             <div className="space-y-2">
               <Label>Default Currency</Label>
               <Select
-                value={form.watch("currency") ?? "USD"}
+                value={form.watch("currency") ?? "INR"}
                 onValueChange={(value) => form.setValue("currency", value)}
               >
                 <SelectTrigger>

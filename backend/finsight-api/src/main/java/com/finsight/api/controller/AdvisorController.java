@@ -1,5 +1,6 @@
 package com.finsight.api.controller;
 
+import com.finsight.api.service.AdvisorService;
 import com.finsight.common.dto.ApiResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -13,9 +14,7 @@ import java.util.Map;
 
 /**
  * Advisor Controller — AI financial advisor powered by Google Gemini.
- * Requires GOOGLE_AI_API_KEY or GEMINI_API_KEY to be set.
- * Full implementation mirrors the Express AdvisorService with context building,
- * model rotation, and conversation history.
+ * Requires GOOGLE_AI_API_KEY to be set as an environment variable.
  */
 @RestController
 @RequestMapping("/api/v1/advisor")
@@ -23,30 +22,30 @@ import java.util.Map;
 @Tag(name = "AI Advisor", description = "AI-powered financial advisor (Google Gemini)")
 public class AdvisorController {
 
+    private final AdvisorService advisorService;
+
     @PostMapping("/chat")
     @Operation(summary = "Chat with AI financial advisor")
     public ResponseEntity<ApiResponse<Map<String, Object>>> chat(
             Authentication auth,
             @RequestBody Map<String, Object> body) {
+
+        String userId = auth.getName();
         String message = (String) body.get("message");
         @SuppressWarnings("unchecked")
         List<Map<String, String>> history = (List<Map<String, String>>) body.get("conversationHistory");
 
-        // TODO: Implement full Gemini integration when API key is provided
-        return ResponseEntity.ok(ApiResponse.ok(Map.of(
-                "reply", "AI Advisor is not yet configured. Please provide a GOOGLE_AI_API_KEY.",
-                "suggestions", List.of(),
-                "actions", List.of()
-        )));
+        Map<String, Object> result = advisorService.chat(userId, message, history);
+        return ResponseEntity.ok(ApiResponse.ok(result));
     }
 
     @GetMapping("/status")
     @Operation(summary = "Check advisor AI availability")
     public ResponseEntity<ApiResponse<Map<String, Object>>> status() {
-        // TODO: Check if Gemini API key is configured
+        boolean available = advisorService.isConfigured();
         return ResponseEntity.ok(ApiResponse.ok(Map.of(
-                "available", false,
-                "reason", "GOOGLE_AI_API_KEY not configured"
+                "available", available,
+                "reason", available ? "Gemini API is configured and ready" : "GOOGLE_AI_API_KEY not configured"
         )));
     }
 }
