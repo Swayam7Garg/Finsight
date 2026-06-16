@@ -200,7 +200,7 @@ export function BudgetsPageClient() {
                   <YAxis
                     tick={{ fontSize: 12 }}
                     className="fill-muted-foreground"
-                    tickFormatter={(v) => `$${v}`}
+                    tickFormatter={(v) => `₹${v}`}
                   />
                   <Tooltip
                     formatter={(value: number) => formatCurrency(value)}

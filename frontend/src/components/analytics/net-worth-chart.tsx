@@ -60,7 +60,7 @@ export function NetWorthChart({ data, isLoading }: NetWorthChartProps) {
                 <YAxis
                   tick={{ fontSize: 12 }}
                   className="fill-muted-foreground"
-                  tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}
+                  tickFormatter={(v) => `₹${(v / 1000).toFixed(0)}k`}
                 />
                 <Tooltip
                   formatter={(value: number) => [formatCurrency(value), "Net Worth"]}

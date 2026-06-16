@@ -96,7 +96,7 @@ function NotificationsPopover() {
                       {b.status === "over_budget" ? "Budget exceeded" : "Budget warning"}
                     </p>
                     <p className="truncate text-xs text-muted-foreground">
-                      {b.categoryId} - {Math.round(b.percentage * 100)}% used
+                      {b.categoryId} - {Math.round(b.percentage)}% used
                     </p>
                   </div>
                 </Link>

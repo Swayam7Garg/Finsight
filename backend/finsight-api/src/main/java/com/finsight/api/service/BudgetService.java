@@ -98,7 +98,7 @@ public class BudgetService {
 
             BudgetResponse resp = toResponse(budget);
             resp.setSpent(spent);
-            resp.setPercentage(Math.round(percentage * 10000.0) / 10000.0);
+            resp.setPercentage(Math.round(percentage * 100.0 * 100.0) / 100.0);
             resp.setStatus(status);
             return resp;
         }).toList();

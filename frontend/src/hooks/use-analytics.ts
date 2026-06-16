@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { apiClient } from "@/lib/api-client";
-import type { ApiResponse } from "@finsight/shared-types";
+import type { ApiResponse, CategoryManagementResponse } from "@finsight/shared-types";
 
 export interface SpendingByCategory {
   categoryId: string;
@@ -105,18 +105,28 @@ export function useSpendingByCategory(startDate?: string, endDate?: string) {
       if (startDate) params.set("startDate", startDate);
       if (endDate) params.set("endDate", endDate);
       const qs = params.toString();
-      const res = await apiClient.get<ApiResponse<any[]>>(
-        `/analytics/spending-by-category${qs ? `?${qs}` : ""}`
-      );
-      return res.data.map((item: any) => ({
-        categoryId: item.categoryId || "unknown",
-        categoryName: "Category",
-        categoryIcon: "box",
-        categoryColor: "#000",
-        amount: item.total || 0,
-        percentage: 0,
-        transactionCount: item.count || 0,
-      }));
+      
+      const [spendingRes, categoriesRes] = await Promise.all([
+        apiClient.get<ApiResponse<any[]>>(`/analytics/spending-by-category${qs ? `?${qs}` : ""}`),
+        apiClient.get<ApiResponse<CategoryManagementResponse[]>>("/categories").catch(() => ({ data: [] }))
+      ]);
+
+      const categories = categoriesRes.data || [];
+      const categoryMap = new Map(categories.map((c) => [c.id, c]));
+      const totalAmount = spendingRes.data.reduce((sum: number, item: any) => sum + (item.total || 0), 0);
+
+      return spendingRes.data.map((item: any) => {
+        const cat = categoryMap.get(item.categoryId);
+        return {
+          categoryId: item.categoryId || "unknown",
+          categoryName: cat ? cat.name : "Other",
+          categoryIcon: cat ? cat.icon : "box",
+          categoryColor: cat ? cat.color : "#6366f1",
+          amount: item.total || 0,
+          percentage: totalAmount > 0 ? ((item.total || 0) / totalAmount) * 100 : 0,
+          transactionCount: item.count || 0,
+        };
+      });
     },
   });
 }
@@ -228,15 +238,67 @@ export function useSpendingByDayOfWeek(startDate?: string, endDate?: string) {
   });
 }
 
-export function useCategoryMonthlyBreakdown(months: number = 6) {
+export function useCategoryMonthlyBreakdown(monthsCount: number = 6) {
   return useQuery({
-    queryKey: analyticsKeys.categoryMonthlyBreakdown(months),
+    queryKey: analyticsKeys.categoryMonthlyBreakdown(monthsCount),
     queryFn: async () => {
-      // Safe empty object to prevent frontend crash
+      const start = new Date();
+      start.setMonth(start.getMonth() - monthsCount + 1);
+      start.setDate(1);
+      start.setHours(0, 0, 0, 0);
+
+      const [transactionsRes, categoriesRes] = await Promise.all([
+        apiClient.get<ApiResponse<any[]>>(`/transactions?startDate=${start.toISOString()}`),
+        apiClient.get<ApiResponse<CategoryManagementResponse[]>>("/categories").catch(() => ({ data: [] }))
+      ]);
+
+      const transactions = transactionsRes.data || [];
+      const categories = categoriesRes.data || [];
+      const categoryMap = new Map(categories.map((c) => [c.id, c]));
+
+      const monthKeys: string[] = [];
+      const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      for (let i = monthsCount - 1; i >= 0; i--) {
+        const d = new Date();
+        d.setMonth(d.getMonth() - i);
+        monthKeys.push(`${monthNames[d.getMonth()]} ${d.getFullYear()}`);
+      }
+
+      const monthlyData: Record<string, Record<string, number>> = {};
+      monthKeys.forEach((m) => {
+        monthlyData[m] = {};
+      });
+
+      const uniqueCategoriesSet = new Set<string>();
+
+      transactions.forEach((tx: any) => {
+        if (tx.type !== "expense") return;
+        const txDate = new Date(tx.date);
+        const mKey = `${monthNames[txDate.getMonth()]} ${txDate.getFullYear()}`;
+        if (!monthlyData[mKey]) return;
+
+        const cat = categoryMap.get(tx.categoryId);
+        const catName = cat ? cat.name : "Other";
+        uniqueCategoriesSet.add(catName);
+
+        monthlyData[mKey][catName] = (monthlyData[mKey][catName] || 0) + tx.amount;
+      });
+
+      const monthsList = monthKeys.map((mKey) => ({
+        month: mKey,
+        ...monthlyData[mKey],
+      }));
+
+      const colorsMap: Record<string, string> = {};
+      categories.forEach((c) => {
+        colorsMap[c.name] = c.color;
+      });
+      colorsMap["Other"] = "#94a3b8";
+
       return {
-        months: [],
-        categories: [],
-        colors: {}
+        months: monthsList,
+        categories: Array.from(uniqueCategoriesSet),
+        colors: colorsMap,
       };
     },
   });

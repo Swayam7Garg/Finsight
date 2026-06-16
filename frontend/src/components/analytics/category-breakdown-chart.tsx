@@ -58,7 +58,7 @@ export function CategoryBreakdownChart({ data, isLoading }: CategoryBreakdownCha
                 <YAxis
                   tick={{ fontSize: 12 }}
                   className="fill-muted-foreground"
-                  tickFormatter={(v) => `$${(v / 1000).toFixed(0)}k`}
+                  tickFormatter={(v) => `₹${(v / 1000).toFixed(0)}k`}
                 />
                 <Tooltip
                   formatter={(value: number, name: string) => [formatCurrency(value), name]}

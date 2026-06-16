@@ -35,15 +35,15 @@ describe("cn", () => {
 
 describe("formatCurrency", () => {
   it("formats positive amounts", () => {
-    expect(formatCurrency(1234.56)).toBe("$1,234.56");
+    expect(formatCurrency(1234.56, "USD")).toBe("$1,234.56");
   });
 
   it("formats zero", () => {
-    expect(formatCurrency(0)).toBe("$0.00");
+    expect(formatCurrency(0, "USD")).toBe("$0.00");
   });
 
   it("formats negative amounts", () => {
-    expect(formatCurrency(-50.1)).toBe("-$50.10");
+    expect(formatCurrency(-50.1, "USD")).toBe("-$50.10");
   });
 
   it("formats other currencies", () => {
@@ -51,7 +51,7 @@ describe("formatCurrency", () => {
   });
 
   it("formats large numbers", () => {
-    expect(formatCurrency(1000000)).toBe("$1,000,000.00");
+    expect(formatCurrency(1000000, "USD")).toBe("$1,000,000.00");
   });
 });
 

@@ -48,7 +48,7 @@ export function DayOfWeekChart({ data, isLoading }: DayOfWeekChartProps) {
                 <YAxis
                   tick={{ fontSize: 12 }}
                   className="fill-muted-foreground"
-                  tickFormatter={(v) => `$${v}`}
+                  tickFormatter={(v) => `₹${v}`}
                 />
                 <Tooltip
                   formatter={(value: number, name: string) => {

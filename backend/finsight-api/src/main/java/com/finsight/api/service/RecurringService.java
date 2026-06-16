@@ -75,7 +75,11 @@ public class RecurringService {
         if (amount != null) rule.setAmount(amount);
         if (description != null) rule.setDescription(description);
         if (frequency != null) rule.setFrequency(frequency);
-        if (startDate != null) rule.setStartDate(Instant.parse(startDate));
+        if (startDate != null) {
+            Instant newStart = Instant.parse(startDate);
+            rule.setStartDate(newStart);
+            rule.setNextDueDate(newStart);
+        }
         if (endDate != null) rule.setEndDate(endDate.isEmpty() ? null : Instant.parse(endDate));
         if (isActive != null) rule.setActive(isActive);
 
