@@ -711,15 +711,25 @@ test(goals): add unit tests for goal progress calculator
 
 <table>
   <tr>
-    <td align="center">
+    <td align="center" width="250">
       <b>Swayam Garg</b><br/>
       <sub>Project Owner & Lead Developer</sub><br/>
       <sub>Architecture · Backend · Frontend · AI Integration</sub>
     </td>
-    <td align="center">
+    <td align="center" width="250">
       <b>Ishika Upadhyay</b><br/>
       <sub>Feature Developer & Technical Writer</sub><br/>
       <sub>Financial Health Score · Documentation</sub>
+    </td>
+    <td align="center" width="250">
+      <b>Swadesh Narwariya</b><br/>
+      <sub>Frontend Engineer</sub><br/>
+      <sub>UI Components & Frontend Flow</sub>
+    </td>
+    <td align="center" width="250">
+      <b>Shrishti Goswami</b><br/>
+      <sub>Researcher</sub><br/>
+      <sub>Market Research & Insights Analysis</sub>
     </td>
   </tr>
 </table>
@@ -756,7 +766,7 @@ SOFTWARE.
 
 <div align="center">
 
-**Built with ❤️ by [Swayam Garg](https://github.com/swayamgarg) and [Ishika Upadhyay](https://github.com/ishikaupadhyay)**
+**Built with ❤️ by the FinSight Team**
 
 [🚀 Live Demo](https://finsight-six-ochre.vercel.app/) · [⬆ Back to Top](#finsight--ai-powered-personal-finance-manager)
 
